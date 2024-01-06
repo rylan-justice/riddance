@@ -1,2 +1,5 @@
+# ignore distribution files
+dist/
+
 # ignore bytecode cache files
 __pycache__/
