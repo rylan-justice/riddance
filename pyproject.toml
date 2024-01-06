@@ -1,0 +1,26 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "riddance"
+dynamic = ["readme", "version"]
+description = "A tool designed to remove bloatware and restore freedom"
+keywords = ["python", "privacy", "debloat", "riddance"]
+authors = [{ name = "Rylan Justice" }]
+license = { text = "GPL-3.0-or-later" }
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: End Users/Desktop",
+  "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+  "Natural Language :: English",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: System :: Operating System",
+]
+requires-python = ">= 3.12.1"
+
+[project.urls]
+Repository = "https://github.com/rylan-justice/riddance"
