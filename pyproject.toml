@@ -8,7 +8,7 @@ description = "A tool designed to remove bloatware and restore freedom"
 requires-python = ">= 3.12.1"
 license = { text = "GPL-3.0-or-later" }
 authors = [{ name = "Rylan Justice" }]
-keywords = ["python", "privacy", "debloat", "riddance"]
+keywords = ["debloat", "privacy", "python", "riddance"]
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Console",
