@@ -21,18 +21,18 @@
 import os
 import platform
 
-from riddance.sys.os.fedora.fl_38_we_gnome.utils import \
+from riddance.sys.os.distro.fedora.fl_38_we_gnome.utils import \
     remove_packages as remove_packages_fl_38_we_gnome
-from riddance.sys.os.fedora.fl_39_we_gnome.utils import \
+from riddance.sys.os.distro.fedora.fl_39_we_gnome.utils import \
     remove_packages as remove_packages_fl_39_we_gnome
-from riddance.sys.os.fedora.utils import reboot_os
+from riddance.sys.os.distro.utils import reboot_os
 from riddance.utils import error_message, prompt_message
 
 if platform.system() == "Linux":
     user_id = os.geteuid()
 
 
-def debloat_fl38we_gnome():
+def debloat_fl_38_we_gnome():
     """Debloat Fedora Linux 38 (Workstation Edition) (GNOME)."""
 
     if user_id == 0:
@@ -58,7 +58,7 @@ def debloat_fl38we_gnome():
         error_message("riddance requires elevated privileges to run this command")
 
 
-def debloat_fl39we_gnome():
+def debloat_fl_39_we_gnome():
     """Debloat Fedora Linux 39 (Workstation Edition) (GNOME)."""
 
     if user_id == 0:

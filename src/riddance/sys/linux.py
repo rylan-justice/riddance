@@ -21,7 +21,8 @@
 import os
 import platform
 
-from riddance.sys.os.fedora import debloat_fl38we_gnome, debloat_fl39we_gnome
+from riddance.sys.os.fedora import (debloat_fl_38_we_gnome,
+                                    debloat_fl_39_we_gnome)
 from riddance.utils import error_message
 
 
@@ -36,13 +37,13 @@ def debloat_linux():
 
     # Fedora Linux 38 (Workstation Edition) (GNOME)
     if distro_version == "38 (Workstation Edition)" and desktop_environment == "GNOME":
-        debloat_fl38we_gnome()
+        debloat_fl_38_we_gnome()
 
     # Fedora Linux 39 (Workstation Edition) (GNOME)
     elif (
         distro_version == "39 (Workstation Edition)" and desktop_environment == "GNOME"
     ):
-        debloat_fl39we_gnome()
+        debloat_fl_39_we_gnome()
 
     else:
         if desktop_environment is not None:
