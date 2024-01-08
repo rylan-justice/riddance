@@ -81,7 +81,7 @@ def remove_packages():
     }
 
     package_removal = prompt_message(
-        "Would you like to remove pre-installed packages? [Y/a/n] "
+        "Would you like to remove pre-installed packages? [Y/a/n]: "
     )
 
     if package_removal == "" or package_removal.startswith("y"):
@@ -90,7 +90,7 @@ def remove_packages():
 
         for package, name in PACKAGES.items():
             particular_package = prompt_message(
-                f"Would you like to remove {name}? [N/y] "
+                f"Would you like to remove {name}? [y/N]: "
             )
 
             if particular_package.startswith("y"):

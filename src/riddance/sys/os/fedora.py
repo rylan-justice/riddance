@@ -39,7 +39,7 @@ def debloat_fl_38_we_gnome():
         while True:
             debloat_os = prompt_message(
                 "Would you like to proceed with debloating "
-                "Fedora Linux 38 (Workstation Edition)? [Y/n] "
+                "Fedora Linux 38 (Workstation Edition)? [Y/n]: "
             )
 
             if debloat_os == "" or debloat_os.startswith("y"):
@@ -65,7 +65,7 @@ def debloat_fl_39_we_gnome():
         while True:
             debloat_os = prompt_message(
                 "Would you like to proceed with debloating "
-                "Fedora Linux 39 (Workstation Edition)? [Y/n] "
+                "Fedora Linux 39 (Workstation Edition)? [Y/n]: "
             )
 
             if debloat_os == "" or debloat_os.startswith("y"):

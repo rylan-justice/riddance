@@ -27,7 +27,7 @@ from riddance.utils import error_message, prompt_message
 def reboot_os():
     """Prompt the user to reboot the operating system."""
 
-    reboot = prompt_message("Would you like to reboot the operating system? [Y/n] ")
+    reboot = prompt_message("Would you like to reboot the operating system? [Y/n]: ")
 
     if reboot == "" or reboot.startswith("y"):
         subprocess.run(["reboot"], check=False)
