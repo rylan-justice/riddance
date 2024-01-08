@@ -7,7 +7,7 @@ name = "riddance"
 dynamic = ["version"]
 description = "A tool designed to remove bloatware and restore freedom"
 readme = "README.md"
-requires-python = ">= 3.12.1"
+requires-python = ">= 3.10"
 license = { text = "GPL-3.0-or-later" }
 keywords = ["debloat", "privacy", "python", "riddance"]
 authors = [{ name = "Rylan Justice" }]
@@ -18,7 +18,10 @@ classifiers = [
   "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
   "Natural Language :: English",
   "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Topic :: System :: Operating System",
 ]
