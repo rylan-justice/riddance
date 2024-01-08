@@ -21,12 +21,11 @@
 import os
 import platform
 
-from riddance.sys.os.fl38we_gnome.utils import reboot_os as reboot_os_fl38we
-from riddance.sys.os.fl38we_gnome.utils import \
-    remove_packages as remove_packages_fl38we
-from riddance.sys.os.fl39we_gnome.utils import reboot_os as reboot_os_fl39we
-from riddance.sys.os.fl39we_gnome.utils import \
-    remove_packages as remove_packages_fl39we
+from riddance.sys.os.fedora.fl_38_we_gnome.utils import \
+    remove_packages as remove_packages_fl_38_we_gnome
+from riddance.sys.os.fedora.fl_39_we_gnome.utils import \
+    remove_packages as remove_packages_fl_39_we_gnome
+from riddance.sys.os.fedora.utils import reboot_os
 from riddance.utils import error_message, prompt_message
 
 if platform.system() == "Linux":
@@ -40,12 +39,12 @@ def debloat_fl38we_gnome():
         while True:
             debloat_os = prompt_message(
                 "Would you like to proceed with debloating "
-                "Fedora Linux 38 (Workstation Edition)? [Y/n]: "
+                "Fedora Linux 38 (Workstation Edition)? [Y/n] "
             )
 
             if debloat_os == "" or debloat_os.startswith("y"):
-                remove_packages_fl38we()
-                reboot_os_fl38we()
+                remove_packages_fl_38_we_gnome()
+                reboot_os()
                 break
 
             elif debloat_os.startswith("n"):
@@ -66,12 +65,12 @@ def debloat_fl39we_gnome():
         while True:
             debloat_os = prompt_message(
                 "Would you like to proceed with debloating "
-                "Fedora Linux 39 (Workstation Edition)? [Y/n]: "
+                "Fedora Linux 39 (Workstation Edition)? [Y/n] "
             )
 
             if debloat_os == "" or debloat_os.startswith("y"):
-                remove_packages_fl39we()
-                reboot_os_fl39we()
+                remove_packages_fl_39_we_gnome()
+                reboot_os()
                 break
 
             elif debloat_os.startswith("n"):

@@ -21,7 +21,6 @@
 import os
 import shutil
 import subprocess
-import sys
 
 from riddance.utils import error_message, prompt_message
 
@@ -81,7 +80,7 @@ def remove_packages():
     }
 
     package_removal = prompt_message(
-        "Would you like to remove pre-installed packages? [Y/a/n]: "
+        "Would you like to remove pre-installed packages? [Y/a/n] "
     )
 
     if package_removal == "" or package_removal.startswith("y"):
@@ -90,7 +89,7 @@ def remove_packages():
 
         for package, name in PACKAGES.items():
             particular_package = prompt_message(
-                f"Would you like to remove {name}? [y/N]: "
+                f"Would you like to remove {name}? [N/y] "
             )
 
             if particular_package.startswith("y"):
@@ -135,19 +134,3 @@ def remove_packages():
     else:
         error_message(f"invalid response: {package_removal}")
         remove_packages()
-
-
-def reboot_os():
-    """Prompt the user to reboot the operating system."""
-
-    reboot = prompt_message("Would you like to reboot the operating system? [Y/n]: ")
-
-    if reboot == "" or reboot.startswith("y"):
-        subprocess.run(["reboot"], check=False)
-
-    elif reboot.startswith("n"):
-        sys.exit(0)
-
-    else:
-        error_message(f"invalid response: {reboot}")
-        reboot_os()
