@@ -19,7 +19,7 @@ sudo dnf install python3
 **pip**
 
 ```
-sudo dnf install python3-pip
+sudo python3 -m ensurepip --upgrade
 ```
 
 </details>
