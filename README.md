@@ -6,7 +6,7 @@ A tool designed to remove bloatware and restore freedom
 
 <details>
 
-<summary>Fedora</summary>
+<summary>Fedora Linux</summary>
 
 ###
 
