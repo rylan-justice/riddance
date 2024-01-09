@@ -8,7 +8,7 @@ A tool designed to remove bloatware and restore freedom
 
 <summary>Fedora</summary>
 
-#
+###
 
 **Python**
 
