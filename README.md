@@ -10,10 +10,8 @@ A tool designed to remove bloatware and restore freedom
 
 ## Installation
 
-### Linux
-
 ```
-python3 -m pip install --user riddance
+python -m pip install --user riddance
 ```
 
 ## License
