@@ -19,6 +19,7 @@ classifiers = [
   "Natural Language :: English",
   "Operating System :: POSIX :: Linux",
   "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -28,6 +29,3 @@ classifiers = [
 
 [project.urls]
 Repository = "https://github.com/rylan-justice/riddance"
-
-[tool.hatch.version]
-path = "src/riddance/__init__.py"

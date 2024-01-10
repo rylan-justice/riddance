@@ -10,7 +10,7 @@ A tool designed to remove bloatware and restore freedom
 
 ## Installation
 
-```sh
+```shell
 python -m pip install --user riddance
 ```
 
