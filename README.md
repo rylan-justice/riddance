@@ -4,28 +4,16 @@ A tool designed to remove bloatware and restore freedom
 
 ## Prerequisites
 
-<details>
-<summary>Fedora Linux</summary>
+- [Python](https://www.python.org/downloads/)
 
-### Python
-
-```
-sudo dnf install python3
-```
-
-### pip
-
-```
-sudo python3 -m ensurepip --upgrade
-```
-</details>
+- [pip](https://pip.pypa.io/en/stable/installation/)
 
 ## Installation
 
 ### Linux
 
 ```
-sudo python3 -m pip install --user riddance
+python3 -m pip install --user riddance
 ```
 
 ## License
