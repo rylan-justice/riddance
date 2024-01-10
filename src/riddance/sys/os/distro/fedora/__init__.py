@@ -19,5 +19,21 @@
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
 import getpass
+import shutil
+import subprocess
 
 USERNAME = getpass.getuser()
+
+
+def remove_firefox_config():
+    """Remove Firefox configuration directory."""
+
+    shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
+    print("\nRemoved Firefox configuration directory")
+
+
+def remove_unneeded_dependencies():
+    """Remove unneeded package dependencies."""
+
+    subprocess.run(["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False)
+    print("\nRemoved unneeded package dependencies")

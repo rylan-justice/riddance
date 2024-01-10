@@ -18,10 +18,10 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-import shutil
 import subprocess
 
-from riddance.sys.os.distro.fedora import USERNAME
+from riddance.sys.os.distro.fedora import (remove_firefox_config,
+                                           remove_unneeded_dependencies)
 from riddance.utils import error_message, prompt_message
 
 
@@ -104,14 +104,10 @@ def remove_packages():
                 removed_package = True
 
         if removed_firefox:
-            shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
-            print("\nRemoved Firefox configuration directory")
+            remove_firefox_config()
 
         if removed_package:
-            subprocess.run(
-                ["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False
-            )
-            print("\nRemoved unneeded dependencies")
+            remove_unneeded_dependencies()
 
     elif package_removal.startswith("a"):
         for package, name in packages.items():
@@ -121,13 +117,9 @@ def remove_packages():
             )
             print(f"Removed: {name}")
 
-        shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
-        print("\nRemoved Firefox configuration directory")
+        remove_firefox_config()
 
-        subprocess.run(
-            ["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False
-        )
-        print("\nRemoved unneeded dependencies")
+        remove_unneeded_dependencies()
 
     elif package_removal.startswith("n"):
         pass
