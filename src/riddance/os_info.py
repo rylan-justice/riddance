@@ -20,7 +20,7 @@
 
 """Compatible operating systems and versions."""
 
-OS_INFO = {
+os_info = {
     "Linux": {
         "Fedora Linux": ["38 (Workstation Edition)", "39 (Workstation Edition)"],
     }

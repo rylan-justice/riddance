@@ -18,19 +18,17 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-import os
 import shutil
 import subprocess
 
+from riddance.sys.os.distro.fedora import USERNAME
 from riddance.utils import error_message, prompt_message
 
 
 def remove_packages():
     """Prompt the user to remove pre-installed packages."""
 
-    username = os.environ["USERNAME"]
-
-    PACKAGES = {
+    packages = {
         "baobab": "Disk Usage Analyzer",
         "cheese": "Cheese",
         "desktop-backgrounds-gnome": "desktop-backgrounds-gnome",
@@ -87,14 +85,15 @@ def remove_packages():
         removed_firefox = False
         removed_package = False
 
-        for package, name in PACKAGES.items():
+        for package, name in packages.items():
             particular_package = prompt_message(
                 f"Would you like to remove {name}? [y/N]: "
             )
 
             if particular_package.startswith("y"):
                 subprocess.run(
-                    ["dnf", "--assumeyes", "--quiet", "remove", package], check=False
+                    ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
+                    check=False,
                 )
                 print(f"Removed: {name}")
 
@@ -103,29 +102,30 @@ def remove_packages():
 
                 removed_package = True
 
-        # Remove Firefox configuration directory
         if removed_firefox:
-            shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
+            shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
             print("\nRemoved: Firefox configuration directory")
 
-        # Remove unneeded dependencies
         if removed_package:
-            subprocess.run(["dnf", "--assumeyes", "--quiet", "autoremove"], check=False)
+            subprocess.run(
+                ["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False
+            )
             print("\nRemoved: Unneeded dependencies")
 
     elif package_removal.startswith("a"):
-        for package, name in PACKAGES.items():
+        for package, name in packages.items():
             subprocess.run(
-                ["dnf", "--assumeyes", "--quiet", "remove", package], check=False
+                ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
+                check=False,
             )
             print(f"Removed: {name}")
 
-        # Remove Firefox configuration directory
-        shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
+        shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
         print("\nRemoved: Firefox configuration directory")
 
-        # Remove unneeded dependencies
-        subprocess.run(["dnf", "--assumeyes", "--quiet", "autoremove"], check=False)
+        subprocess.run(
+            ["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False
+        )
         print("\nRemoved: Unneeded dependencies")
 
     elif package_removal.startswith("n"):

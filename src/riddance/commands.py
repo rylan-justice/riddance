@@ -20,7 +20,7 @@
 
 import platform
 
-from riddance.os_info import OS_INFO
+from riddance.os_info import os_info
 from riddance.sys.linux import debloat_linux
 from riddance.utils import error_message
 
@@ -30,7 +30,7 @@ def list_os_info():
 
     for sys in ["Linux"]:
         print(sys)
-        for os_name, os_version in OS_INFO[sys].items():
+        for os_name, os_version in os_info[sys].items():
             os_versions = ", ".join(os_version)
             print(f"\n    {os_name} {os_versions}")
 
@@ -50,8 +50,8 @@ class Compatibility:
                 distro_version = distro_info["VERSION"]
 
                 if (
-                    distro_name in OS_INFO["Linux"]
-                    and distro_version in OS_INFO["Linux"][distro_name]
+                    distro_name in os_info["Linux"]
+                    and distro_version in os_info["Linux"][distro_name]
                 ):
                     self.sys_compatible[self.sys_name] = True
                     print(f"riddance is compatible with {distro_name} {distro_version}")
