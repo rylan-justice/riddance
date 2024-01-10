@@ -30,7 +30,7 @@ desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP")
 
 
 def debloat_fedora_linux():
-    """Debloat a version of Fedora Linux."""
+    """Debloat a compatible Fedora Linux distribution."""
 
     if distro_version == "38 (Workstation Edition)" and desktop_environment == "GNOME":
         debloat_fl_38_we_gnome()
