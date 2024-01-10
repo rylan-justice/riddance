@@ -160,7 +160,7 @@ def enhance_privacy():
     if privacy_enhancements == "" or privacy_enhancements.startswith("y"):
         for gnome_privacy_setting in gnome_privacy_settings:
             subprocess.run(["gsettings", "set", *gnome_privacy_setting], check=False)
-        print("Enhanced operating system privacy")
+        print("\nEnhanced operating system privacy")
 
         remove_bash_history()
 
