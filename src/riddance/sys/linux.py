@@ -25,26 +25,26 @@ from riddance.sys.os.fedora import (debloat_fl_38_we_gnome,
                                     debloat_fl_39_we_gnome)
 from riddance.utils import error_message
 
+distro_version = platform.freedesktop_os_release()["VERSION"]
+desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP")
 
-def debloat_linux():
-    """Debloat a compatible Linux distribution."""
 
-    distro_version = platform.freedesktop_os_release()["VERSION"]
-    desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP")
+def debloat_fedora_linux():
+    """Debloat a version of Fedora Linux."""
 
-    if desktop_environment is None:
-        error_message("riddance requires the use of 'sudo -E' to run this command")
-
-    # Fedora Linux 38 (Workstation Edition) (GNOME)
     if distro_version == "38 (Workstation Edition)" and desktop_environment == "GNOME":
         debloat_fl_38_we_gnome()
 
-    # Fedora Linux 39 (Workstation Edition) (GNOME)
     elif (
         distro_version == "39 (Workstation Edition)" and desktop_environment == "GNOME"
     ):
         debloat_fl_39_we_gnome()
 
     else:
-        if desktop_environment is not None:
-            error_message(f"riddance is incompatible with {desktop_environment}")
+        error_message(f"riddance is incompatible with {desktop_environment}")
+
+
+def debloat_linux():
+    """Debloat a compatible Linux distribution."""
+
+    debloat_fedora_linux()

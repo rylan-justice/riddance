@@ -104,13 +104,13 @@ def remove_packages():
 
         if removed_firefox:
             shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
-            print("\nRemoved: Firefox configuration directory")
+            print("\nRemoved Firefox configuration directory")
 
         if removed_package:
             subprocess.run(
                 ["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False
             )
-            print("\nRemoved: Unneeded dependencies")
+            print("\nRemoved unneeded dependencies")
 
     elif package_removal.startswith("a"):
         for package, name in packages.items():
@@ -121,12 +121,12 @@ def remove_packages():
             print(f"Removed: {name}")
 
         shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
-        print("\nRemoved: Firefox configuration directory")
+        print("\nRemoved Firefox configuration directory")
 
         subprocess.run(
             ["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False
         )
-        print("\nRemoved: Unneeded dependencies")
+        print("\nRemoved unneeded dependencies")
 
     elif package_removal.startswith("n"):
         pass
