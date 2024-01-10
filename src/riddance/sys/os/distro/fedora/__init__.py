@@ -19,6 +19,7 @@
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
 import getpass
+import os
 import shutil
 import subprocess
 
@@ -37,3 +38,13 @@ def remove_unneeded_dependencies():
 
     subprocess.run(["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False)
     print("\nRemoved unneeded package dependencies")
+
+
+def remove_bash_history():
+    """Remove Bash history."""
+
+    bash_history = f"/home/{USERNAME}/.bash_history"
+
+    if os.path.exists(bash_history):
+        os.remove(bash_history)
+        print("\nRemoved Bash history")

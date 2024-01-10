@@ -20,7 +20,8 @@
 
 import subprocess
 
-from riddance.sys.os.distro.fedora import (remove_firefox_config,
+from riddance.sys.os.distro.fedora import (remove_bash_history,
+                                           remove_firefox_config,
                                            remove_unneeded_dependencies)
 from riddance.utils import error_message, prompt_message
 
@@ -127,3 +128,46 @@ def remove_packages():
     else:
         error_message(f"invalid response: {package_removal}")
         remove_packages()
+
+
+def enhance_privacy():
+    """Prompt the user to enhance operating system privacy."""
+
+    gnome_privacy_settings = [
+        ["org.gnome.desktop.privacy", "disable-camera", "true"],
+        ["org.gnome.desktop.privacy", "disable-microphone", "true"],
+        ["org.gnome.system.location", "enabled", "false"],
+        ["org.gnome.desktop.privacy", "hide-identity", "true"],
+        ["org.gnome.system.location", "max-accuracy-level", "country"],
+        ["org.gnome.desktop.privacy", "old-files-age", "0"],
+        ["org.gnome.desktop.privacy", "privacy-screen", "true"],
+        ["org.gnome.desktop.privacy", "recent-files-max-age", "0"],
+        ["org.gnome.desktop.privacy", "remember-app-usage", "false"],
+        ["org.gnome.desktop.privacy", "remember-recent-files", "false"],
+        ["org.gnome.desktop.privacy", "remove-old-temp-files", "true"],
+        ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
+        ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
+        ["org.gnome.desktop.privacy", "send-software-usage-stats", "false"],
+        ["org.gnome.desktop.privacy", "show-full-name-in-top-bar", "false"],
+        ["org.gnome.desktop.privacy", "usb-protection", "true"],
+        ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
+        ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
+    ]
+
+    privacy_enhancements = prompt_message(
+        "Would you like to enhance operating system privacy? [Y/n]: "
+    )
+
+    if privacy_enhancements == "" or privacy_enhancements.startswith("y"):
+        for gnome_privacy_setting in gnome_privacy_settings:
+            subprocess.run(["gsettings", "set", *gnome_privacy_setting], check=False)
+        print("Enhanced operating system privacy")
+
+        remove_bash_history()
+
+    elif privacy_enhancements.startswith("n"):
+        pass
+
+    else:
+        error_message(f"invalid response: {privacy_enhancements}")
+        enhance_privacy()

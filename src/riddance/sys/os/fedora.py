@@ -19,7 +19,11 @@
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
 from riddance.sys.os.distro.fedora.fl_38_we_gnome.utils import \
+    enhance_privacy as enhance_privacy_fl_38_we_gnome
+from riddance.sys.os.distro.fedora.fl_38_we_gnome.utils import \
     remove_packages as remove_packages_fl_38_we_gnome
+from riddance.sys.os.distro.fedora.fl_39_we_gnome.utils import \
+    enhance_privacy as enhance_privacy_fl_39_we_gnome
 from riddance.sys.os.distro.fedora.fl_39_we_gnome.utils import \
     remove_packages as remove_packages_fl_39_we_gnome
 from riddance.sys.os.distro.utils import reboot_os
@@ -37,6 +41,7 @@ def debloat_fl_38_we_gnome():
 
         if debloat_os == "" or debloat_os.startswith("y"):
             remove_packages_fl_38_we_gnome()
+            enhance_privacy_fl_38_we_gnome()
             reboot_os()
             break
 
@@ -59,6 +64,7 @@ def debloat_fl_39_we_gnome():
 
         if debloat_os == "" or debloat_os.startswith("y"):
             remove_packages_fl_39_we_gnome()
+            enhance_privacy_fl_39_we_gnome()
             reboot_os()
             break
 
