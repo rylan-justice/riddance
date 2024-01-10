@@ -5,23 +5,19 @@ A tool designed to remove bloatware and restore freedom
 ## Prerequisites
 
 <details>
-
 <summary>Fedora Linux</summary>
 
-###
-
-**Python**
+### Python
 
 ```
 sudo dnf install python3
 ```
 
-**pip**
+### pip
 
 ```
 sudo python3 -m ensurepip --upgrade
 ```
-
 </details>
 
 ## Installation
