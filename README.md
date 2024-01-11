@@ -16,4 +16,4 @@ python -m pip install --user riddance
 
 ## License
 
-[GNU General Public License v3.0 or later](COPYING)
+[GNU General Public License v3.0 or later](https://github.com/rylan-justice/riddance/blob/main/COPYING)
