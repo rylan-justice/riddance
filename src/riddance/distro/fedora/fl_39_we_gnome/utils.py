@@ -21,11 +21,9 @@
 import subprocess
 
 from riddance.distro.fedora.fl_39_we_gnome.packages import packages
-from riddance.distro.fedora.utils import (
-    remove_bash_history,
-    remove_firefox_config,
-    remove_unneeded_dependencies,
-)
+from riddance.distro.fedora.utils import (remove_bash_history,
+                                          remove_firefox_config,
+                                          remove_unneeded_dependencies)
 from riddance.utils import error_message, prompt_message
 
 
