@@ -21,9 +21,11 @@
 import subprocess
 
 from riddance.distro.fedora.fl_39_we_gnome.packages import packages
-from riddance.distro.fedora.utils import (remove_bash_history,
-                                          remove_firefox_config,
-                                          remove_unneeded_dependencies)
+from riddance.distro.fedora.utils import (
+    remove_bash_history,
+    remove_firefox_config,
+    remove_unneeded_dependencies,
+)
 from riddance.utils import error_message, prompt_message
 
 
@@ -85,11 +87,8 @@ def enhance_privacy():
     """Prompt the user to enhance operating system privacy."""
 
     gnome_privacy_settings = [
-        ["org.gnome.desktop.privacy", "disable-camera", "true"],
         ["org.gnome.desktop.privacy", "disable-microphone", "true"],
-        ["org.gnome.system.location", "enabled", "false"],
         ["org.gnome.desktop.privacy", "hide-identity", "true"],
-        ["org.gnome.system.location", "max-accuracy-level", "country"],
         ["org.gnome.desktop.privacy", "old-files-age", "0"],
         ["org.gnome.desktop.privacy", "privacy-screen", "true"],
         ["org.gnome.desktop.privacy", "recent-files-max-age", "0"],
@@ -103,6 +102,9 @@ def enhance_privacy():
         ["org.gnome.desktop.privacy", "usb-protection", "true"],
         ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
         ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
+        ["org.gnome.system.location", "enabled", "false"],
+        ["org.gnome.system.location", "max-accuracy-level", "country"],
+        ["org.gnome.desktop.privacy", "disable-camera", "true"],
     ]
 
     privacy_enhancements = prompt_message(

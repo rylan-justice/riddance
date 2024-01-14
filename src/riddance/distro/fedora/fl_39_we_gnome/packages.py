@@ -21,7 +21,6 @@
 """Pre-installed packages for Fedora Linux 39 (Workstation Edition) (GNOME)."""
 
 packages = {
-    "baobab": "Disk Usage Analyzer",
     "cheese": "Cheese",
     "desktop-backgrounds-gnome": "desktop-backgrounds-gnome",
     "evince": "Document Viewer",
@@ -67,4 +66,5 @@ packages = {
     "simple-scan": "Document Scanner",
     "totem": "Videos",
     "yelp": "Help",
+    "baobab": "Disk Usage Analyzer",
 }
