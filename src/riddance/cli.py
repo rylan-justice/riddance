@@ -20,8 +20,8 @@
 
 import argparse
 
-from riddance import __version__
 from riddance.commands import Compatibility, list_os_info
+from riddance.version import __version__
 
 
 def main():
