@@ -22,6 +22,9 @@ import getpass
 import os
 import shutil
 import subprocess
+import sys
+
+from riddance.utils import error_message, prompt_message
 
 USERNAME = getpass.getuser()
 
@@ -48,3 +51,19 @@ def remove_bash_history():
     if os.path.exists(bash_history):
         os.remove(bash_history)
         print("\nRemoved Bash history")
+
+
+def reboot_os():
+    """Prompt the user to reboot the operating system."""
+
+    reboot = prompt_message("Would you like to reboot the operating system? [Y/n]: ")
+
+    if reboot == "" or reboot.startswith("y"):
+        subprocess.run(["reboot"], check=False)
+
+    elif reboot.startswith("n"):
+        sys.exit(0)
+
+    else:
+        error_message(f"invalid response: {reboot}")
+        reboot_os()

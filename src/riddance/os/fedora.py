@@ -26,7 +26,7 @@ from riddance.distro.fedora.fl_39_we_gnome.utils import \
     enhance_privacy as enhance_privacy_fl_39_we_gnome
 from riddance.distro.fedora.fl_39_we_gnome.utils import \
     remove_packages as remove_packages_fl_39_we_gnome
-from riddance.distro.utils import reboot_os
+from riddance.distro.fedora.utils import reboot_os
 from riddance.utils import error_message, prompt_message
 
 
