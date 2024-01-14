@@ -20,64 +20,15 @@
 
 import subprocess
 
-from riddance.sys.os.distro.fedora import (remove_bash_history,
-                                           remove_firefox_config,
-                                           remove_unneeded_dependencies)
+from riddance.distro.fedora.fl_39_we_gnome.packages import packages
+from riddance.distro.fedora.utils import (remove_bash_history,
+                                          remove_firefox_config,
+                                          remove_unneeded_dependencies)
 from riddance.utils import error_message, prompt_message
 
 
 def remove_packages():
     """Prompt the user to remove pre-installed packages."""
-
-    packages = {
-        "baobab": "Disk Usage Analyzer and Photos",
-        "cheese": "Cheese",
-        "desktop-backgrounds-gnome": "desktop-backgrounds-gnome",
-        "eog": "Image Viewer",
-        "evince": "Document Viewer",
-        "fedora-bookmarks": "fedora-bookmarks",
-        "fedora-chromium-config-gnome": "fedora-chromium-config-gnome",
-        "fedora-workstation-backgrounds": "fedora-workstation-backgrounds",
-        "gnome-abrt": "Problem Reporting",
-        "gnome-backgrounds": "gnome-backgrounds",
-        "gnome-boxes": "Boxes",
-        "gnome-calculator": "Calculator",
-        "gnome-calendar": "Calendar",
-        "gnome-characters": "Characters",
-        "gnome-clocks": "Clocks",
-        "gnome-color-manager": "GNOME Color Manager",
-        "gnome-connections": "Connections",
-        "gnome-contacts": "Contacts",
-        "gnome-disk-utility": "Disks",
-        "gnome-font-viewer": "Fonts",
-        "gnome-initial-setup": "gnome-initial-setup",
-        "gnome-logs": "Logs",
-        "gnome-maps": "Maps",
-        "gnome-remote-desktop": "gnome-remote-desktop",
-        "gnome-shell-extension-background-logo": "gnome-shell-extension-background-logo",
-        "gnome-system-monitor": "System Monitor",
-        "gnome-terminal": "Terminal",
-        "gnome-text-editor": "Text Editor",
-        "gnome-themes-extra": "gnome-themes-extra",
-        "gnome-tour": "Tour",
-        "gnome-user-docs": "gnome-user-docs",
-        "gnome-user-share": "gnome-user-share",
-        "gnome-weather": "Weather",
-        "ibus-anthy": "Anthy",
-        "ibus-hangul": "ibus-hangul",
-        "ibus-libzhuyin": "Zhuyin",
-        "ibus-typing-booster": "Typing Booster",
-        "libpinyin": "Pinyin",
-        "libreoffice-core": "LibreOffice Calc, LibreOffice Impress, and LibreOffice Writer",
-        "m17n-lib": "Ibus M17N",
-        "mediawriter": "Fedora Media Writer",
-        "mozilla-filesystem": "Firefox",
-        "nautilus": "Files",
-        "rhythmbox": "Rhythmbox",
-        "simple-scan": "Document Scanner",
-        "totem": "Videos",
-        "yelp": "Help",
-    }
 
     package_removal = prompt_message(
         "Would you like to remove pre-installed packages? [Y/a/n]: "

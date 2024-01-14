@@ -21,8 +21,7 @@
 import os
 import platform
 
-from riddance.sys.os.fedora import (debloat_fl_38_we_gnome,
-                                    debloat_fl_39_we_gnome)
+from riddance.os.fedora import debloat_fl_38_we_gnome, debloat_fl_39_we_gnome
 from riddance.utils import error_message
 
 

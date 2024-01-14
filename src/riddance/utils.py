@@ -18,15 +18,21 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Common primary utilities."""
+
 import sys
 
 
 def error_message(message, newline=True):
+    """Display an error message."""
+
     end = "\n" if newline else ""
     print(f"{end}riddance: error: {message}")
 
 
 def prompt_message(message):
+    """Display a prompt message for user input."""
+
     try:
         prompt = input(f"\n{message}")
         return prompt.strip().lower()
