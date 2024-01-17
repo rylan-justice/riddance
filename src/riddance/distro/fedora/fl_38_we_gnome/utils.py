@@ -84,7 +84,7 @@ def remove_packages():
 def enhance_privacy():
     """Prompt the user to enhance operating system privacy."""
 
-    gnome_privacy_settings = [
+    privacy_settings = [
         ["org.gnome.desktop.privacy", "disable-microphone", "true"],
         ["org.gnome.desktop.privacy", "hide-identity", "true"],
         ["org.gnome.desktop.privacy", "old-files-age", "0"],
@@ -110,8 +110,8 @@ def enhance_privacy():
     )
 
     if privacy_enhancements == "" or privacy_enhancements.startswith("y"):
-        for gnome_privacy_setting in gnome_privacy_settings:
-            subprocess.run(["gsettings", "set", *gnome_privacy_setting], check=False)
+        for privacy_setting in privacy_settings:
+            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
         print("\nEnhanced operating system privacy")
 
         remove_bash_history()
