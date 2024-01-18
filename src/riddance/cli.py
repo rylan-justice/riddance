@@ -64,6 +64,7 @@ def main():
     )
 
     args = parser.parse_args()
+
     compatibility = Compatibility()
 
     if args.list:
