@@ -21,6 +21,7 @@
 """Pre-installed packages for Fedora Linux 38 (Workstation Edition) (GNOME)."""
 
 packages = {
+    "baobab": "Disk Usage Analyzer and Photos",
     "cheese": "Cheese",
     "desktop-backgrounds-gnome": "desktop-backgrounds-gnome",
     "eog": "Image Viewer",
@@ -67,5 +68,4 @@ packages = {
     "simple-scan": "Document Scanner",
     "totem": "Videos",
     "yelp": "Help",
-    "baobab": "Disk Usage Analyzer and Photos",
 }

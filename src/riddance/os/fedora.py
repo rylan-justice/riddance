@@ -18,15 +18,15 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-from riddance.distro.fedora.fl_38_we_gnome.utils import \
+from riddance.fedora.fl_38_we_gnome.utils import \
     enhance_privacy as enhance_privacy_fl_38_we_gnome
-from riddance.distro.fedora.fl_38_we_gnome.utils import \
+from riddance.fedora.fl_38_we_gnome.utils import \
     remove_packages as remove_packages_fl_38_we_gnome
-from riddance.distro.fedora.fl_39_we_gnome.utils import \
+from riddance.fedora.fl_39_we_gnome.utils import \
     enhance_privacy as enhance_privacy_fl_39_we_gnome
-from riddance.distro.fedora.fl_39_we_gnome.utils import \
+from riddance.fedora.fl_39_we_gnome.utils import \
     remove_packages as remove_packages_fl_39_we_gnome
-from riddance.distro.fedora.utils import reboot_os
+from riddance.fedora.utils import reboot_os
 from riddance.utils import error_message, prompt_message
 
 
