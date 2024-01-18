@@ -30,6 +30,7 @@ def list_os_info():
 
     for sys in ["Linux"]:
         print(sys)
+
         for os_name, os_version in os_info[sys].items():
             os_versions = ", ".join(os_version)
             print(f"\n    {os_name} {os_versions}")
@@ -46,6 +47,7 @@ class Compatibility:
         if self.sys_name == "Linux":
             try:
                 distro_info = platform.freedesktop_os_release()
+
                 distro_name = distro_info["NAME"]
                 distro_version = distro_info["VERSION"]
 
@@ -61,6 +63,7 @@ class Compatibility:
                         f"riddance is incompatible with {distro_name} {distro_version}",
                         newline=False,
                     )
+
             except (OSError, KeyError):
                 error_message(
                     "riddance is incompatible with your operating system", newline=False
