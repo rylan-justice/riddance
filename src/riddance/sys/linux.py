@@ -25,10 +25,9 @@ from riddance.os.fedora import debloat_fl_38_we_gnome, debloat_fl_39_we_gnome
 from riddance.utils import error_message
 
 distro_version = platform.freedesktop_os_release()["VERSION"]
+desktop_environment = os.environ.get("XDG_CURRENT_DESKTOP")
 
-try:
-    desktop_environment = os.environ("XDG_CURRENT_DESKTOP")
-except KeyError:
+if desktop_environment is None:
     error_message("riddance is incompatible with your desktop environment")
 
 
