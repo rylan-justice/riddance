@@ -44,7 +44,7 @@ def check_compatibility():
     sys_name = platform.system()
     sys_version = platform.release()
 
-    if sys_name or sys_version == "":
+    if sys_name == "" or sys_version == "":
         error_message(
             "riddance is incompatible with your operating system", newline=False
         )
