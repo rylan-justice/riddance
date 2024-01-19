@@ -24,6 +24,8 @@ from riddance.os_info import os_info
 from riddance.sys.linux import debloat_linux
 from riddance.utils import error_message
 
+sys_compatible = {"Linux": False}
+
 
 def list_os_info():
     """List compatible operating systems and their versions."""
@@ -36,49 +38,47 @@ def list_os_info():
             print(f"\n    {os_name} {os_versions}")
 
 
-class Compatibility:
-    def __init__(self):
-        self.sys_name = platform.system()
-        self.sys_compatible = {"Linux": False}
+def check_compatibility():
+    """Check operating system and version compatibility."""
 
-    def check_compatibility(self):
-        """Check operating system and version compatibility."""
+    sys_name = platform.system()
 
-        if self.sys_name == "Linux":
-            try:
-                distro_info = platform.freedesktop_os_release()
+    if sys_name == "Linux":
+        try:
+            distro_info = platform.freedesktop_os_release()
 
-                distro_name = distro_info["NAME"]
-                distro_version = distro_info["VERSION"]
+            distro_name = distro_info["NAME"]
+            distro_version = distro_info["VERSION"]
 
-                if (
-                    distro_name in os_info["Linux"]
-                    and distro_version in os_info["Linux"][distro_name]
-                ):
-                    self.sys_compatible[self.sys_name] = True
-                    print(f"riddance is compatible with {distro_name} {distro_version}")
+            if (
+                distro_name in os_info["Linux"]
+                and distro_version in os_info["Linux"][distro_name]
+            ):
+                sys_compatible[sys_name] = True
+                print(f"riddance is compatible with {distro_name} {distro_version}")
 
-                else:
-                    error_message(
-                        f"riddance is incompatible with {distro_name} {distro_version}",
-                        newline=False,
-                    )
-
-            except (OSError, KeyError):
+            else:
                 error_message(
-                    "riddance is incompatible with your operating system", newline=False
+                    f"riddance is incompatible with {distro_name} {distro_version}",
+                    newline=False,
                 )
 
-        else:
+        except (OSError, KeyError):
             error_message(
-                f"riddance is incompatible with {self.sys_name} {platform.release()}",
-                newline=False,
+                "riddance is incompatible with your operating system", newline=False
             )
 
-    def debloat_os(self):
-        """Debloat a compatible operating system."""
+    else:
+        error_message(
+            f"riddance is incompatible with {sys_name} {platform.release()}",
+            newline=False,
+        )
 
-        self.check_compatibility()
 
-        if self.sys_compatible["Linux"]:
-            debloat_linux()
+def debloat_os():
+    """Debloat a compatible operating system."""
+
+    check_compatibility()
+
+    if sys_compatible["Linux"]:
+        debloat_linux()

@@ -20,7 +20,7 @@
 
 import argparse
 
-from riddance.commands import Compatibility, list_os_info
+from riddance.commands import check_compatibility, debloat_os, list_os_info
 from riddance.version import __version__
 
 
@@ -65,13 +65,11 @@ def main():
 
     args = parser.parse_args()
 
-    compatibility = Compatibility()
-
     if args.list:
         list_os_info()
 
     if args.check:
-        compatibility.check_compatibility()
+        check_compatibility()
 
     if args.debloat:
-        compatibility.debloat_os()
+        debloat_os()

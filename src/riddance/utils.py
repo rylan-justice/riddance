@@ -26,6 +26,7 @@ def error_message(message, newline=True):
 
     end = "\n" if newline else ""
     print(f"{end}riddance: error: {message}")
+    sys.exit(0)
 
 
 def prompt_message(message):
