@@ -18,11 +18,12 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Privacy settings for Fedora Linux 38 (Workstation Edition) (GNOME)."""
+"""Privacy settings for Fedora Linux (Workstation Edition) (GNOME)."""
 
 privacy_settings = [
     ["org.gnome.desktop.privacy", "disable-camera", "true"],
     ["org.gnome.desktop.privacy", "disable-microphone", "true"],
+    ["org.gnome.desktop.privacy", "disable-sound-output", "true"],
     ["org.gnome.desktop.privacy", "hide-identity", "true"],
     ["org.gnome.desktop.privacy", "old-files-age", "0"],
     ["org.gnome.desktop.privacy", "privacy-screen", "true"],
