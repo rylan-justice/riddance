@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-import sys
-
 from riddance.fedora.fl_38_we_gnome.utils import \
     enhance_privacy as enhance_privacy_fl_38_we_gnome
 from riddance.fedora.fl_38_we_gnome.utils import \
@@ -45,12 +43,8 @@ def debloat_fl_38_we_gnome():
         enhance_privacy_fl_38_we_gnome()
         reboot_os()
 
-        sys.exit(0)
-
     elif debloat_os.startswith("n"):
         print("\nTerminated the debloating process")
-
-        sys.exit(0)
 
     else:
         error_message(f"invalid response: {debloat_os}")
@@ -70,12 +64,8 @@ def debloat_fl_39_we_gnome():
         enhance_privacy_fl_39_we_gnome()
         reboot_os()
 
-        sys.exit(0)
-
     elif debloat_os.startswith("n"):
         print("\nTerminated the debloating process")
-
-        sys.exit(0)
 
     else:
         error_message(f"invalid response: {debloat_os}")
