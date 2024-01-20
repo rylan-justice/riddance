@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
+import sys
+
 from riddance.fedora.fl_38_we_gnome.utils import \
     enhance_privacy as enhance_privacy_fl_38_we_gnome
 from riddance.fedora.fl_38_we_gnome.utils import \
@@ -33,44 +35,48 @@ from riddance.utils import error_message, prompt_message
 def debloat_fl_38_we_gnome():
     """Debloat Fedora Linux 38 (Workstation Edition) (GNOME)."""
 
-    while True:
-        debloat_os = prompt_message(
-            "Would you like to proceed with debloating "
-            "Fedora Linux 38 (Workstation Edition)? [Y/n]: "
-        )
+    debloat_os = prompt_message(
+        "Would you like to proceed with debloating "
+        "Fedora Linux 38 (Workstation Edition)? [Y/n]: "
+    )
 
-        if debloat_os == "" or debloat_os.startswith("y"):
-            remove_packages_fl_38_we_gnome()
-            enhance_privacy_fl_38_we_gnome()
-            reboot_os()
-            break
+    if debloat_os == "" or debloat_os.startswith("y"):
+        remove_packages_fl_38_we_gnome()
+        enhance_privacy_fl_38_we_gnome()
+        reboot_os()
 
-        elif debloat_os.startswith("n"):
-            print("\nTerminated the debloating process")
-            break
+        sys.exit(0)
 
-        else:
-            error_message(f"invalid response: {debloat_os}")
+    elif debloat_os.startswith("n"):
+        print("\nTerminated the debloating process")
+
+        sys.exit(0)
+
+    else:
+        error_message(f"invalid response: {debloat_os}")
+        debloat_fl_38_we_gnome()
 
 
 def debloat_fl_39_we_gnome():
     """Debloat Fedora Linux 39 (Workstation Edition) (GNOME)."""
 
-    while True:
-        debloat_os = prompt_message(
-            "Would you like to proceed with debloating "
-            "Fedora Linux 39 (Workstation Edition)? [Y/n]: "
-        )
+    debloat_os = prompt_message(
+        "Would you like to proceed with debloating "
+        "Fedora Linux 39 (Workstation Edition)? [Y/n]: "
+    )
 
-        if debloat_os == "" or debloat_os.startswith("y"):
-            remove_packages_fl_39_we_gnome()
-            enhance_privacy_fl_39_we_gnome()
-            reboot_os()
-            break
+    if debloat_os == "" or debloat_os.startswith("y"):
+        remove_packages_fl_39_we_gnome()
+        enhance_privacy_fl_39_we_gnome()
+        reboot_os()
 
-        elif debloat_os.startswith("n"):
-            print("\nTerminated the debloating process")
-            break
+        sys.exit(0)
 
-        else:
-            error_message(f"invalid response: {debloat_os}")
+    elif debloat_os.startswith("n"):
+        print("\nTerminated the debloating process")
+
+        sys.exit(0)
+
+    else:
+        error_message(f"invalid response: {debloat_os}")
+        debloat_fl_39_we_gnome()
