@@ -16,9 +16,31 @@ A tool designed to remove bloatware and restore freedom
 
 ## Installation
 
-```shell
+```
 python -m pip install --user riddance
 ```
+
+## Usage
+
+```
+python -m riddance -h
+```
+
+| Command           | Description                                          |
+| :---              | :---                                                 |
+| `-h`, `--help`    | display help                                         |
+| `-v`, `--version` | show version                                         |
+| `-l`, `--list`    | list compatible operating systems and their versions |
+| `-c`, `--check`   | check operating system and version compatibility     |
+| `-d`, `--debloat` | debloat a compatible operating system                |
+
+## Support
+
+|              |                                                    |
+| :---:        | :---:                                              |
+|              |                                                    |
+| **Linux**    |                                                    |
+| Fedora Linux | 38 (Workstation Edition), 39 (Workstation Edition) |
 
 ## License
 
