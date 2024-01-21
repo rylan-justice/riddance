@@ -93,9 +93,9 @@ def enhance_privacy():
 
     if privacy_enhancements == "" or privacy_enhancements.startswith("y"):
         for privacy_setting in privacy_settings:
-            privacy_setting_description = privacy_setting_descriptions[0][
+            privacy_setting_description = privacy_setting_descriptions[
                 privacy_setting[1]
-            ]
+            ][0]
 
             particular_privacy_setting = prompt_message(
                 f"Would you like to {privacy_setting_description}? [Y/n]: "
@@ -116,11 +116,11 @@ def enhance_privacy():
 
     elif privacy_enhancements.startswith("a"):
         for privacy_setting in privacy_settings:
-            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-            privacy_setting_description = privacy_setting_descriptions[1][
+            privacy_setting_description = privacy_setting_descriptions[
                 privacy_setting[1]
-            ]
+            ][1]
             print(f"\n{privacy_setting_description}")
+            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
         remove_bash_history()
 
