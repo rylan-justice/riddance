@@ -23,7 +23,8 @@
 import subprocess
 
 from riddance.fedora.fl_39_we_gnome.packages import packages
-from riddance.fedora.gnome.privacy_settings import privacy_settings
+from riddance.fedora.gnome.privacy_settings import (
+    privacy_setting_descriptions, privacy_settings)
 from riddance.fedora.utils import (remove_bash_history, remove_firefox_config,
                                    remove_unneeded_dependencies)
 from riddance.utils import error_message, prompt_message
@@ -87,13 +88,39 @@ def enhance_privacy():
     """Prompt the user to enhance operating system privacy."""
 
     privacy_enhancements = prompt_message(
-        "Would you like to enhance operating system privacy? [Y/n]: "
+        "Would you like to enhance operating system privacy? [Y/a/n]: "
     )
 
     if privacy_enhancements == "" or privacy_enhancements.startswith("y"):
         for privacy_setting in privacy_settings:
+            privacy_setting_description = privacy_setting_descriptions[0][
+                privacy_setting[1]
+            ]
+
+            particular_privacy_setting = prompt_message(
+                f"Would you like to {privacy_setting_description}? [Y/n]: "
+            )
+
+            if (
+                particular_privacy_setting == ""
+                or particular_privacy_setting.startswith("y")
+            ):
+                subprocess.run(["gsettings", "set", *privacy_setting], check=False)
+
+        bash_history_removal = prompt_message(
+            "Would you like to remove Bash history? [y/N]: "
+        )
+
+        if bash_history_removal.startswith("y"):
+            remove_bash_history()
+
+    elif privacy_enhancements.startswith("a"):
+        for privacy_setting in privacy_settings:
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-        print("\nEnhanced operating system privacy")
+            privacy_setting_description = privacy_setting_descriptions[1][
+                privacy_setting[1]
+            ]
+            print(f"\n{privacy_setting_description}")
 
         remove_bash_history()
 

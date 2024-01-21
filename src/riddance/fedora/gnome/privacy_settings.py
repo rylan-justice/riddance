@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Privacy settings for Fedora Linux (Workstation Edition) (GNOME)."""
+"""Privacy settings and descriptions for Fedora Linux (Workstation Edition) (GNOME)."""
 
 privacy_settings = [
     ["org.gnome.desktop.privacy", "disable-camera", "true"],
@@ -41,3 +41,40 @@ privacy_settings = [
     ["org.gnome.system.location", "enabled", "false"],
     ["org.gnome.system.location", "max-accuracy-level", "country"],
 ]
+
+privacy_setting_descriptions = {
+    "disable-camera": [
+        "forbid apps from accessing the camera",
+        "Forbid apps from accessing the camera",
+    ],
+    "disable-microphone": [
+        "forbid apps from accessing the microphone",
+        "Forbid apps from accessing the microphone",
+    ],
+    "disable-sound-output": [
+        "forbid apps from outputting sound",
+        "Forbid apps from outputting sound",
+    ],
+    "enabled": [
+        "disable geolocation services",
+        "Disabled geolocation services",
+    ],
+    "hide-identity": [
+        "hide personal information",
+        "Hid personal information",
+    ],
+    "max-accuracy-level": ["", ""],
+    "old-files-age": ["", ""],
+    "privacy-screen": ["", ""],
+    "recent-files-max-age": ["", ""],
+    "remember-app-usage": ["", ""],
+    "remember-recent-files": ["", ""],
+    "remove-old-temp-files": ["", ""],
+    "remove-old-trash-files": ["", ""],
+    "report-technical-problems": ["", ""],
+    "send-software-usage-stats": ["", ""],
+    "show-full-name-in-top-bar": ["", ""],
+    "usb-protection": ["", ""],
+    "usb-protection-level": ["", ""],
+    "whitelisted-providers": ["", ""],
+}
