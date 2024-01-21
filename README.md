@@ -2,6 +2,12 @@
 
 A tool designed to remove bloatware and restore freedom
 
+## Features
+
+- Remove pre-installed software
+
+- Enhance operating system privacy
+
 ## Prerequisites
 
 - [Python](https://www.python.org/downloads/)
