@@ -36,5 +36,6 @@ def prompt_message(message):
     try:
         prompt = input(f"\n{message}")
         return prompt.strip().lower()
+
     except (EOFError, KeyboardInterrupt):
         sys.exit(0)

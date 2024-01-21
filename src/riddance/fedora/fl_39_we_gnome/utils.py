@@ -23,8 +23,8 @@
 import subprocess
 
 from riddance.fedora.fl_39_we_gnome.packages import packages
-from riddance.fedora.gnome.privacy_settings import (
-    privacy_setting_descriptions, privacy_settings)
+from riddance.fedora.gnome.privacy import (privacy_setting_descriptions,
+                                           privacy_settings)
 from riddance.fedora.utils import (remove_bash_history, remove_firefox_config,
                                    remove_unneeded_dependencies)
 from riddance.utils import error_message, prompt_message
@@ -116,11 +116,12 @@ def enhance_privacy():
 
     elif privacy_enhancements.startswith("a"):
         for privacy_setting in privacy_settings:
+            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
+
             privacy_setting_description = privacy_setting_descriptions[
                 privacy_setting[1]
             ][1]
             print(f"\n{privacy_setting_description}")
-            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
         remove_bash_history()
 

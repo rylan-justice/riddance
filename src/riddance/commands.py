@@ -20,7 +20,7 @@
 
 import platform
 
-from riddance.os_info import os_info
+from riddance.identifiers import os_info
 from riddance.sys.linux import debloat_linux
 from riddance.utils import error_message
 
@@ -55,6 +55,7 @@ def check_compatibility():
 
             distro_name = distro_info["NAME"]
             distro_version = distro_info["VERSION"]
+
         except (OSError, KeyError):
             error_message(
                 "riddance is incompatible with your Linux distribution", newline=False
