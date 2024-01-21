@@ -63,18 +63,60 @@ privacy_setting_descriptions = {
         "hide personal information",
         "Hid personal information",
     ],
-    "max-accuracy-level": ["", ""],
-    "old-files-age": ["", ""],
-    "privacy-screen": ["", ""],
-    "recent-files-max-age": ["", ""],
-    "remember-app-usage": ["", ""],
-    "remember-recent-files": ["", ""],
-    "remove-old-temp-files": ["", ""],
-    "remove-old-trash-files": ["", ""],
-    "report-technical-problems": ["", ""],
-    "send-software-usage-stats": ["", ""],
-    "show-full-name-in-top-bar": ["", ""],
-    "usb-protection": ["", ""],
-    "usb-protection-level": ["", ""],
-    "whitelisted-providers": ["", ""],
+    "max-accuracy-level": [
+        "set geolocation accuracy level to country",
+        "Set geolocation accuracy level to country",
+    ],
+    "old-files-age": [
+        "discard trash and temporary files",
+        "Discarded trash and temporary files",
+    ],
+    "privacy-screen": [
+        "enable privacy screen",
+        "Enabled privacy screen",
+    ],
+    "recent-files-max-age": [
+        "discard recently used files",
+        "Discarded recently used files",
+    ],
+    "remember-app-usage": [
+        "discard application usage",
+        "Discarded application usage",
+    ],
+    "remember-recent-files": [
+        "discard recently used files",
+        "Discared recently used files",
+    ],
+    "remove-old-temp-files": [
+        "discard temporary files",
+        "Discarded temporary files",
+    ],
+    "remove-old-trash-files": [
+        "discard trash files",
+        "Discarded trash files",
+    ],
+    "report-technical-problems": [
+        "cease technical problem reports",
+        "Ceased technical problem reports",
+    ],
+    "send-software-usage-stats": [
+        "cease application statistics telemetry",
+        "Ceased application statistics telemetry",
+    ],
+    "show-full-name-in-top-bar": [
+        "hide full name in top bar",
+        "Hid full name in top bar",
+    ],
+    "usb-protection": [
+        "protect USB devices",
+        "Protected USB devices",
+    ],
+    "usb-protection-level": [
+        "reject USB devices on lockscreen",
+        "Rejected USB devices on lockscreen",
+    ],
+    "whitelisted-providers": [
+        "hide Online Accounts services",
+        "Hid Online Accounts services",
+    ],
 }
