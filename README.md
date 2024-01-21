@@ -38,8 +38,8 @@ python -m riddance -h
 
 |              |                                                    |
 | :---:        | :---:                                              |
-|              |                                                    |
 | **Linux**    |                                                    |
+|              |                                                    |
 | Fedora Linux | 38 (Workstation Edition), 39 (Workstation Edition) |
 
 ## License
