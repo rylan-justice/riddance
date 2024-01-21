@@ -22,14 +22,14 @@ import sys
 
 
 def error_message(message, newline=True):
-    """."""
+    """Display an error message."""
 
     end = "\n" if newline else ""
     print(f"{end}riddance: error: {message}")
 
 
 def prompt_message(message):
-    """."""
+    """Display a prompt message."""
 
     try:
         prompt = input(f"\n{message}")
