@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Utilities for Fedora Linux (Workstation Edition) (GNOME)."""
+
 import getpass
 import os
 import shutil
@@ -26,13 +28,13 @@ import sys
 
 from riddance.utils import error_message, prompt_message
 
-USERNAME = getpass.getuser()
+username = getpass.getuser()
 
 
 def remove_firefox_config():
     """Remove Firefox configuration directory."""
 
-    shutil.rmtree(f"/home/{USERNAME}/.mozilla", ignore_errors=True)
+    shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
     print("\nRemoved Firefox configuration directory")
 
 
@@ -46,7 +48,7 @@ def remove_unneeded_dependencies():
 def remove_bash_history():
     """Remove Bash history."""
 
-    bash_history = f"/home/{USERNAME}/.bash_history"
+    bash_history = f"/home/{username}/.bash_history"
 
     if os.path.exists(bash_history):
         os.remove(bash_history)
