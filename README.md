@@ -4,7 +4,7 @@ A tool designed to remove bloatware and restore freedom
 
 ## Features
 
-- Remove pre-installed software
+- Remove pre-installed packages
 
 - Enhance operating system privacy
 
