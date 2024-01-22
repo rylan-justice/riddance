@@ -36,6 +36,10 @@ python -m riddance -h
 
 ## Support
 
+```
+python -m riddance -l
+```
+
 |              |                                                    |
 | :---:        | :---:                                              |
 | **Linux**    |                                                    |
