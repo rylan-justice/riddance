@@ -56,22 +56,22 @@ def check_compatibility():
             distro_name = distro_info["NAME"]
             distro_version = distro_info["VERSION"]
 
+            if (
+                distro_name in os_info["Linux"]
+                and distro_version in os_info["Linux"][distro_name]
+            ):
+                sys_compatible[sys_name] = True
+                print(f"riddance is compatible with {distro_name} {distro_version}")
+
+            else:
+                error_message(
+                    f"riddance is incompatible with {distro_name} {distro_version}",
+                    newline=False,
+                )
+
         except (OSError, KeyError):
             error_message(
                 "riddance is incompatible with your Linux distribution", newline=False
-            )
-
-        if (
-            distro_name in os_info["Linux"]
-            and distro_version in os_info["Linux"][distro_name]
-        ):
-            sys_compatible[sys_name] = True
-            print(f"riddance is compatible with {distro_name} {distro_version}")
-
-        else:
-            error_message(
-                f"riddance is incompatible with {distro_name} {distro_version}",
-                newline=False,
             )
 
     else:
