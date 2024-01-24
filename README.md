@@ -2,29 +2,13 @@
 
 A tool designed to remove bloatware and restore freedom
 
-## Features
-
-- Remove pre-installed packages
-
-- Enhance operating system privacy
-
-## Prerequisites
-
-- [Python](https://www.python.org/downloads/)
-
-- [pip](https://pip.pypa.io/en/stable/installation/)
-
 ## Installation
 
 ```
-python -m pip install --user riddance
+pip install riddance
 ```
 
 ## Usage
-
-```
-python -m riddance -h
-```
 
 | Command           | Description                                          |
 | :---              | :---                                                 |
@@ -33,18 +17,6 @@ python -m riddance -h
 | `-l`, `--list`    | list compatible operating systems and their versions |
 | `-c`, `--check`   | check operating system and version compatibility     |
 | `-d`, `--debloat` | debloat a compatible operating system                |
-
-## Support
-
-```
-python -m riddance -l
-```
-
-|              |                                                    |
-| :---:        | :---:                                              |
-| **Linux**    |                                                    |
-|              |                                                    |
-| Fedora Linux | 38 (Workstation Edition), 39 (Workstation Edition) |
 
 ## License
 
