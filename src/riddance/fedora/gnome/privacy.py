@@ -45,15 +45,15 @@ privacy_settings = [
 privacy_setting_descriptions = {
     "disable-camera": [
         "forbid apps from accessing the camera",
-        "Forbid apps from accessing the camera",
+        "Forbade apps from accessing the camera",
     ],
     "disable-microphone": [
         "forbid apps from accessing the microphone",
-        "Forbid apps from accessing the microphone",
+        "Forbade apps from accessing the microphone",
     ],
     "disable-sound-output": [
         "forbid apps from outputting sound",
-        "Forbid apps from outputting sound",
+        "Forbade apps from outputting sound",
     ],
     "enabled": [
         "disable geolocation services",

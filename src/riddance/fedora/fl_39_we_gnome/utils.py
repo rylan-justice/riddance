@@ -87,11 +87,11 @@ def remove_packages():
 def enhance_privacy():
     """Prompt the user to enhance operating system privacy."""
 
-    privacy_enhancements = prompt_message(
+    privacy_enhancement = prompt_message(
         "Would you like to enhance operating system privacy? [Y/a/n]: "
     )
 
-    if privacy_enhancements == "" or privacy_enhancements.startswith("y"):
+    if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
         for privacy_setting in privacy_settings:
             privacy_setting_description = privacy_setting_descriptions[
                 privacy_setting[1]
@@ -114,7 +114,7 @@ def enhance_privacy():
         if bash_history_removal.startswith("y"):
             remove_bash_history()
 
-    elif privacy_enhancements.startswith("a"):
+    elif privacy_enhancement.startswith("a"):
         for privacy_setting in privacy_settings:
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
@@ -125,9 +125,9 @@ def enhance_privacy():
 
         remove_bash_history()
 
-    elif privacy_enhancements.startswith("n"):
+    elif privacy_enhancement.startswith("n"):
         pass
 
     else:
-        error_message(f"invalid response: {privacy_enhancements}")
+        error_message(f"invalid response: {privacy_enhancement}")
         enhance_privacy()
