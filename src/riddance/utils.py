@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-import sys
-
 
 def error_message(message, newline=True):
     """Display an error message."""
@@ -31,9 +29,5 @@ def error_message(message, newline=True):
 def prompt_message(message):
     """Display a prompt message."""
 
-    try:
-        prompt = input(f"\n{message}")
-        return prompt.strip().lower()
-
-    except (EOFError, KeyboardInterrupt):
-        sys.exit(0)
+    prompt = input(f"\n{message}")
+    return prompt.strip().lower()
