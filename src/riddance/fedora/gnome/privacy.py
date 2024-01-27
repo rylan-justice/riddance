@@ -34,7 +34,6 @@ privacy_settings = [
     ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
     ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
     ["org.gnome.desktop.privacy", "send-software-usage-stats", "false"],
-    ["org.gnome.desktop.privacy", "show-full-name-in-top-bar", "false"],
     ["org.gnome.desktop.privacy", "usb-protection", "true"],
     ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
     ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
@@ -42,58 +41,58 @@ privacy_settings = [
     ["org.gnome.system.location", "max-accuracy-level", "country"],
 ]
 
-privacy_setting_descriptions = {
+privacy_descriptions = {
     "disable-camera": [
-        "forbid apps from accessing the camera",
-        "Forbade apps from accessing the camera",
+        "disable camera access",
+        "Disabled camera access",
     ],
     "disable-microphone": [
-        "forbid apps from accessing the microphone",
-        "Forbade apps from accessing the microphone",
+        "disable microphone access",
+        "Disabled microphone access",
     ],
     "disable-sound-output": [
-        "forbid apps from outputting sound",
-        "Forbade apps from outputting sound",
+        "disable sound output",
+        "Disabled sound output",
     ],
     "enabled": [
         "disable geolocation services",
         "Disabled geolocation services",
     ],
     "hide-identity": [
-        "hide personal information",
-        "Hid personal information",
+        "hide personal information from the screen and network",
+        "Hid personal information from the screen and network",
     ],
     "max-accuracy-level": [
-        "set geolocation accuracy level to country",
-        "Set geolocation accuracy level to country",
+        "set the geolocation accuracy level to country",
+        "Set the geolocation accuracy level to country",
     ],
     "old-files-age": [
-        "discard trash and temporary files",
-        "Discarded trash and temporary files",
+        "always discard trash and temporary files",
+        "Always discard trash and temporary files",
     ],
     "privacy-screen": [
-        "enable privacy screen",
-        "Enabled privacy screen",
+        "enable the privacy screen if it is supported",
+        "Enabled the privacy screen if it is supported",
     ],
     "recent-files-max-age": [
         "discard recently used files",
         "Discarded recently used files",
     ],
     "remember-app-usage": [
-        "discard application usage",
-        "Discarded application usage",
+        "disable application usage monitoring and recording",
+        "Disabled application usage monitoring and recording",
     ],
     "remember-recent-files": [
-        "discard recently used files",
-        "Discared recently used files",
+        "disable recently used files",
+        "Disabled recently used files",
     ],
     "remove-old-temp-files": [
-        "discard temporary files",
-        "Discarded temporary files",
+        "automatically remove temporary files",
+        "Automatically removed temporary files",
     ],
     "remove-old-trash-files": [
-        "discard trash files",
-        "Discarded trash files",
+        "automatically remove trash files",
+        "Automatically removed trash files",
     ],
     "report-technical-problems": [
         "cease technical problem reports",
@@ -103,20 +102,16 @@ privacy_setting_descriptions = {
         "cease application statistics telemetry",
         "Ceased application statistics telemetry",
     ],
-    "show-full-name-in-top-bar": [
-        "hide full name in top bar",
-        "Hid full name in top bar",
-    ],
     "usb-protection": [
-        "protect USB devices",
-        "Protected USB devices",
+        "activate the USBGuard service",
+        "Activated the USBGuard service",
     ],
     "usb-protection-level": [
-        "reject USB devices on lockscreen",
-        "Rejected USB devices on lockscreen",
+        "reject USB devices on the lock screen",
+        "Rejected USB devices on the lock screen",
     ],
     "whitelisted-providers": [
-        "hide Online Accounts services",
-        "Hid Online Accounts services",
+        "hide online account services",
+        "Hid online account services",
     ],
 }

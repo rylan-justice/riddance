@@ -23,7 +23,7 @@
 import subprocess
 
 from riddance.fedora.gnome.fl_38_we.packages import packages
-from riddance.fedora.gnome.privacy import privacy_setting_descriptions, privacy_settings
+from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
 from riddance.fedora.gnome.utils import (
     remove_bash_history,
     remove_firefox_config,
@@ -53,7 +53,7 @@ def remove_packages():
                     ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
                     check=False,
                 )
-                print(f"Removed: {name}")
+                print(f"Removed {name}")
 
                 if name == "Firefox":
                     removed_firefox = True
@@ -72,7 +72,7 @@ def remove_packages():
                 ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
                 check=False,
             )
-            print(f"Removed: {name}")
+            print(f"Removed {name}")
 
         remove_firefox_config()
 
@@ -95,12 +95,10 @@ def enhance_privacy():
 
     if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
         for privacy_setting in privacy_settings:
-            privacy_setting_description = privacy_setting_descriptions[
-                privacy_setting[1]
-            ][0]
+            privacy_description = privacy_descriptions[privacy_setting[1]][0]
 
             particular_privacy_setting = prompt_message(
-                f"Would you like to {privacy_setting_description}? [Y/n]: "
+                f"Would you like to {privacy_description}? [Y/n]: "
             )
 
             if (
@@ -120,10 +118,8 @@ def enhance_privacy():
         for privacy_setting in privacy_settings:
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
-            privacy_setting_description = privacy_setting_descriptions[
-                privacy_setting[1]
-            ][1]
-            print(f"\n{privacy_setting_description}")
+            privacy_description = privacy_descriptions[privacy_setting[1]][1]
+            print(f"\n{privacy_description}")
 
         remove_bash_history()
 
