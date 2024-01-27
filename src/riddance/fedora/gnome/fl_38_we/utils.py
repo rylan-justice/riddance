@@ -18,13 +18,13 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Primary utilities for Fedora Linux 39 (Workstation Edition) (GNOME)."""
+"""Primary utilities for Fedora Linux 38 (Workstation Edition) (GNOME)."""
 
 import subprocess
 
-from riddance.fedora.fl_39_we_gnome.packages import packages
+from riddance.fedora.gnome.fl_38_we.packages import packages
 from riddance.fedora.gnome.privacy import privacy_setting_descriptions, privacy_settings
-from riddance.fedora.utils import (
+from riddance.fedora.gnome.utils import (
     remove_bash_history,
     remove_firefox_config,
     remove_unneeded_dependencies,
