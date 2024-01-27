@@ -67,5 +67,5 @@ def reboot_os():
         sys.exit(0)
 
     else:
-        error_message(f"invalid response: {reboot}")
+        error_message(f"Invalid response '{reboot}'")
         reboot_os()

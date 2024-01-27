@@ -82,7 +82,7 @@ def remove_packages():
         pass
 
     else:
-        error_message(f"invalid response: {package_removal}")
+        error_message(f"Invalid response '{package_removal}'")
         remove_packages()
 
 
@@ -131,5 +131,5 @@ def enhance_privacy():
         pass
 
     else:
-        error_message(f"invalid response: {privacy_enhancement}")
+        error_message(f"Invalid response '{privacy_enhancement}'")
         enhance_privacy()
