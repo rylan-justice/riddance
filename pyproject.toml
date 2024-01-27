@@ -29,3 +29,6 @@ classifiers = [
 
 [project.urls]
 Repository = "https://github.com/rylan-justice/riddance"
+
+[tool.isort]
+profile = "black"
