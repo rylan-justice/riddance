@@ -31,7 +31,7 @@ def list_os_info():
     """List compatible operating systems and their versions."""
 
     for sys in ["Linux"]:
-        print(sys)
+        print(f"{sys}:")
 
         for os_name, os_version in os_info[sys].items():
             os_versions = ", ".join(os_version)
