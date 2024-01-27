@@ -31,46 +31,19 @@ from riddance.fedora.fl_39_we_gnome.utils import (
     remove_packages as remove_packages_fl_39_we_gnome,
 )
 from riddance.fedora.utils import reboot_os
-from riddance.utils import error_message, prompt_message
 
 
 def debloat_fl_38_we_gnome():
     """Debloat Fedora Linux 38 (Workstation Edition) (GNOME)."""
 
-    debloat_distro = prompt_message(
-        "Would you like to proceed with debloating "
-        "Fedora Linux 38 (Workstation Edition)? [Y/n]: "
-    )
-
-    if debloat_distro == "" or debloat_distro.startswith("y"):
-        remove_packages_fl_38_we_gnome()
-        enhance_privacy_fl_38_we_gnome()
-        reboot_os()
-
-    elif debloat_distro.startswith("n"):
-        print("\nTerminated the debloating process")
-
-    else:
-        error_message(f"invalid response: {debloat_distro}")
-        debloat_fl_38_we_gnome()
+    remove_packages_fl_38_we_gnome()
+    enhance_privacy_fl_38_we_gnome()
+    reboot_os()
 
 
 def debloat_fl_39_we_gnome():
     """Debloat Fedora Linux 39 (Workstation Edition) (GNOME)."""
 
-    debloat_distro = prompt_message(
-        "Would you like to proceed with debloating "
-        "Fedora Linux 39 (Workstation Edition)? [Y/n]: "
-    )
-
-    if debloat_distro == "" or debloat_distro.startswith("y"):
-        remove_packages_fl_39_we_gnome()
-        enhance_privacy_fl_39_we_gnome()
-        reboot_os()
-
-    elif debloat_distro.startswith("n"):
-        print("\nTerminated the debloating process")
-
-    else:
-        error_message(f"invalid response: {debloat_distro}")
-        debloat_fl_39_we_gnome()
+    remove_packages_fl_39_we_gnome()
+    enhance_privacy_fl_39_we_gnome()
+    reboot_os()
