@@ -25,5 +25,6 @@ from riddance.cli import main
 if __name__ == "__main__":
     try:
         main()
+
     except (EOFError, KeyboardInterrupt):
         sys.exit(0)
