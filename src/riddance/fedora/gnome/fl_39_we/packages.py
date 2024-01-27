@@ -23,7 +23,7 @@
 packages = {
     "baobab": "Disk Usage Analyzer",
     "cheese": "Cheese",
-    "desktop-backgrounds": "the default Fedora wallpaper from the GNOME desktop",
+    "desktop-backgrounds-gnome": "Fedora wallpapers",
     "evince": "Document Viewer",
     "fedora-bookmarks": "Fedora bookmarks for Firefox",
     "fedora-chromium-config": "Fedora customizations for Chromium and Chrome",
@@ -44,7 +44,7 @@ packages = {
     "gnome-logs": "Logs",
     "gnome-maps": "Maps",
     "gnome-remote-desktop": "GNOME Remote Desktop",
-    "gnome-shell-extension-background-logo": "the Background logo extension for GNOME Shell",
+    "gnome-shell-extension-background-logo": "the Fedora background logo",
     "gnome-system-monitor": "System Monitor",
     "gnome-terminal": "Terminal",
     "gnome-text-editor": "Text Editor",
