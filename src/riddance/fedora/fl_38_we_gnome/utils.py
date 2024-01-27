@@ -23,10 +23,12 @@
 import subprocess
 
 from riddance.fedora.fl_38_we_gnome.packages import packages
-from riddance.fedora.gnome.privacy import (privacy_setting_descriptions,
-                                           privacy_settings)
-from riddance.fedora.utils import (remove_bash_history, remove_firefox_config,
-                                   remove_unneeded_dependencies)
+from riddance.fedora.gnome.privacy import privacy_setting_descriptions, privacy_settings
+from riddance.fedora.utils import (
+    remove_bash_history,
+    remove_firefox_config,
+    remove_unneeded_dependencies,
+)
 from riddance.utils import error_message, prompt_message
 
 
