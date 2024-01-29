@@ -44,14 +44,14 @@ def remove_unneeded_dependencies():
     print("\nRemoved unneeded package dependencies")
 
 
-def remove_bash_history():
-    """Remove Bash history."""
+def delete_bash_history():
+    """Delete Bash history."""
 
     bash_history = f"/home/{username}/.bash_history"
 
     if os.path.exists(bash_history):
         os.remove(bash_history)
-        print("\nRemoved Bash history")
+        print("\nDeleted Bash history")
 
 
 def reboot_os():
