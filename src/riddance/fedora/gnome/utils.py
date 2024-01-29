@@ -32,7 +32,7 @@ username = getpass.getuser()
 
 
 def remove_firefox_config():
-    """Remove Firefox configuration folder."""
+    """Remove Firefox configuration."""
 
     shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
 

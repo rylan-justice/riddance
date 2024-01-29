@@ -60,7 +60,7 @@ packages = {
     "loupe": "Image Viewer",
     "m17n-lib": "Ibus M17N",
     "mediawriter": "Fedora Media Writer",
-    "mozilla-filesystem": "Firefox and its configuration folder",
+    "mozilla-filesystem": "Firefox and its configuration",
     "nautilus": "Files",
     "rhythmbox": "Rhythmbox",
     "simple-scan": "Document Scanner",
