@@ -1,6 +1,6 @@
 # riddance
 
-A tool designed to remove bloatware and restore freedom
+Designed to remove bloatware and augment freedom
 
 ## Installation
 
