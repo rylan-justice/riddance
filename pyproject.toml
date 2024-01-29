@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "riddance"
 dynamic = ["version"]
-description = "A tool designed to remove bloatware and restore freedom"
+description = "Designed to remove bloatware and augment freedom"
 readme = "README.md"
 requires-python = ">= 3.10"
 license = { text = "GPL-3.0-or-later" }

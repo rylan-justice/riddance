@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
-# riddance: A tool designed to remove bloatware and restore freedom
+# riddance: Designed to remove bloatware and augment freedom
 # Copyright (C) 2024  Rylan Justice
 #
 # This file is part of riddance.
@@ -27,7 +27,7 @@ from riddance.version import __version__
 def main():
     parser = argparse.ArgumentParser(
         prog="riddance",
-        description="A tool designed to remove bloatware and restore freedom",
+        description="Designed to remove bloatware and augment freedom",
         add_help=False,
     )
 
