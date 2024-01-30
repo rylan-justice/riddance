@@ -31,8 +31,8 @@ from riddance.utils import error_message, prompt_message
 username = getpass.getuser()
 
 
-def remove_firefox_config():
-    """Remove Firefox configuration."""
+def delete_firefox_config():
+    """Delete Firefox configuration."""
 
     shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
 

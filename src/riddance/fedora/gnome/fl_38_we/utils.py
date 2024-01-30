@@ -26,7 +26,7 @@ from riddance.fedora.gnome.fl_38_we.packages import packages
 from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
 from riddance.fedora.gnome.utils import (
     delete_bash_history,
-    remove_firefox_config,
+    delete_firefox_config,
     remove_unneeded_dependencies,
 )
 from riddance.utils import error_message, prompt_message
@@ -61,7 +61,7 @@ def remove_packages():
                 removed_package = True
 
         if removed_firefox:
-            remove_firefox_config()
+            delete_firefox_config()
 
         if removed_package:
             remove_unneeded_dependencies()
@@ -74,7 +74,7 @@ def remove_packages():
             )
             print(f"Removed {name}")
 
-        remove_firefox_config()
+        delete_firefox_config()
 
         remove_unneeded_dependencies()
 
