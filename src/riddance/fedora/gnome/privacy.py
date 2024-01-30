@@ -34,6 +34,7 @@ privacy_settings = [
     ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
     ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
     ["org.gnome.desktop.privacy", "send-software-usage-stats", "false"],
+    ["org.gnome.desktop.privacy", "show-full-name-in-top-bar", "false"],
     ["org.gnome.desktop.privacy", "usb-protection", "true"],
     ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
     ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
@@ -71,8 +72,8 @@ privacy_descriptions = {
         "Always discard trash and temporary files",
     ],
     "privacy-screen": [
-        "enable the privacy screen if it is supported",
-        "Enabled the privacy screen if it is supported",
+        "enable privacy screen",
+        "Enabled privacy screen",
     ],
     "recent-files-max-age": [
         "discard recently used files",
@@ -103,12 +104,12 @@ privacy_descriptions = {
         "Ceased application statistics telemetry",
     ],
     "usb-protection": [
-        "activate the USBGuard service",
-        "Activated the USBGuard service",
+        "enable USBGuard",
+        "Enabled USBGuard",
     ],
     "usb-protection-level": [
         "reject USB devices on the lock screen",
-        "Rejected USB devices on the lock screen",
+        "Reject USB devices on the lock screen",
     ],
     "whitelisted-providers": [
         "hide online account services",
