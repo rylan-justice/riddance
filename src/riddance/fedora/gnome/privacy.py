@@ -20,7 +20,7 @@
 
 """Privacy settings and descriptions for Fedora Linux (Workstation Edition) (GNOME)."""
 
-privacy_settings = [
+settings = [
     ["org.gnome.desktop.privacy", "disable-camera", "true"],
     ["org.gnome.desktop.privacy", "disable-microphone", "true"],
     ["org.gnome.desktop.privacy", "disable-sound-output", "true"],
@@ -42,7 +42,7 @@ privacy_settings = [
     ["org.gnome.system.location", "max-accuracy-level", "country"],
 ]
 
-privacy_descriptions = {
+descriptions = {
     "disable-camera": [
         "disable camera access",
         "Disabled camera access",
@@ -102,6 +102,10 @@ privacy_descriptions = {
     "send-software-usage-stats": [
         "cease application statistics telemetry",
         "Ceased application statistics telemetry",
+    ],
+    "show-full-name-in-top-bar": [
+        "",
+        "",
     ],
     "usb-protection": [
         "enable USBGuard",
