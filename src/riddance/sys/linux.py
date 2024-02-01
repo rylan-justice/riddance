@@ -20,13 +20,14 @@
 
 import os
 import platform
+import sys
 
 from riddance.os.fedora import debloat_fl_38_we_gnome, debloat_fl_39_we_gnome
 from riddance.utils import error_message
 
 
 def debloat_fedora_linux(distro_version, desktop_environment):
-    """Debloat a compatible Fedora Linux distribution."""
+    """Debloat Fedora Linux."""
 
     if distro_version == "38 (Workstation Edition)" and desktop_environment == "GNOME":
         debloat_fl_38_we_gnome()
@@ -50,5 +51,9 @@ def debloat_linux():
 
         debloat_fedora_linux(distro_version, desktop_environment)
 
-    except (OSError, KeyError):
+    except KeyError:
+        if os.geteuid() == 0:
+            error_message("riddance cannot be run with elevated privileges")
+            sys.exit(0)
+
         error_message("riddance is incompatible with your desktop environment")
