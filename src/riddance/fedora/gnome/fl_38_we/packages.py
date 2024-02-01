@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Pre-installed packages for Fedora Linux 38 (Workstation Edition) (GNOME)."""
+"""Pre-installed packages for Fedora Linux 38 (Workstation Edition) with GNOME."""
 
 packages = {
     "baobab": "Disk Usage Analyzer and Photos",

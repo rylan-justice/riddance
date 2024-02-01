@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Primary utilities for Fedora Linux 39 (Workstation Edition) (GNOME)."""
+"""Primary utilities for Fedora Linux 39 (Workstation Edition) with GNOME."""
 
 import subprocess
 

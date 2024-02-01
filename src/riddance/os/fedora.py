@@ -34,7 +34,7 @@ from riddance.fedora.gnome.utils import reboot_os
 
 
 def debloat_fl_38_we_gnome():
-    """Debloat Fedora Linux 38 (Workstation Edition) (GNOME)."""
+    """Debloat Fedora Linux 38 (Workstation Edition) with GNOME."""
 
     remove_packages_fl_38_we_gnome()
     enhance_privacy_fl_38_we_gnome()
@@ -42,7 +42,7 @@ def debloat_fl_38_we_gnome():
 
 
 def debloat_fl_39_we_gnome():
-    """Debloat Fedora Linux 39 (Workstation Edition) (GNOME)."""
+    """Debloat Fedora Linux 39 (Workstation Edition) with GNOME."""
 
     remove_packages_fl_39_we_gnome()
     enhance_privacy_fl_39_we_gnome()
