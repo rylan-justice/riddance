@@ -34,7 +34,6 @@ settings = [
     ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
     ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
     ["org.gnome.desktop.privacy", "send-software-usage-stats", "false"],
-    ["org.gnome.desktop.privacy", "show-full-name-in-top-bar", "false"],
     ["org.gnome.desktop.privacy", "usb-protection", "true"],
     ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
     ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
@@ -87,9 +86,6 @@ descriptions = {
     ],
     "send-software-usage-stats": [
         "cease application statistics telemetry",
-    ],
-    "show-full-name-in-top-bar": [
-        "",
     ],
     "usb-protection": [
         "enable USBGuard",
