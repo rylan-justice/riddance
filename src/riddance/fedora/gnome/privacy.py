@@ -20,7 +20,7 @@
 
 """Privacy settings and descriptions for Fedora Linux (Workstation Edition) with GNOME."""
 
-settings = [
+privacy_settings = [
     ["org.gnome.desktop.privacy", "disable-camera", "true"],
     ["org.gnome.desktop.privacy", "disable-microphone", "true"],
     ["org.gnome.desktop.privacy", "disable-sound-output", "true"],
@@ -41,59 +41,23 @@ settings = [
     ["org.gnome.system.location", "max-accuracy-level", "country"],
 ]
 
-descriptions = {
-    "disable-camera": [
-        "disable camera access",
-    ],
-    "disable-microphone": [
-        "disable microphone access",
-    ],
-    "disable-sound-output": [
-        "disable sound output",
-    ],
-    "enabled": [
-        "disable geolocation services",
-    ],
-    "hide-identity": [
-        "hide personal information from the screen and network",
-    ],
-    "max-accuracy-level": [
-        "set the geolocation accuracy level to country",
-    ],
-    "old-files-age": [
-        "always discard trash and temporary files",
-    ],
-    "privacy-screen": [
-        "enable privacy screen",
-    ],
-    "recent-files-max-age": [
-        "discard recently used files",
-    ],
-    "remember-app-usage": [
-        "disable application usage monitoring and recording",
-    ],
-    "remember-recent-files": [
-        "disable recently used files",
-    ],
-    "remove-old-temp-files": [
-        "automatically remove temporary files",
-    ],
-    "remove-old-trash-files": [
-        "automatically remove trash files",
-    ],
-    "report-technical-problems": [
-        "cease technical problem reports",
-    ],
-    "send-software-usage-stats": [
-        "cease application statistics telemetry",
-    ],
-    "usb-protection": [
-        "enable USBGuard",
-    ],
-    "usb-protection-level": [
-        "reject USB devices on the lock screen",
-    ],
-    "whitelisted-providers": [
-        "hide online account services",
-    ],
+privacy_descriptions = {
+    "disable-camera": "disable camera access",
+    "disable-microphone": "disable microphone access",
+    "disable-sound-output": "disable sound output",
+    "enabled": "disable geolocation services",
+    "hide-identity": "hide personal information from the screen and network",
+    "max-accuracy-level": "set the geolocation accuracy level to country",
+    "old-files-age": "always discard trash and temporary files",
+    "privacy-screen": "enable privacy screen",
+    "recent-files-max-age": "discard recently used files",
+    "remember-app-usage": "disable application usage monitoring and recording",
+    "remember-recent-files": "disable recently used files",
+    "remove-old-temp-files": "automatically remove temporary files",
+    "remove-old-trash-files": "automatically remove trash files",
+    "report-technical-problems": "cease technical problem reports",
+    "send-software-usage-stats": "cease application statistics telemetry",
+    "usb-protection": "enable USBGuard",
+    "usb-protection-level": "reject USB devices on the lock screen",
+    "whitelisted-providers": "hide online account services",
 }

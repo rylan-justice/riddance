@@ -27,7 +27,7 @@ from riddance.utils import error_message
 
 
 def debloat_fedora_linux(distro_version, desktop_environment):
-    """Debloat Fedora Linux."""
+    """Debloat a compatible Fedora Linux distribution."""
 
     if distro_version == "38 (Workstation Edition)" and desktop_environment == "GNOME":
         debloat_fl_38_we_gnome()

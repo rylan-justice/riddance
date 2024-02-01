@@ -23,10 +23,11 @@
 import subprocess
 
 from riddance.fedora.gnome.fl_39_we.packages import packages
-from riddance.fedora.gnome.privacy import descriptions, settings
+from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
 from riddance.fedora.gnome.utils import (
     delete_bash_history,
     delete_firefox_config,
+    reboot_os,
     remove_unneeded_dependencies,
 )
 from riddance.utils import error_message, prompt_message
@@ -79,7 +80,7 @@ def remove_packages():
         remove_unneeded_dependencies()
 
     elif package_removal.startswith("n"):
-        pass
+        enhance_privacy()
 
     else:
         error_message(f"Invalid response '{package_removal}'")
@@ -94,8 +95,8 @@ def enhance_privacy():
     )
 
     if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-        for privacy_setting in settings:
-            privacy_description = descriptions[privacy_setting[1]][0]
+        for privacy_setting in privacy_settings:
+            privacy_description = privacy_descriptions[privacy_setting[1]]
 
             particular_privacy_setting = prompt_message(
                 f"Would you like to {privacy_description}? [Y/n]: "
@@ -115,16 +116,16 @@ def enhance_privacy():
             delete_bash_history()
 
     elif privacy_enhancement.startswith("a"):
-        for privacy_setting in settings:
+        for privacy_setting in privacy_settings:
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
-            privacy_description = descriptions[privacy_setting[1]][0]
+            privacy_description = privacy_descriptions[privacy_setting[1]]
             print(f"\n{privacy_description.capitalize()}")
 
         delete_bash_history()
 
     elif privacy_enhancement.startswith("n"):
-        pass
+        reboot_os()
 
     else:
         error_message(f"Invalid response '{privacy_enhancement}'")
