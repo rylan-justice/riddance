@@ -119,7 +119,7 @@ def enhance_privacy():
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
             privacy_description = descriptions[privacy_setting[1]][1]
-            print(f"\n{privacy_description}")
+            print(f"\n{privacy_description.capitalize()}")
 
         delete_bash_history()
 

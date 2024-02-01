@@ -45,78 +45,59 @@ settings = [
 descriptions = {
     "disable-camera": [
         "disable camera access",
-        "Disabled camera access",
     ],
     "disable-microphone": [
         "disable microphone access",
-        "Disabled microphone access",
     ],
     "disable-sound-output": [
         "disable sound output",
-        "Disabled sound output",
     ],
     "enabled": [
         "disable geolocation services",
-        "Disabled geolocation services",
     ],
     "hide-identity": [
         "hide personal information from the screen and network",
-        "Hid personal information from the screen and network",
     ],
     "max-accuracy-level": [
         "set the geolocation accuracy level to country",
-        "Set the geolocation accuracy level to country",
     ],
     "old-files-age": [
         "always discard trash and temporary files",
-        "Always discard trash and temporary files",
     ],
     "privacy-screen": [
         "enable privacy screen",
-        "Enabled privacy screen",
     ],
     "recent-files-max-age": [
         "discard recently used files",
-        "Discarded recently used files",
     ],
     "remember-app-usage": [
         "disable application usage monitoring and recording",
-        "Disabled application usage monitoring and recording",
     ],
     "remember-recent-files": [
         "disable recently used files",
-        "Disabled recently used files",
     ],
     "remove-old-temp-files": [
         "automatically remove temporary files",
-        "Automatically removed temporary files",
     ],
     "remove-old-trash-files": [
         "automatically remove trash files",
-        "Automatically removed trash files",
     ],
     "report-technical-problems": [
         "cease technical problem reports",
-        "Ceased technical problem reports",
     ],
     "send-software-usage-stats": [
         "cease application statistics telemetry",
-        "Ceased application statistics telemetry",
     ],
     "show-full-name-in-top-bar": [
-        "",
         "",
     ],
     "usb-protection": [
         "enable USBGuard",
-        "Enabled USBGuard",
     ],
     "usb-protection-level": [
         "reject USB devices on the lock screen",
-        "Reject USB devices on the lock screen",
     ],
     "whitelisted-providers": [
         "hide online account services",
-        "Hid online account services",
     ],
 }
