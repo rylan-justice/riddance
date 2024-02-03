@@ -54,7 +54,6 @@ def remove_packages():
                     ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
                     check=False,
                 )
-                print(f"Removed {name}")
 
                 if name == "Firefox":
                     removed_firefox = True
@@ -73,7 +72,6 @@ def remove_packages():
                 ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
                 check=False,
             )
-            print(f"Removed {name}")
 
         delete_firefox_config()
 
