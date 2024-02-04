@@ -40,18 +40,18 @@ def delete_firefox_config():
 def remove_unneeded_dependencies():
     """Remove unneeded package dependencies."""
 
-    subprocess.run(["sudo", "dnf", "--assumeyes", "--quiet", "autoremove"], check=False)
+    subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)
     print("\nRemoved unneeded package dependencies")
 
 
-def delete_bash_history():
-    """Delete Bash history."""
+def shred_bash_history():
+    """Shred Bash history."""
 
     bash_history = f"/home/{username}/.bash_history"
 
     if os.path.exists(bash_history):
-        os.remove(bash_history)
-        print("\nDeleted Bash history")
+        subprocess.run(["shred", "-zu", bash_history], check=False)
+        print("\nShredded Bash history")
 
 
 def reboot_os():

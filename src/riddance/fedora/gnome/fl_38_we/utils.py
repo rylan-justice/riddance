@@ -25,10 +25,10 @@ import subprocess
 from riddance.fedora.gnome.fl_38_we.packages import packages
 from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
 from riddance.fedora.gnome.utils import (
-    delete_bash_history,
     delete_firefox_config,
     reboot_os,
     remove_unneeded_dependencies,
+    shred_bash_history,
 )
 from riddance.utils import error_message, prompt_message
 
@@ -50,10 +50,7 @@ def remove_packages():
             )
 
             if particular_package.startswith("y"):
-                subprocess.run(
-                    ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
-                    check=False,
-                )
+                subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
                 if name == "Firefox":
                     removed_firefox = True
@@ -68,10 +65,7 @@ def remove_packages():
 
     elif package_removal.startswith("a"):
         for package, name in packages.items():
-            subprocess.run(
-                ["sudo", "dnf", "--assumeyes", "--quiet", "remove", package],
-                check=False,
-            )
+            subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
         delete_firefox_config()
 
@@ -111,7 +105,7 @@ def enhance_privacy():
         )
 
         if bash_history_removal.startswith("y"):
-            delete_bash_history()
+            shred_bash_history()
 
     elif privacy_enhancement.startswith("a"):
         for privacy_setting in privacy_settings:
@@ -120,7 +114,7 @@ def enhance_privacy():
             privacy_description = privacy_descriptions[privacy_setting[1]]
             print(f"\n{privacy_description.capitalize()}")
 
-        delete_bash_history()
+        shred_bash_history()
 
     elif privacy_enhancement.startswith("n"):
         reboot_os()
