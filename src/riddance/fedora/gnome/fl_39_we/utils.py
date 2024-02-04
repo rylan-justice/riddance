@@ -23,12 +23,9 @@
 import subprocess
 
 from riddance.fedora.gnome.fl_39_we.packages import packages
-from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
 from riddance.fedora.gnome.utils import (
     delete_firefox_config,
-    reboot_os,
     remove_unneeded_dependencies,
-    shred_bash_history,
 )
 from riddance.utils import error_message, prompt_message
 
@@ -72,53 +69,8 @@ def remove_packages():
         remove_unneeded_dependencies()
 
     elif package_removal.startswith("n"):
-        enhance_privacy()
+        pass
 
     else:
         error_message(f"invalid response: '{package_removal}'")
         remove_packages()
-
-
-def enhance_privacy():
-    """Enhance operating system privacy."""
-
-    privacy_enhancement = prompt_message(
-        "Would you like to enhance operating system privacy? [Y/a/n]:"
-    )
-
-    if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-        for privacy_setting in privacy_settings:
-            privacy_description = privacy_descriptions[privacy_setting[1]]
-
-            particular_privacy_setting = prompt_message(
-                f"Would you like to {privacy_description}? [Y/n]:"
-            )
-
-            if (
-                particular_privacy_setting == ""
-                or particular_privacy_setting.startswith("y")
-            ):
-                subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-
-        bash_history_removal = prompt_message(
-            "Would you like to remove Bash history? [y/N]:"
-        )
-
-        if bash_history_removal.startswith("y"):
-            shred_bash_history()
-
-    elif privacy_enhancement.startswith("a"):
-        for privacy_setting in privacy_settings:
-            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-
-            privacy_description = privacy_descriptions[privacy_setting[1]]
-            print(f"\n{privacy_description.capitalize()}")
-
-        shred_bash_history()
-
-    elif privacy_enhancement.startswith("n"):
-        reboot_os()
-
-    else:
-        error_message(f"invalid response: '{privacy_enhancement}'")
-        enhance_privacy()
