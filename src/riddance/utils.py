@@ -29,5 +29,5 @@ def error_message(message, newline=True):
 def prompt_message(message):
     """Display a prompt message."""
 
-    prompt = input(f"\n{message}")
+    prompt = input(f"\n{message} ")
     return prompt.strip().lower()

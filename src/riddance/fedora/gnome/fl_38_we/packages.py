@@ -63,7 +63,7 @@ packages = {
     "m17n-lib": "Ibus M17N",
     "malcontent-control": "Parental Controls",
     "mediawriter": "Fedora Media Writer",
-    "mozilla-filesystem": "Firefox and its configuration",
+    "mozilla-filesystem": "Firefox",
     "nautilus": "Files",
     "rhythmbox": "Rhythmbox",
     "simple-scan": "Document Scanner",

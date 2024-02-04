@@ -35,7 +35,7 @@ def list_os_info():
 
         for os_name, os_version in os_info[sys].items():
             os_versions = ", ".join(os_version)
-            print(f"\n    {os_name} {os_versions}")
+            print(f"  {os_name} {os_versions}")
 
 
 def check_compatibility():

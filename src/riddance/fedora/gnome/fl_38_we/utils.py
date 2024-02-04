@@ -34,10 +34,10 @@ from riddance.utils import error_message, prompt_message
 
 
 def remove_packages():
-    """Prompt the user to remove pre-installed packages."""
+    """Remove pre-installed packages."""
 
     package_removal = prompt_message(
-        "Would you like to remove pre-installed packages? [Y/a/n]: "
+        "Would you like to remove pre-installed packages? [Y/a/n]:"
     )
 
     if package_removal == "" or package_removal.startswith("y"):
@@ -46,7 +46,7 @@ def remove_packages():
 
         for package, name in packages.items():
             particular_package = prompt_message(
-                f"Would you like to remove {name}? [y/N]: "
+                f"Would you like to remove {name}? [y/N]:"
             )
 
             if particular_package.startswith("y"):
@@ -86,10 +86,10 @@ def remove_packages():
 
 
 def enhance_privacy():
-    """Prompt the user to enhance operating system privacy."""
+    """Enhance operating system privacy."""
 
     privacy_enhancement = prompt_message(
-        "Would you like to enhance operating system privacy? [Y/a/n]: "
+        "Would you like to enhance operating system privacy? [Y/a/n]:"
     )
 
     if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
@@ -97,7 +97,7 @@ def enhance_privacy():
             privacy_description = privacy_descriptions[privacy_setting[1]]
 
             particular_privacy_setting = prompt_message(
-                f"Would you like to {privacy_description}? [Y/n]: "
+                f"Would you like to {privacy_description}? [Y/n]:"
             )
 
             if (
@@ -107,7 +107,7 @@ def enhance_privacy():
                 subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
         bash_history_removal = prompt_message(
-            "Would you like to remove Bash history? [y/N]: "
+            "Would you like to remove Bash history? [y/N]:"
         )
 
         if bash_history_removal.startswith("y"):
