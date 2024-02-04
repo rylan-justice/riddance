@@ -45,7 +45,7 @@ privacy_descriptions = {
     "disable-camera": "disable camera access",
     "disable-microphone": "disable microphone access",
     "disable-sound-output": "disable sound output",
-    "enabled": "disable geolocation services",
+    "enabled": "disable location services",
     "hide-identity": "hide personal information from the screen and network",
     "max-accuracy-level": "set the geolocation accuracy level to country",
     "old-files-age": "always discard trash and temporary files",
