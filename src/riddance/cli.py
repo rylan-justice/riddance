@@ -68,8 +68,11 @@ def main():
     if args.list:
         list_os_info()
 
-    if args.check:
+    elif args.check:
         check_compatibility()
 
-    if args.debloat:
+    elif args.debloat:
         debloat_os()
+
+    else:
+        parser.print_help()
