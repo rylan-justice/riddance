@@ -34,15 +34,6 @@ from riddance.utils import error_message, prompt_message
 
 username = getpass.getuser()
 
-if platform.system() == "Linux":
-    distro_version = platform.freedesktop_os_release()["VERSION"]
-
-    if distro_version == "38 (Workstation Edition)":
-        packages = packages_fl_38_we
-
-    elif distro_version == "39 (Workstation Edition)":
-        packages = packages_fl_39_we
-
 
 def delete_firefox_config():
     """Delete Firefox configuration."""
@@ -65,6 +56,14 @@ def remove_packages():
     )
 
     if package_removal == "" or package_removal.startswith("y"):
+        distro_version = platform.freedesktop_os_release()["VERSION"]
+
+        if distro_version == "38 (Workstation Edition)":
+            packages = packages_fl_38_we
+
+        elif distro_version == "39 (Workstation Edition)":
+            packages = packages_fl_39_we
+
         removed_firefox = False
         removed_package = False
 
