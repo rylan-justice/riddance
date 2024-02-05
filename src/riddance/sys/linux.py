@@ -54,6 +54,6 @@ def debloat_linux():
     except KeyError:
         if os.geteuid() == 0:
             error_message("'-d, --debloat' cannot be run as root")
-            sys.exit(0)
+            sys.exit()
 
         error_message("riddance is incompatible with your desktop environment")

@@ -27,4 +27,4 @@ if __name__ == "__main__":
         main()
 
     except (EOFError, KeyboardInterrupt):
-        sys.exit(0)
+        sys.exit()

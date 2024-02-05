@@ -109,7 +109,7 @@ def reboot_os():
         subprocess.run(["reboot"], check=False)
 
     elif reboot.startswith("n"):
-        sys.exit(0)
+        sys.exit()
 
     else:
         error_message(f"invalid response: '{reboot}'")
