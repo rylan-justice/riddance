@@ -22,14 +22,25 @@
 
 import getpass
 import os
+import platform
 import shutil
 import subprocess
 import sys
 
+from riddance.fedora.gnome.fl_38_we.packages import packages as packages_fl_38_we
+from riddance.fedora.gnome.fl_39_we.packages import packages as packages_fl_39_we
 from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
 from riddance.utils import error_message, prompt_message
 
 username = getpass.getuser()
+
+distro_version = platform.freedesktop_os_release()["VERSION"]
+
+if distro_version == "38 (Workstation Edition)":
+    packages = packages_fl_38_we
+
+elif distro_version == "39 (Workstation Edition)":
+    packages = packages_fl_39_we
 
 
 def delete_firefox_config():
@@ -43,6 +54,52 @@ def remove_unneeded_dependencies():
 
     subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)
     print("\nRemoved unneeded package dependencies")
+
+
+def remove_packages():
+    """Remove pre-installed packages."""
+
+    package_removal = prompt_message(
+        "Would you like to remove pre-installed packages? [Y/a/n]:"
+    )
+
+    if package_removal == "" or package_removal.startswith("y"):
+        removed_firefox = False
+        removed_package = False
+
+        for package, name in packages.items():
+            distinct_package = prompt_message(
+                f"Would you like to remove {name}? [y/N]:"
+            )
+
+            if distinct_package.startswith("y"):
+                subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+
+                if name == "Firefox":
+                    removed_firefox = True
+
+                removed_package = True
+
+        if removed_firefox:
+            delete_firefox_config()
+
+        if removed_package:
+            remove_unneeded_dependencies()
+
+    elif package_removal.startswith("a"):
+        for package, name in packages.items():
+            subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+
+        delete_firefox_config()
+
+        remove_unneeded_dependencies()
+
+    elif package_removal.startswith("n"):
+        pass
+
+    else:
+        error_message(f"invalid response: '{package_removal}'")
+        remove_packages()
 
 
 def shred_bash_history():
@@ -66,18 +123,17 @@ def enhance_privacy():
         for privacy_setting in privacy_settings:
             privacy_description = privacy_descriptions[privacy_setting[1]]
 
-            particular_privacy_setting = prompt_message(
+            distinct_privacy_setting = prompt_message(
                 f"Would you like to {privacy_description}? [Y/n]:"
             )
 
-            if (
-                particular_privacy_setting == ""
-                or particular_privacy_setting.startswith("y")
+            if distinct_privacy_setting == "" or distinct_privacy_setting.startswith(
+                "y"
             ):
                 subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
         bash_history_removal = prompt_message(
-            "Would you like to remove Bash history? [y/N]:"
+            "Would you like to shred Bash history? [y/N]:"
         )
 
         if bash_history_removal.startswith("y"):
@@ -101,7 +157,7 @@ def enhance_privacy():
 
 
 def reboot_os():
-    """Reboot the operating system."""
+    """Reboot operating system."""
 
     reboot = prompt_message("Would you like to reboot the operating system? [Y/n]:")
 

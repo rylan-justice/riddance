@@ -18,19 +18,13 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-from riddance.fedora.gnome.fl_38_we.utils import (
-    remove_packages as remove_packages_fl_38_we_gnome,
-)
-from riddance.fedora.gnome.fl_39_we.utils import (
-    remove_packages as remove_packages_fl_39_we_gnome,
-)
-from riddance.fedora.gnome.utils import enhance_privacy, reboot_os
+from riddance.fedora.gnome.utils import enhance_privacy, reboot_os, remove_packages
 
 
 def debloat_fl_38_we_gnome():
     """Debloat Fedora Linux 38 (Workstation Edition) with GNOME."""
 
-    remove_packages_fl_38_we_gnome()
+    remove_packages()
     enhance_privacy()
     reboot_os()
 
@@ -38,6 +32,6 @@ def debloat_fl_38_we_gnome():
 def debloat_fl_39_we_gnome():
     """Debloat Fedora Linux 39 (Workstation Edition) with GNOME."""
 
-    remove_packages_fl_39_we_gnome()
+    remove_packages()
     enhance_privacy()
     reboot_os()
