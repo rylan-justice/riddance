@@ -31,7 +31,7 @@ privacy_settings = [
     ["org.gnome.desktop.privacy", "remove-old-temp-files", "true"],
     ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
     ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
-    ["org.gnome.online-accounts", "whitelisted-providers", "['none']"],
+    ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
     ["org.gnome.system.location", "enabled", "false"],
 ]
 
@@ -47,11 +47,11 @@ privacy_descriptions = {
     "remove-old-temp-files": "automatically remove temporary files",
     "remove-old-trash-files": "automatically remove trash files",
     "report-technical-problems": "disable automatic problem reporting",
-    "whitelisted-providers": "hide online account services",
+    "whitelisted-providers": "disable online accounts",
 }
 
-privacy_keys = [
-    ["org.gnome.desktop.privacy"],
-    ["org.gnome.online-accounts"],
-    ["org.gnome.system.location"],
+privacy_schemas = [
+    "org.gnome.desktop.privacy",
+    "org.gnome.online-accounts",
+    "org.gnome.system.location",
 ]

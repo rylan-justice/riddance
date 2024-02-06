@@ -31,3 +31,9 @@ def prompt_message(message):
 
     prompt = input(f"\n{message} ")
     return prompt.strip().lower()
+
+
+def output_message(message):
+    """Display an output message."""
+
+    print(f"\n{message}")

@@ -29,12 +29,12 @@ import sys
 
 from riddance.fedora.gnome.privacy import (
     privacy_descriptions,
-    privacy_keys,
+    privacy_schemas,
     privacy_settings,
 )
 from riddance.fedora.gnome.we_38.packages import packages as packages_fl_38_we
 from riddance.fedora.gnome.we_39.packages import packages as packages_fl_39_we
-from riddance.utils import error_message, prompt_message
+from riddance.utils import error_message, output_message, prompt_message
 
 username = getpass.getuser()
 
@@ -49,7 +49,7 @@ def remove_unneeded_dependencies():
     """Remove unneeded package dependencies."""
 
     subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)
-    print("\nRemoved unneeded package dependencies")
+    output_message("Removed unneeded package dependencies")
 
 
 def remove_packages():
@@ -113,7 +113,7 @@ def shred_bash_history():
 
     if os.path.exists(bash_history):
         subprocess.run(["shred", "-zu", bash_history], check=False)
-        print("\nShred Bash history")
+        output_message("Shred Bash history")
 
 
 def enhance_privacy():
@@ -148,17 +148,17 @@ def enhance_privacy():
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
             privacy_description = privacy_descriptions[privacy_setting[1]]
-            print(f"\n{privacy_description.capitalize()}")
+            output_message(f"{privacy_description.capitalize()}")
 
         shred_bash_history()
 
     elif privacy_enhancement.startswith("r"):
-        subprocess.run(["gsettings", "reset-recursively", *privacy_keys], check=False)
+        for privacy_schema in privacy_schemas:
+            subprocess.run(
+                ["gsettings", "reset-recursively", privacy_schema], check=False
+            )
 
-        privacy_changes = subprocess.run(
-            ["gsettings", "monitor", *privacy_keys], check=False
-        )
-        print(privacy_changes)
+        output_message("Reset privacy enhancements")
 
     elif privacy_enhancement.startswith("n"):
         pass
