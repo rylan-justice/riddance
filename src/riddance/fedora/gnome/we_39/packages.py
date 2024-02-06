@@ -20,7 +20,7 @@
 
 """Pre-installed packages for Fedora Linux 39 (Workstation Edition) with GNOME."""
 
-packages = {
+packages_39_we = {
     "baobab": "Disk Usage Analyzer",
     "brltty": "BRLTTY",
     "cheese": "Cheese",

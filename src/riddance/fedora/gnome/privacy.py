@@ -30,9 +30,6 @@ privacy_settings = [
     [privacy_schemas[0], "disable-camera", "true"],
     [privacy_schemas[0], "disable-microphone", "true"],
     [privacy_schemas[0], "disable-sound-output", "true"],
-    [privacy_schemas[0], "old-files-age", "0"],
-    [privacy_schemas[0], "recent-files-max-age", "0"],
-    [privacy_schemas[0], "remember-app-usage", "false"],
     [privacy_schemas[0], "remember-recent-files", "false"],
     [privacy_schemas[0], "remove-old-temp-files", "true"],
     [privacy_schemas[0], "remove-old-trash-files", "true"],
@@ -46,12 +43,9 @@ privacy_descriptions = {
     "disable-microphone": "disable microphone access",
     "disable-sound-output": "disable sound output",
     "enabled": "disable location services",
-    "old-files-age": "automatically delete trash and temporary files",  # TODO: (0 = 1 hour minimum) automatically delete period
-    "recent-files-max-age": "discard recently used files",  # XXX:
-    "remember-app-usage": "disable application usage monitoring and recording",  # XXX:
-    "remember-recent-files": "disable recently used files",  # XXX:
-    "remove-old-temp-files": "automatically remove temporary files",  # XXX:
-    "remove-old-trash-files": "automatically remove trash files",  # XXX:
-    "report-technical-problems": "disable automatic problem reporting",  # XXX:
-    "whitelisted-providers": "disable online accounts",
+    "remember-recent-files": "disable file history",
+    "remove-old-temp-files": "automatically delete temporary files",
+    "remove-old-trash-files": "automatically delete trash content",
+    "report-technical-problems": "disable automatic problem reporting",
+    "whitelisted-providers": "disable online account services",
 }

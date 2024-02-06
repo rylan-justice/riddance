@@ -32,8 +32,8 @@ from riddance.fedora.gnome.privacy import (
     privacy_schemas,
     privacy_settings,
 )
-from riddance.fedora.gnome.we_38.packages import packages as packages_fl_38_we
-from riddance.fedora.gnome.we_39.packages import packages as packages_fl_39_we
+from riddance.fedora.gnome.we_38.packages import packages_38_we
+from riddance.fedora.gnome.we_39.packages import packages_39_we
 from riddance.utils import error_message, output_message, prompt_message
 
 username = getpass.getuser()
@@ -63,10 +63,10 @@ def remove_packages():
         distro_version = platform.freedesktop_os_release()["VERSION"]
 
         if distro_version == "38 (Workstation Edition)":
-            packages = packages_fl_38_we
+            packages = packages_38_we
 
         elif distro_version == "39 (Workstation Edition)":
-            packages = packages_fl_39_we
+            packages = packages_39_we
 
         removed_firefox = False
         removed_package = False
@@ -136,11 +136,11 @@ def enhance_privacy():
             ):
                 subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
-        bash_history_removal = prompt_message(
+        bash_history_shredding = prompt_message(
             "Would you like to shred Bash history? [y/N]:"
         )
 
-        if bash_history_removal.startswith("y"):
+        if bash_history_shredding.startswith("y"):
             shred_bash_history()
 
     elif privacy_enhancement.startswith("a"):
