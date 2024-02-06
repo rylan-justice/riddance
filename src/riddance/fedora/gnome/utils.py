@@ -135,6 +135,18 @@ def enhance_privacy():
             ):
                 subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
+                if privacy_setting[1] == "remember-recent-files":
+                    subprocess.run(
+                        [
+                            "gsettings",
+                            "set",
+                            privacy_schemas[0],
+                            "recent-files-max-age",
+                            "0",
+                        ],
+                        check=False,
+                    )
+
                 if privacy_setting[1] in [
                     "remove-old-temp-files",
                     "remove-old-trash-files",
@@ -157,6 +169,11 @@ def enhance_privacy():
 
             privacy_description = privacy_descriptions[privacy_setting[1]]
             output_message(f"{privacy_description.capitalize()}")
+
+        subprocess.run(
+            ["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"],
+            check=False,
+        )
 
         subprocess.run(
             ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
