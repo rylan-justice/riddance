@@ -31,9 +31,7 @@ privacy_settings = [
     ["org.gnome.desktop.privacy", "remove-old-temp-files", "true"],
     ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
     ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
-    ["org.gnome.desktop.privacy", "usb-protection", "true"],
-    ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
-    ["org.gnome.online-accounts", "whitelisted-providers", "['none']"],  # XXX: No time
+    ["org.gnome.online-accounts", "whitelisted-providers", "['none']"],
     ["org.gnome.system.location", "enabled", "false"],
 ]
 
@@ -49,7 +47,11 @@ privacy_descriptions = {
     "remove-old-temp-files": "automatically remove temporary files",
     "remove-old-trash-files": "automatically remove trash files",
     "report-technical-problems": "disable automatic problem reporting",
-    "usb-protection": "enable USBGuard",
-    "usb-protection-level": "reject USB devices on the lock screen",
-    "whitelisted-providers": "hide online account services",  # XXX: No time
+    "whitelisted-providers": "hide online account services",
 }
+
+privacy_keys = [
+    ["org.gnome.desktop.privacy"],
+    ["org.gnome.online-accounts"],
+    ["org.gnome.system.location"],
+]

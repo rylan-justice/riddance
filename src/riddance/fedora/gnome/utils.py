@@ -27,7 +27,11 @@ import shutil
 import subprocess
 import sys
 
-from riddance.fedora.gnome.privacy import privacy_descriptions, privacy_settings
+from riddance.fedora.gnome.privacy import (
+    privacy_descriptions,
+    privacy_keys,
+    privacy_settings,
+)
 from riddance.fedora.gnome.we_38.packages import packages as packages_fl_38_we
 from riddance.fedora.gnome.we_39.packages import packages as packages_fl_39_we
 from riddance.utils import error_message, prompt_message
@@ -116,7 +120,7 @@ def enhance_privacy():
     """Enhance operating system privacy."""
 
     privacy_enhancement = prompt_message(
-        "Would you like to enhance operating system privacy? [Y/a/n]:"
+        "Would you like to enhance operating system privacy? [Y/a/r/n]:"
     )
 
     if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
@@ -147,6 +151,14 @@ def enhance_privacy():
             print(f"\n{privacy_description.capitalize()}")
 
         shred_bash_history()
+
+    elif privacy_enhancement.startswith("r"):
+        subprocess.run(["gsettings", "reset-recursively", *privacy_keys], check=False)
+
+        privacy_changes = subprocess.run(
+            ["gsettings", "monitor", *privacy_keys], check=False
+        )
+        print(privacy_changes)
 
     elif privacy_enhancement.startswith("n"):
         pass
