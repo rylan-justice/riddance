@@ -20,19 +20,25 @@
 
 """Privacy settings and descriptions for Fedora Linux (Workstation Edition) with GNOME."""
 
+privacy_schemas = [
+    "org.gnome.desktop.privacy",
+    "org.gnome.online-accounts",
+    "org.gnome.system.location",
+]
+
 privacy_settings = [
-    ["org.gnome.desktop.privacy", "disable-camera", "true"],
-    ["org.gnome.desktop.privacy", "disable-microphone", "true"],
-    ["org.gnome.desktop.privacy", "disable-sound-output", "true"],
-    ["org.gnome.desktop.privacy", "old-files-age", "0"],
-    ["org.gnome.desktop.privacy", "recent-files-max-age", "0"],
-    ["org.gnome.desktop.privacy", "remember-app-usage", "false"],
-    ["org.gnome.desktop.privacy", "remember-recent-files", "false"],
-    ["org.gnome.desktop.privacy", "remove-old-temp-files", "true"],
-    ["org.gnome.desktop.privacy", "remove-old-trash-files", "true"],
-    ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
-    ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
-    ["org.gnome.system.location", "enabled", "false"],
+    [privacy_schemas[0], "disable-camera", "true"],
+    [privacy_schemas[0], "disable-microphone", "true"],
+    [privacy_schemas[0], "disable-sound-output", "true"],
+    [privacy_schemas[0], "old-files-age", "0"],
+    [privacy_schemas[0], "recent-files-max-age", "0"],
+    [privacy_schemas[0], "remember-app-usage", "false"],
+    [privacy_schemas[0], "remember-recent-files", "false"],
+    [privacy_schemas[0], "remove-old-temp-files", "true"],
+    [privacy_schemas[0], "remove-old-trash-files", "true"],
+    [privacy_schemas[0], "report-technical-problems", "false"],
+    [privacy_schemas[1], "whitelisted-providers", "['']"],
+    [privacy_schemas[2], "enabled", "false"],
 ]
 
 privacy_descriptions = {
@@ -49,9 +55,3 @@ privacy_descriptions = {
     "report-technical-problems": "disable automatic problem reporting",
     "whitelisted-providers": "disable online accounts",
 }
-
-privacy_schemas = [
-    "org.gnome.desktop.privacy",
-    "org.gnome.online-accounts",
-    "org.gnome.system.location",
-]
