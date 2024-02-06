@@ -33,7 +33,7 @@ privacy_settings = [
     ["org.gnome.desktop.privacy", "report-technical-problems", "false"],
     ["org.gnome.desktop.privacy", "usb-protection", "true"],
     ["org.gnome.desktop.privacy", "usb-protection-level", "lockscreen"],
-    ["org.gnome.online-accounts", "whitelisted-providers", "['']"],
+    ["org.gnome.online-accounts", "whitelisted-providers", "['none']"],  # XXX: No time
     ["org.gnome.system.location", "enabled", "false"],
 ]
 
@@ -42,7 +42,7 @@ privacy_descriptions = {
     "disable-microphone": "disable microphone access",
     "disable-sound-output": "disable sound output",
     "enabled": "disable location services",
-    "old-files-age": "automatically delete trash and temporary files",  # TODO (0 = 1 hour minimum) automatically delete period
+    "old-files-age": "automatically delete trash and temporary files",  # TODO: (0 = 1 hour minimum) automatically delete period
     "recent-files-max-age": "discard recently used files",
     "remember-app-usage": "disable application usage monitoring and recording",
     "remember-recent-files": "disable recently used files",
@@ -51,5 +51,5 @@ privacy_descriptions = {
     "report-technical-problems": "disable automatic problem reporting",
     "usb-protection": "enable USBGuard",
     "usb-protection-level": "reject USB devices on the lock screen",
-    "whitelisted-providers": "hide online account services",
+    "whitelisted-providers": "hide online account services",  # XXX: No time
 }

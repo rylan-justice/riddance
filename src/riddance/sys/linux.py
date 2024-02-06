@@ -22,20 +22,19 @@ import os
 import platform
 import sys
 
-from riddance.os.fedora import debloat_fl_38_we_gnome, debloat_fl_39_we_gnome
+from riddance.os.fedora import debloat_fl_we_gnome
 from riddance.utils import error_message
 
 
 def debloat_fedora_linux(distro_version, desktop_environment):
     """Debloat a compatible Fedora Linux distribution."""
 
-    if distro_version == "38 (Workstation Edition)" and desktop_environment == "GNOME":
-        debloat_fl_38_we_gnome()
-
-    elif (
-        distro_version == "39 (Workstation Edition)" and desktop_environment == "GNOME"
+    if (
+        distro_version == "38 (Workstation Edition)"
+        or distro_version == "39 (Workstation Edition)"
+        and desktop_environment == "GNOME"
     ):
-        debloat_fl_39_we_gnome()
+        debloat_fl_we_gnome()
 
     else:
         error_message(f"riddance is incompatible with {desktop_environment}")

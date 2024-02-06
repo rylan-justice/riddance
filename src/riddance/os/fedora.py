@@ -21,16 +21,8 @@
 from riddance.fedora.gnome.utils import enhance_privacy, reboot_os, remove_packages
 
 
-def debloat_fl_38_we_gnome():
-    """Debloat Fedora Linux 38 (Workstation Edition) with GNOME."""
-
-    remove_packages()
-    enhance_privacy()
-    reboot_os()
-
-
-def debloat_fl_39_we_gnome():
-    """Debloat Fedora Linux 39 (Workstation Edition) with GNOME."""
+def debloat_fl_we_gnome():
+    """Debloat Fedora Linux (Workstation Edition) with GNOME."""
 
     remove_packages()
     enhance_privacy()
