@@ -170,15 +170,16 @@ def enhance_privacy():
             privacy_description = privacy_descriptions[privacy_setting[1]]
             output_message(f"{privacy_description.capitalize()}")
 
-        subprocess.run(
-            ["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"],
-            check=False,
-        )
+        privacy_setting_extras = [
+            "recent-files-max-age",
+            "old-files-age",
+        ]
 
-        subprocess.run(
-            ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
-            check=False,
-        )
+        for privacy_settings_extra in privacy_setting_extras:
+            subprocess.run(
+                ["gsettings", "set", privacy_schemas[0], privacy_settings_extra, "0"],
+                check=False,
+            )
 
         shred_bash_history()
 
