@@ -109,7 +109,7 @@ def shred_bash_history():
 
     if os.path.exists(bash_history):
         subprocess.run(["shred", "-zu", bash_history], check=False)
-        print("\nShredded Bash history")
+        print("\nShred Bash history")
 
 
 def enhance_privacy():
