@@ -4,7 +4,7 @@ Designed to remove bloatware and augment freedom
 
 ## Installation
 
-```
+```sh
 pip install riddance
 ```
 
