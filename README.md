@@ -14,7 +14,7 @@ python -m pip install riddance
 python -m riddance [option]
 ```
 
-## Options
+### Options
 
 | Option            | Description                                          |
 | :---              | :---                                                 |
