@@ -20,7 +20,7 @@
 
 import argparse
 
-from riddance.commands import check_compatibility, debloat_os, list_os_info
+from riddance.options import check_compatibility, debloat_os, list_os_info
 from riddance.version import __version__
 
 
