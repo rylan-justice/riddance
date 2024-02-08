@@ -5,13 +5,13 @@ Designed to remove bloatware and augment freedom
 ## Installation
 
 ```sh
-pip install riddance
+python -m pip install riddance
 ```
 
 ## Usage
 
 ```sh
-riddance [OPTION]
+python -m riddance [option]
 ```
 
 ## Options
