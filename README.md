@@ -10,7 +10,13 @@ pip install riddance
 
 ## Usage
 
-| Command           | Description                                          |
+```sh
+riddance [OPTION]
+```
+
+## Options
+
+| Option            | Description                                          |
 | :---              | :---                                                 |
 | `-h`, `--help`    | display help                                         |
 | `-v`, `--version` | show version                                         |
