@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Privacy settings and descriptions for Fedora Linux (Workstation Edition) with GNOME."""
+"""Privacy schemas, settings, and descriptions for Fedora Linux (Workstation Edition) with GNOME."""
 
 privacy_schemas = [
     "org.gnome.desktop.privacy",
