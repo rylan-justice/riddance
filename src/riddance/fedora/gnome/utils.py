@@ -37,15 +37,15 @@ def delete_firefox_config():
     shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
 
 
-def remove_dependencies():
+def remove_unneeded_dependencies():
     """Remove unneeded package dependencies."""
 
     subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)
     output_message("Removed unneeded package dependencies")
 
 
-def set_file_hist_dur():
-    """Set file history duration to zero."""
+def disable_file_history_duration():
+    """Disable file history duration."""
 
     subprocess.run(
         [
@@ -59,8 +59,9 @@ def set_file_hist_dur():
     )
 
 
-def set_delete_period():
-    """Set temporary files and trash content delete period to one hour."""
+def set_automatic_deletion_period():
+    """Set the automatic deletion period for temporary files and
+    trash content to one hour."""
 
     subprocess.run(
         ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
