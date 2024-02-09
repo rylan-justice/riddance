@@ -48,7 +48,7 @@ if platform.system() == "Linux":
 
 
 def remove_packages_def():
-    """Default option for remove_packages()."""
+    """'Y'es option for remove_packages()."""
 
     removed_firefox = False
     removed_package = False
@@ -72,7 +72,7 @@ def remove_packages_def():
 
 
 def remove_packages_all():
-    """All option for remove_packages()."""
+    """'a'll option for remove_packages()."""
 
     for package in packages.items():
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
@@ -96,7 +96,7 @@ def remove_packages():
         remove_packages_all()
 
     elif package_removal.startswith("n"):
-        pass
+        enhance_privacy()
 
     else:
         error_message(f"invalid response: '{package_removal}'")
@@ -104,7 +104,7 @@ def remove_packages():
 
 
 def enhance_privacy_def():
-    """Default option for enhance_privacy()."""
+    """'Y'es option for enhance_privacy()."""
 
     for privacy_setting in privacy_settings:
         privacy_description = privacy_descriptions[privacy_setting[1]]
@@ -146,7 +146,7 @@ def enhance_privacy_def():
 
 
 def enhance_privacy_all():
-    """."""
+    """'a'll option for enhance_privacy()."""
 
     for privacy_setting in privacy_settings:
         subprocess.run(["gsettings", "set", *privacy_setting], check=False)
@@ -169,7 +169,7 @@ def enhance_privacy_all():
 
 
 def enhance_privacy_reset():
-    """."""
+    """'r'eset option for enhance_privacy()."""
 
     for privacy_schema in privacy_schemas:
         subprocess.run(["gsettings", "reset-recursively", privacy_schema], check=False)
@@ -194,7 +194,7 @@ def enhance_privacy():
         enhance_privacy_reset()
 
     elif privacy_enhancement.startswith("n"):
-        pass
+        reboot_os()
 
     else:
         error_message(f"invalid response: '{privacy_enhancement}'")
