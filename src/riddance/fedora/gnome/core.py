@@ -75,7 +75,7 @@ def remove_packages_def():
 def remove_packages_all():
     """'a'll option for remove_packages()."""
 
-    for package in packages.items():
+    for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
     delete_firefox_config()
