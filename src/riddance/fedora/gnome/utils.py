@@ -37,7 +37,7 @@ def delete_firefox_config():
     shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
 
 
-def remove_unneeded_dependencies():
+def remove_dependencies():
     """Remove unneeded package dependencies."""
 
     subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)

@@ -22,7 +22,6 @@
 
 import platform
 import subprocess
-import sys
 
 from riddance.fedora.gnome.packages import packages_38_we, packages_39_we
 from riddance.fedora.gnome.privacy import (
@@ -32,7 +31,7 @@ from riddance.fedora.gnome.privacy import (
 )
 from riddance.fedora.gnome.utils import (
     delete_firefox_config,
-    remove_unneeded_dependencies,
+    remove_dependencies,
     set_delete_period,
     set_file_hist_dur,
     shred_bash_history,
@@ -70,7 +69,7 @@ def remove_packages_def():
         delete_firefox_config()
 
     if removed_package:
-        remove_unneeded_dependencies()
+        remove_dependencies()
 
 
 def remove_packages_all():
@@ -81,7 +80,7 @@ def remove_packages_all():
 
     delete_firefox_config()
 
-    remove_unneeded_dependencies()
+    remove_dependencies()
 
 
 def remove_packages():
@@ -98,7 +97,7 @@ def remove_packages():
         remove_packages_all()
 
     elif package_removal.startswith("n"):
-        enhance_privacy()
+        pass
 
     else:
         error_message(f"invalid response: '{package_removal}'")
@@ -177,7 +176,7 @@ def enhance_privacy():
         enhance_privacy_reset()
 
     elif privacy_enhancement.startswith("n"):
-        reboot_os()
+        pass
 
     else:
         error_message(f"invalid response: '{privacy_enhancement}'")
@@ -193,7 +192,7 @@ def reboot_os():
         subprocess.run(["reboot"], check=False)
 
     elif reboot.startswith("n"):
-        sys.exit()
+        pass
 
     else:
         error_message(f"invalid response: '{reboot}'")
