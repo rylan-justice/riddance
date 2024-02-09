@@ -37,6 +37,50 @@ from riddance.fedora.gnome.utils import (
 )
 from riddance.utils import error_message, output_message, prompt_message
 
+if platform.system() == "Linux":
+    distro_version = platform.freedesktop_os_release()["VERSION"]
+
+    if distro_version == "38 (Workstation Edition)":
+        packages = packages_38_we
+
+    elif distro_version == "39 (Workstation Edition)":
+        packages = packages_39_we
+
+
+def remove_packages_def():
+    """Default option for remove_packages()."""
+
+    removed_firefox = False
+    removed_package = False
+
+    for package, name in packages.items():
+        distinct_package = prompt_message(f"Would you like to remove {name}? [y/N]:")
+
+        if distinct_package.startswith("y"):
+            subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+
+            if name == "Firefox":
+                removed_firefox = True
+
+            removed_package = True
+
+    if removed_firefox:
+        delete_firefox_config()
+
+    if removed_package:
+        remove_unneeded_dependencies()
+
+
+def remove_packages_all():
+    """All option for remove_packages()."""
+
+    for package in packages.items():
+        subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+
+    delete_firefox_config()
+
+    remove_unneeded_dependencies()
+
 
 def remove_packages():
     """Remove pre-installed packages."""
@@ -46,43 +90,10 @@ def remove_packages():
     )
 
     if package_removal == "" or package_removal.startswith("y"):
-        distro_version = platform.freedesktop_os_release()["VERSION"]
-
-        if distro_version == "38 (Workstation Edition)":
-            packages = packages_38_we
-
-        elif distro_version == "39 (Workstation Edition)":
-            packages = packages_39_we
-
-        removed_firefox = False
-        removed_package = False
-
-        for package, name in packages.items():
-            distinct_package = prompt_message(
-                f"Would you like to remove {name}? [y/N]:"
-            )
-
-            if distinct_package.startswith("y"):
-                subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
-
-                if name == "Firefox":
-                    removed_firefox = True
-
-                removed_package = True
-
-        if removed_firefox:
-            delete_firefox_config()
-
-        if removed_package:
-            remove_unneeded_dependencies()
+        remove_packages_def()
 
     elif package_removal.startswith("a"):
-        for package, name in packages.items():
-            subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
-
-        delete_firefox_config()
-
-        remove_unneeded_dependencies()
+        remove_packages_all()
 
     elif package_removal.startswith("n"):
         pass
@@ -92,60 +103,56 @@ def remove_packages():
         remove_packages()
 
 
-def enhance_privacy():
-    """Enhance operating system privacy."""
+def enhance_privacy_def():
+    """Default option for enhance_privacy()."""
 
-    privacy_enhancement = prompt_message(
-        "Would you like to enhance operating system privacy? [Y/a/r/n]:"
-    )
+    for privacy_setting in privacy_settings:
+        privacy_description = privacy_descriptions[privacy_setting[1]]
 
-    if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-        for privacy_setting in privacy_settings:
-            privacy_description = privacy_descriptions[privacy_setting[1]]
-
-            distinct_privacy_setting = prompt_message(
-                f"Would you like to {privacy_description}? [Y/n]:"
-            )
-
-            if distinct_privacy_setting == "" or distinct_privacy_setting.startswith(
-                "y"
-            ):
-                subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-
-                if privacy_setting[1] == "remember-recent-files":
-                    subprocess.run(
-                        [
-                            "gsettings",
-                            "set",
-                            privacy_schemas[0],
-                            "recent-files-max-age",
-                            "0",
-                        ],
-                        check=False,
-                    )
-
-                if privacy_setting[1] in [
-                    "remove-old-temp-files",
-                    "remove-old-trash-files",
-                ]:
-                    subprocess.run(
-                        ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
-                        check=False,
-                    )
-
-        bash_history_shredding = prompt_message(
-            "Would you like to shred Bash history? [y/N]:"
+        distinct_privacy_setting = prompt_message(
+            f"Would you like to {privacy_description}? [Y/n]:"
         )
 
-        if bash_history_shredding.startswith("y"):
-            shred_bash_history()
-
-    elif privacy_enhancement.startswith("a"):
-        for privacy_setting in privacy_settings:
+        if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
 
-            privacy_description = privacy_descriptions[privacy_setting[1]]
-            output_message(f"{privacy_description.capitalize()}")
+            if privacy_setting[1] == "remember-recent-files":
+                subprocess.run(
+                    [
+                        "gsettings",
+                        "set",
+                        privacy_schemas[0],
+                        "recent-files-max-age",
+                        "0",
+                    ],
+                    check=False,
+                )
+
+            if privacy_setting[1] in [
+                "remove-old-temp-files",
+                "remove-old-trash-files",
+            ]:
+                subprocess.run(
+                    ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
+                    check=False,
+                )
+
+    bash_history_shredding = prompt_message(
+        "Would you like to shred Bash history? [y/N]:"
+    )
+
+    if bash_history_shredding.startswith("y"):
+        shred_bash_history()
+
+
+def enhance_privacy_all():
+    """."""
+
+    for privacy_setting in privacy_settings:
+        subprocess.run(["gsettings", "set", *privacy_setting], check=False)
+
+        privacy_description = privacy_descriptions[privacy_setting[1]]
+        output_message(f"{privacy_description.capitalize()}")
 
         privacy_setting_extras = [
             "recent-files-max-age",
@@ -158,15 +165,33 @@ def enhance_privacy():
                 check=False,
             )
 
-        shred_bash_history()
+    shred_bash_history()
+
+
+def enhance_privacy_reset():
+    """."""
+
+    for privacy_schema in privacy_schemas:
+        subprocess.run(["gsettings", "reset-recursively", privacy_schema], check=False)
+
+    output_message("Reset privacy enhancements")
+
+
+def enhance_privacy():
+    """Enhance operating system privacy."""
+
+    privacy_enhancement = prompt_message(
+        "Would you like to enhance operating system privacy? [Y/a/r/n]:"
+    )
+
+    if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
+        enhance_privacy_def()
+
+    elif privacy_enhancement.startswith("a"):
+        enhance_privacy_all()
 
     elif privacy_enhancement.startswith("r"):
-        for privacy_schema in privacy_schemas:
-            subprocess.run(
-                ["gsettings", "reset-recursively", privacy_schema], check=False
-            )
-
-        output_message("Reset privacy enhancements")
+        enhance_privacy_reset()
 
     elif privacy_enhancement.startswith("n"):
         pass
