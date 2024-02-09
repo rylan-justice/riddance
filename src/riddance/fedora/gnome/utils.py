@@ -25,6 +25,7 @@ import os
 import shutil
 import subprocess
 
+from riddance.fedora.gnome.privacy import privacy_schemas
 from riddance.utils import output_message
 
 username = getpass.getuser()
@@ -41,6 +42,30 @@ def remove_unneeded_dependencies():
 
     subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)
     output_message("Removed unneeded package dependencies")
+
+
+def set_file_hist_dur():
+    """Set file history duration to zero."""
+
+    subprocess.run(
+        [
+            "gsettings",
+            "set",
+            privacy_schemas[0],
+            "recent-files-max-age",
+            "0",
+        ],
+        check=False,
+    )
+
+
+def set_delete_period():
+    """Set temporary files and trash content delete period to one hour."""
+
+    subprocess.run(
+        ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
+        check=False,
+    )
 
 
 def shred_bash_history():
