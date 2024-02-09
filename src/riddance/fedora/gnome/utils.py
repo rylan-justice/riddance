@@ -22,13 +22,29 @@
 
 import getpass
 import os
+import platform
 import shutil
 import subprocess
 
+from riddance.fedora.gnome.packages import packages_38_we, packages_39_we
 from riddance.fedora.gnome.privacy import privacy_schemas
 from riddance.utils import output_message
 
 username = getpass.getuser()
+
+
+def get_fedora_version():
+    """Retreive the version of Fedora Linux."""
+
+    distro_version = platform.freedesktop_os_release()["VERSION"]
+
+    if distro_version == "38 (Workstation Edition)":
+        packages = packages_38_we
+
+    elif distro_version == "39 (Workstation Edition)":
+        packages = packages_39_we
+
+    return packages
 
 
 def delete_firefox_config():

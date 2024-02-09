@@ -20,10 +20,8 @@
 
 """Core module for Fedora Linux (Workstation Edition) with GNOME."""
 
-import platform
 import subprocess
 
-from riddance.fedora.gnome.packages import packages_38_we, packages_39_we
 from riddance.fedora.gnome.privacy import (
     privacy_descriptions,
     privacy_schemas,
@@ -32,24 +30,18 @@ from riddance.fedora.gnome.privacy import (
 from riddance.fedora.gnome.utils import (
     delete_firefox_config,
     disable_file_history_duration,
+    get_fedora_version,
     remove_unneeded_dependencies,
     set_automatic_deletion_period,
     shred_bash_history,
 )
 from riddance.utils import error_message, output_message, prompt_message
 
-if platform.system() == "Linux":
-    distro_version = platform.freedesktop_os_release()["VERSION"]
 
-    if distro_version == "38 (Workstation Edition)":
-        packages = packages_38_we
-
-    elif distro_version == "39 (Workstation Edition)":
-        packages = packages_39_we
-
-
-def remove_packages_def():
+def remove_packages_yes():
     """'Y'es option for remove_packages()."""
+
+    packages = get_fedora_version()
 
     removed_firefox = False
     removed_package = False
@@ -75,6 +67,8 @@ def remove_packages_def():
 def remove_packages_all():
     """'a'll option for remove_packages()."""
 
+    packages = get_fedora_version()
+
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
@@ -91,7 +85,7 @@ def remove_packages():
     )
 
     if package_removal == "" or package_removal.startswith("y"):
-        remove_packages_def()
+        remove_packages_yes()
 
     elif package_removal.startswith("a"):
         remove_packages_all()
@@ -104,7 +98,7 @@ def remove_packages():
         remove_packages()
 
 
-def enhance_privacy_def():
+def enhance_privacy_yes():
     """'Y'es option for enhance_privacy()."""
 
     for privacy_setting in privacy_settings:
@@ -169,7 +163,7 @@ def enhance_privacy():
     )
 
     if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-        enhance_privacy_def()
+        enhance_privacy_yes()
 
     elif privacy_enhancement.startswith("a"):
         enhance_privacy_all()
