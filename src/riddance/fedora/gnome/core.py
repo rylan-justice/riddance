@@ -37,11 +37,11 @@ from riddance.fedora.gnome.utils import (
 )
 from riddance.utils import error_message, output_message, prompt_message
 
+packages = get_fedora_version()
+
 
 def remove_packages_yes():
     """'Y'es option for remove_packages()."""
-
-    packages = get_fedora_version()
 
     removed_firefox = False
     removed_package = False
@@ -66,8 +66,6 @@ def remove_packages_yes():
 
 def remove_packages_all():
     """'a'll option for remove_packages()."""
-
-    packages = get_fedora_version()
 
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
