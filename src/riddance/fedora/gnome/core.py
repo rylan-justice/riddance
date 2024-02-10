@@ -177,19 +177,3 @@ def enhance_privacy():
     else:
         error_message(f"invalid response: '{privacy_enhancement}'")
         enhance_privacy()
-
-
-def reboot_os():
-    """Reboot operating system."""
-
-    reboot = prompt_message("Would you like to reboot the operating system? [Y/n]:")
-
-    if reboot == "" or reboot.startswith("y"):
-        subprocess.run(["reboot"], check=False)
-
-    elif reboot.startswith("n"):
-        pass
-
-    else:
-        error_message(f"invalid response: '{reboot}'")
-        reboot_os()
