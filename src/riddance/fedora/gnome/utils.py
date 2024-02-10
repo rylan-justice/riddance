@@ -47,7 +47,7 @@ def get_fedora_version():
     return packages
 
 
-def delete_firefox_config():
+def del_firefox_config():
     """Delete Firefox configuration."""
 
     shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
@@ -60,7 +60,7 @@ def remove_unneeded_dependencies():
     output_message("Removed unneeded package dependencies")
 
 
-def disable_file_history_duration():
+def dis_file_history_dur():
     """Disable file history duration."""
 
     subprocess.run(
@@ -75,7 +75,7 @@ def disable_file_history_duration():
     )
 
 
-def set_automatic_deletion_period():
+def set_auto_deletion_period():
     """Set the automatic deletion period for temporary files and
     trash content to one hour."""
 

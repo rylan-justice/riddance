@@ -28,11 +28,11 @@ from riddance.fedora.gnome.privacy import (
     privacy_settings,
 )
 from riddance.fedora.gnome.utils import (
-    delete_firefox_config,
-    disable_file_history_duration,
+    del_firefox_config,
+    dis_file_history_dur,
     get_fedora_version,
     remove_unneeded_dependencies,
-    set_automatic_deletion_period,
+    set_auto_deletion_period,
     shred_bash_history,
 )
 from riddance.utils import error_message, output_message, prompt_message
@@ -58,7 +58,7 @@ def remove_packages_yes():
             removed_package = True
 
     if removed_firefox:
-        delete_firefox_config()
+        del_firefox_config()
 
     if removed_package:
         remove_unneeded_dependencies()
@@ -70,7 +70,7 @@ def remove_packages_all():
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
-    delete_firefox_config()
+    del_firefox_config()
 
     remove_unneeded_dependencies()
 
@@ -112,13 +112,13 @@ def enhance_privacy_yes():
             output_message(f"{privacy_description.capitalize()}")
 
             if privacy_setting[1] == "remember-recent-files":
-                disable_file_history_duration()
+                dis_file_history_dur()
 
             if privacy_setting[1] in [
                 "remove-old-temp-files",
                 "remove-old-trash-files",
             ]:
-                set_automatic_deletion_period()
+                set_auto_deletion_period()
 
     bash_history_shredding = prompt_message(
         "Would you like to shred Bash history? [y/N]:"
@@ -137,9 +137,9 @@ def enhance_privacy_all():
         privacy_description = privacy_descriptions[privacy_setting[1]]
         output_message(f"{privacy_description.capitalize()}")
 
-    disable_file_history_duration()
+    dis_file_history_dur()
 
-    set_automatic_deletion_period()
+    set_auto_deletion_period()
 
     shred_bash_history()
 
