@@ -20,7 +20,6 @@
 
 import os
 import platform
-import sys
 
 from riddance.os.fedora import debloat_fl_we_gnome
 from riddance.utils import error_message
@@ -53,6 +52,6 @@ def debloat_linux():
     except KeyError:
         if os.geteuid() == 0:
             error_message("'-d, --debloat' cannot be run as root")
-            sys.exit()
 
+    else:
         error_message("riddance is incompatible with your desktop environment")
