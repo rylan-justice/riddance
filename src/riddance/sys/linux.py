@@ -34,6 +34,9 @@ def debloat_fedora_linux(distro_version, desktop_environment):
     ):
         debloat_fl_we_gnome()
 
+    else:
+        error_message(f"riddance is incompatible with {desktop_environment}")
+
 
 def debloat_linux():
     """Debloat a compatible Linux distribution."""
@@ -41,7 +44,6 @@ def debloat_linux():
     if os.geteuid() != 0:
         try:
             distro_version = platform.freedesktop_os_release()["VERSION"]
-
             desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
 
             debloat_fedora_linux(distro_version, desktop_environment)
