@@ -38,16 +38,16 @@ def debloat_fedora_linux(distro_version, desktop_environment):
 def debloat_linux():
     """Debloat a compatible Linux distribution."""
 
-    try:
-        distro_version = platform.freedesktop_os_release()["VERSION"]
+    if os.geteuid() != 0:
+        try:
+            distro_version = platform.freedesktop_os_release()["VERSION"]
 
-        desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
+            desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
 
-        debloat_fedora_linux(distro_version, desktop_environment)
+            debloat_fedora_linux(distro_version, desktop_environment)
 
-    except KeyError:
-        if os.geteuid() == 0:
-            error_message("'-d, --debloat' cannot be run as root")
+        except KeyError:
+            error_message("riddance is incompatible with your desktop environment")
 
     else:
-        error_message("riddance is incompatible with your desktop environment")
+        error_message("'-d, --debloat' cannot be run as root")
