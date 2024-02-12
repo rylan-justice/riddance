@@ -40,7 +40,7 @@ from riddance.utils import error_message, output_message, prompt_message
 packages = get_fedora_linux_version()
 
 
-def remove_packages_yes():
+def remove_packages_yes_option():
     """'Y'es option for remove_packages()."""
 
     removed_firefox = False
@@ -64,7 +64,7 @@ def remove_packages_yes():
         remove_unneeded_dependencies()
 
 
-def remove_packages_all():
+def remove_packages_all_option():
     """'a'll option for remove_packages()."""
 
     for package in packages:
@@ -83,10 +83,10 @@ def remove_packages():
     )
 
     if package_removal == "" or package_removal.startswith("y"):
-        remove_packages_yes()
+        remove_packages_yes_option()
 
     elif package_removal.startswith("a"):
-        remove_packages_all()
+        remove_packages_all_option()
 
     elif package_removal.startswith("n"):
         pass
@@ -96,7 +96,7 @@ def remove_packages():
         remove_packages()
 
 
-def enhance_privacy_yes():
+def enhance_privacy_yes_option():
     """'Y'es option for enhance_privacy()."""
 
     for privacy_setting in privacy_settings:
@@ -128,7 +128,7 @@ def enhance_privacy_yes():
         shred_bash_history()
 
 
-def enhance_privacy_all():
+def enhance_privacy_all_option():
     """'a'll option for enhance_privacy()."""
 
     for privacy_setting in privacy_settings:
@@ -144,7 +144,7 @@ def enhance_privacy_all():
     shred_bash_history()
 
 
-def enhance_privacy_reset():
+def enhance_privacy_reset_option():
     """'r'eset option for enhance_privacy()."""
 
     for privacy_schema in privacy_schemas:
@@ -161,13 +161,13 @@ def enhance_privacy():
     )
 
     if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-        enhance_privacy_yes()
+        enhance_privacy_yes_option()
 
     elif privacy_enhancement.startswith("a"):
-        enhance_privacy_all()
+        enhance_privacy_all_option()
 
     elif privacy_enhancement.startswith("r"):
-        enhance_privacy_reset()
+        enhance_privacy_reset_option()
 
     elif privacy_enhancement.startswith("n"):
         pass

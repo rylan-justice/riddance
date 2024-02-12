@@ -34,7 +34,7 @@ username = getpass.getuser()
 
 
 def get_fedora_linux_version():
-    """Retrieve the version of Fedora Linux."""
+    """Get the version of Fedora Linux."""
 
     distro_version = platform.freedesktop_os_release()["VERSION"]
 
