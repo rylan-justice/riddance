@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Core module for Fedora Linux (Workstation Edition) with GNOME."""
+"""Core module for Fedora Linux Workstation Edition with GNOME."""
 
 import subprocess
 
