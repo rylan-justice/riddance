@@ -35,7 +35,9 @@ def debloat_fedora_linux(distro_version, desktop_environment):
         debloat_fl_we_gnome()
 
     else:
-        error_message(f"riddance is incompatible with {desktop_environment}")
+        error_message(
+            f"riddance is incompatible with Fedora Linux {distro_version} with {desktop_environment}"
+        )
 
 
 def debloat_linux():
