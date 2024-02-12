@@ -28,16 +28,16 @@ from riddance.fedora.gnome.privacy import (
     privacy_settings,
 )
 from riddance.fedora.gnome.utils import (
-    del_firefox_config,
-    dis_file_history_dur,
-    get_fedora_version,
+    delete_firefox_configuration,
+    disable_file_history_duration,
+    get_fedora_linux_version,
     remove_unneeded_dependencies,
     set_auto_deletion_period,
     shred_bash_history,
 )
 from riddance.utils import error_message, output_message, prompt_message
 
-packages = get_fedora_version()
+packages = get_fedora_linux_version()
 
 
 def remove_packages_yes():
@@ -58,7 +58,7 @@ def remove_packages_yes():
             removed_package = True
 
     if removed_firefox:
-        del_firefox_config()
+        delete_firefox_configuration()
 
     if removed_package:
         remove_unneeded_dependencies()
@@ -70,7 +70,7 @@ def remove_packages_all():
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
-    del_firefox_config()
+    delete_firefox_configuration()
 
     remove_unneeded_dependencies()
 
@@ -112,7 +112,7 @@ def enhance_privacy_yes():
             output_message(f"{privacy_description.capitalize()}")
 
             if privacy_setting[1] == "remember-recent-files":
-                dis_file_history_dur()
+                disable_file_history_duration()
 
             if privacy_setting[1] in [
                 "remove-old-temp-files",
@@ -137,7 +137,7 @@ def enhance_privacy_all():
         privacy_description = privacy_descriptions[privacy_setting[1]]
         output_message(f"{privacy_description.capitalize()}")
 
-    dis_file_history_dur()
+    disable_file_history_duration()
 
     set_auto_deletion_period()
 

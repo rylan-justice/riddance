@@ -33,7 +33,7 @@ from riddance.utils import output_message
 username = getpass.getuser()
 
 
-def get_fedora_version():
+def get_fedora_linux_version():
     """Retrieve the version of Fedora Linux."""
 
     distro_version = platform.freedesktop_os_release()["VERSION"]
@@ -47,7 +47,7 @@ def get_fedora_version():
     return packages
 
 
-def del_firefox_config():
+def delete_firefox_configuration():
     """Delete Firefox configuration."""
 
     shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
@@ -60,7 +60,7 @@ def remove_unneeded_dependencies():
     output_message("Removed unneeded package dependencies")
 
 
-def dis_file_history_dur():
+def disable_file_history_duration():
     """Disable file history duration."""
 
     subprocess.run(
@@ -75,7 +75,7 @@ def dis_file_history_dur():
     )
 
 
-def set_auto_deletion_period():
+def set_automatic_deletion_period():
     """Set the automatic deletion period for temporary files and
     trash content to one hour."""
 

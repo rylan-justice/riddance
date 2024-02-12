@@ -29,7 +29,6 @@ privacy_schemas = [
 privacy_settings = [
     [privacy_schemas[0], "disable-camera", "true"],
     [privacy_schemas[0], "disable-microphone", "true"],
-    [privacy_schemas[0], "disable-sound-output", "true"],
     [privacy_schemas[0], "remember-recent-files", "false"],
     [privacy_schemas[0], "remove-old-temp-files", "true"],
     [privacy_schemas[0], "remove-old-trash-files", "true"],
@@ -41,11 +40,10 @@ privacy_settings = [
 privacy_descriptions = {
     "disable-camera": "disable camera access",
     "disable-microphone": "disable microphone access",
-    "disable-sound-output": "disable sound output",
     "enabled": "disable location services",
     "remember-recent-files": "disable file history",
     "remove-old-temp-files": "automatically delete temporary files",
     "remove-old-trash-files": "automatically delete trash content",
     "report-technical-problems": "disable automatic problem reporting",
-    "whitelisted-providers": "disable online account services",
+    "whitelisted-providers": "disable online accounts",
 }
