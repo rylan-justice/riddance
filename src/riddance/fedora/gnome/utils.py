@@ -64,13 +64,7 @@ def disable_file_history_duration():
     """Disable file history duration."""
 
     subprocess.run(
-        [
-            "gsettings",
-            "set",
-            privacy_schemas[0],
-            "recent-files-max-age",
-            "0",
-        ],
+        ["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"],
         check=False,
     )
 
