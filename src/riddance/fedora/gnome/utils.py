@@ -33,7 +33,7 @@ from riddance.utils import output_message
 username = getpass.getuser()
 
 
-def get_fedora_linux_version():
+def get_fedora_linux_version():  # XXX: Rename module (packages)
     """Get the version of Fedora Linux."""
 
     distro_version = platform.freedesktop_os_release()["VERSION"]
