@@ -32,7 +32,7 @@ from riddance.fedora.gnome.utils import (
     disable_file_history_duration,
     get_fedora_linux_version,
     remove_unneeded_dependencies,
-    set_auto_deletion_period,
+    set_automatic_deletion_period,
     shred_bash_history,
 )
 from riddance.utils import error_message, output_message, prompt_message
@@ -118,7 +118,7 @@ def enhance_privacy_yes():
                 "remove-old-temp-files",
                 "remove-old-trash-files",
             ]:
-                set_auto_deletion_period()
+                set_automatic_deletion_period()
 
     bash_history_shredding = prompt_message(
         "Would you like to shred Bash history? [y/N]:"
@@ -139,7 +139,7 @@ def enhance_privacy_all():
 
     disable_file_history_duration()
 
-    set_auto_deletion_period()
+    set_automatic_deletion_period()
 
     shred_bash_history()
 
