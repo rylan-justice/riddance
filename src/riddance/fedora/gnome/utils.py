@@ -39,12 +39,12 @@ def get_package_version():
     distro_version = platform.freedesktop_os_release()["VERSION"]
 
     if distro_version == "38 (Workstation Edition)":
-        packages = packages_38_we
+        return packages_38_we
 
-    elif distro_version == "39 (Workstation Edition)":
-        packages = packages_39_we
+    if distro_version == "39 (Workstation Edition)":
+        return packages_39_we
 
-    return packages
+    return None
 
 
 def delete_firefox_configuration():
