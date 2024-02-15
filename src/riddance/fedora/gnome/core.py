@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-import sys
-
 from riddance.fedora.gnome.options import (
     enhance_privacy_all_option,
     enhance_privacy_reset_option,
@@ -68,7 +66,7 @@ def enhance_privacy():
         enhance_privacy_reset_option()
 
     elif privacy_enhancement.startswith("n"):
-        sys.exit()
+        pass
 
     else:
         error_message(f"invalid response: '{privacy_enhancement}'")
