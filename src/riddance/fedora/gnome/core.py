@@ -44,7 +44,7 @@ def remove_packages():
         remove_packages_all_option()
 
     elif package_removal.startswith("n"):
-        enhance_privacy()
+        pass
 
     else:
         error_message(f"invalid response: '{package_removal}'")
