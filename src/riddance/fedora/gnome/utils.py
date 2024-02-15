@@ -33,8 +33,8 @@ from riddance.utils import output_message
 username = getpass.getuser()
 
 
-def get_fedora_linux_version():  # XXX: Rename module (packages)
-    """Get the version of Fedora Linux."""
+def get_package_version():
+    """Get package version for Fedora Linux Workstation Edition with GNOME."""
 
     distro_version = platform.freedesktop_os_release()["VERSION"]
 
@@ -70,8 +70,7 @@ def disable_file_history_duration():
 
 
 def set_automatic_deletion_period():
-    """Set the automatic deletion period for temporary files and
-    trash content to one hour."""
+    """Set automatic deletion period for temporary files and trash content to one hour."""
 
     subprocess.run(
         ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],

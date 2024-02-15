@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""."""
-
 import subprocess
 
 from riddance.fedora.gnome.privacy import (
@@ -30,14 +28,14 @@ from riddance.fedora.gnome.privacy import (
 from riddance.fedora.gnome.utils import (
     delete_firefox_configuration,
     disable_file_history_duration,
-    get_fedora_linux_version,
+    get_package_version,
     remove_unneeded_dependencies,
     set_automatic_deletion_period,
     shred_bash_history,
 )
 from riddance.utils import output_message, prompt_message
 
-packages = get_fedora_linux_version()
+packages = get_package_version()
 
 
 def remove_packages_yes_option():

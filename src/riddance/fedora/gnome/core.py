@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Core module for Fedora Linux Workstation Edition with GNOME."""
-
 from riddance.fedora.gnome.options import (
     enhance_privacy_all_option,
     enhance_privacy_reset_option,
