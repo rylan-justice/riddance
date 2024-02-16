@@ -23,48 +23,48 @@ import argparse
 from riddance.options import check_compatibility, debloat_os, list_os_info
 from riddance.version import __version__
 
+parser = argparse.ArgumentParser(
+    prog="riddance",
+    description="Designed to remove bloatware and augment freedom",
+    add_help=False,
+)
+
+parser.add_argument(
+    "-h",
+    "--help",
+    action="help",
+    help="display help",
+)
+parser.add_argument(
+    "-v",
+    "--version",
+    action="version",
+    help="show version",
+    version=f"{parser.prog} {__version__}",
+)
+parser.add_argument(
+    "-l",
+    "--list",
+    action="store_true",
+    help="list compatible operating systems and their versions",
+)
+parser.add_argument(
+    "-c",
+    "--check",
+    action="store_true",
+    help="check operating system and version compatibility",
+)
+parser.add_argument(
+    "-d",
+    "--debloat",
+    action="store_true",
+    help="debloat a compatible operating system",
+)
+
+args = parser.parse_args()
+
 
 def main():
-    parser = argparse.ArgumentParser(
-        prog="riddance",
-        description="Designed to remove bloatware and augment freedom",
-        add_help=False,
-    )
-
-    parser.add_argument(
-        "-h",
-        "--help",
-        action="help",
-        help="display help",
-    )
-    parser.add_argument(
-        "-v",
-        "--version",
-        action="version",
-        help="show version",
-        version=f"{parser.prog} {__version__}",
-    )
-    parser.add_argument(
-        "-l",
-        "--list",
-        action="store_true",
-        help="list compatible operating systems and their versions",
-    )
-    parser.add_argument(
-        "-c",
-        "--check",
-        action="store_true",
-        help="check operating system and version compatibility",
-    )
-    parser.add_argument(
-        "-d",
-        "--debloat",
-        action="store_true",
-        help="debloat a compatible operating system",
-    )
-
-    args = parser.parse_args()
-
     if args.list:
         list_os_info()
 

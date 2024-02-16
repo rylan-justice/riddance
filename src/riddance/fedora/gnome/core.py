@@ -31,43 +31,46 @@ from riddance.utils import error_message, prompt_message
 def remove_packages():
     """Remove pre-installed packages."""
 
-    package_removal = prompt_message(
-        "Would you like to remove pre-installed packages? [Y/a/n]:"
-    )
+    while True:
+        package_removal = prompt_message(
+            "Would you like to remove pre-installed packages? [Y/a/n]:"
+        )
 
-    if package_removal == "" or package_removal.startswith("y"):
-        remove_packages_yes_option()
+        if package_removal == "" or package_removal.startswith("y"):
+            remove_packages_yes_option()
+            break
 
-    elif package_removal.startswith("a"):
-        remove_packages_all_option()
+        if package_removal.startswith("a"):
+            remove_packages_all_option()
+            break
 
-    elif package_removal.startswith("n"):
-        pass
+        if package_removal.startswith("n"):
+            break
 
-    else:
         error_message(f"invalid response: '{package_removal}'")
-        remove_packages()
 
 
 def enhance_privacy():
     """Enhance operating system privacy."""
 
-    privacy_enhancement = prompt_message(
-        "Would you like to enhance operating system privacy? [Y/a/r/n]:"
-    )
+    while True:
+        privacy_enhancement = prompt_message(
+            "Would you like to enhance operating system privacy? [Y/a/r/n]:"
+        )
 
-    if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-        enhance_privacy_yes_option()
+        if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
+            enhance_privacy_yes_option()
+            break
 
-    elif privacy_enhancement.startswith("a"):
-        enhance_privacy_all_option()
+        if privacy_enhancement.startswith("a"):
+            enhance_privacy_all_option()
+            break
 
-    elif privacy_enhancement.startswith("r"):
-        enhance_privacy_reset_option()
+        if privacy_enhancement.startswith("r"):
+            enhance_privacy_reset_option()
+            break
 
-    elif privacy_enhancement.startswith("n"):
-        pass
+        if privacy_enhancement.startswith("n"):
+            break
 
-    else:
         error_message(f"invalid response: '{privacy_enhancement}'")
-        enhance_privacy()
