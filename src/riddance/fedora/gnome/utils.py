@@ -36,15 +36,13 @@ username = getpass.getuser()
 def get_package_version():
     """Get package version for Fedora Linux Workstation Edition with GNOME."""
 
+    distro_versions = {
+        "38 (Workstation Edition)": packages_38_we,
+        "39 (Workstation Edition)": packages_39_we,
+    }
+
     distro_version = platform.freedesktop_os_release()["VERSION"]
-
-    if distro_version == "38 (Workstation Edition)":
-        return packages_38_we
-
-    if distro_version == "39 (Workstation Edition)":
-        return packages_39_we
-
-    return None
+    return distro_versions[distro_version]
 
 
 def delete_firefox_configuration():
