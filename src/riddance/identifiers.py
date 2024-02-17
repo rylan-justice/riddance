@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Compatible operating systems and versions."""
+"""Compatible operating systems and their versions."""
 
 os_info = {
     "Linux": {
