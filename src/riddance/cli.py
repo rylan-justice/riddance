@@ -19,6 +19,7 @@
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
 import argparse
+import sys
 
 from riddance import __version__
 from riddance.options import check_compatibility, debloat_os, list_os_info
@@ -72,7 +73,11 @@ def main():
         check_compatibility()
 
     elif args.debloat:
-        debloat_os()
+        try:
+            debloat_os()
+
+        except (EOFError, KeyboardInterrupt):
+            sys.exit()
 
     else:
         parser.print_help()

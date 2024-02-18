@@ -49,7 +49,7 @@ def get_distro_info():
 
     distro_info = platform.freedesktop_os_release()
 
-    return distro_info.get("NAME"), distro_info.get("VERSION")
+    return distro_info["NAME"], distro_info["VERSION"]
 
 
 def check_compatibility():
@@ -75,7 +75,7 @@ def check_compatibility():
                     f"incompatible: {distro_name} {distro_version}", newline=False
                 )
 
-        except OSError:
+        except (OSError, KeyError):
             error_message("incompatible: Linux distribution", newline=False)
 
     else:
