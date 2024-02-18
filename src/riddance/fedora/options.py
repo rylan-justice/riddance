@@ -20,12 +20,12 @@
 
 import subprocess
 
-from riddance.fedora.gnome.privacy import (
+from riddance.fedora.privacy import (
     privacy_descriptions,
     privacy_schemas,
     privacy_settings,
 )
-from riddance.fedora.gnome.utils import (
+from riddance.fedora.utils import (
     delete_firefox_configuration,
     disable_file_history_duration,
     get_package_version,

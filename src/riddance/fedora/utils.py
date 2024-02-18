@@ -26,8 +26,8 @@ import platform
 import shutil
 import subprocess
 
-from riddance.fedora.gnome.packages import packages_38_we, packages_39_we
-from riddance.fedora.gnome.privacy import privacy_schemas
+from riddance.fedora.packages import packages_38_we, packages_39_we
+from riddance.fedora.privacy import privacy_schemas
 from riddance.utils import output_message
 
 username = getpass.getuser()
