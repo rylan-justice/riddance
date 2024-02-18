@@ -67,25 +67,19 @@ def check_compatibility():
             ):
                 sys_compatible[sys_name] = True
                 output_message(
-                    f"riddance is compatible with {distro_name} {distro_version}",
-                    newline=False,
+                    f"compatible: {distro_name} {distro_version}", newline=False
                 )
 
             else:
                 error_message(
-                    f"riddance is incompatible with {distro_name} {distro_version}",
-                    newline=False,
+                    f"incompatible: {distro_name} {distro_version}", newline=False
                 )
 
         except OSError:
-            error_message(
-                "riddance is incompatible with your Linux distribution", newline=False
-            )
+            error_message("incompatible: Linux distribution", newline=False)
 
     else:
-        error_message(
-            f"riddance is incompatible with {sys_name} {sys_version}", newline=False
-        )
+        error_message(f"incompatible: {sys_name} {sys_version}", newline=False)
 
 
 def debloat_os():

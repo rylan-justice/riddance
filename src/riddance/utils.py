@@ -39,4 +39,4 @@ def output_message(message, newline=True):
     """Display an output message."""
 
     end = "\n" if newline else ""
-    print(f"{end}{message}")
+    print(f"{end}info: {message}")
