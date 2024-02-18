@@ -36,8 +36,7 @@ def debloat_fedora_linux(distro_version, desktop_environment):
 
     else:
         error_message(
-            "riddance is incompatible with Fedora Linux"
-            f" {distro_version} with {desktop_environment}"
+            f"incompatible: Fedora Linux {distro_version} with {desktop_environment}"
         )
 
 
@@ -52,7 +51,7 @@ def debloat_linux():
             debloat_fedora_linux(distro_version, desktop_environment)
 
         except KeyError:
-            error_message("riddance is incompatible with your desktop environment")
+            error_message("incompatible: desktop environment")
 
     else:
         error_message("'-d, --debloat' cannot be run as root")
