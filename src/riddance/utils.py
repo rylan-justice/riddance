@@ -35,7 +35,8 @@ def prompt_message(message):
     return prompt.strip().lower()
 
 
-def output_message(message):
+def output_message(message, newline=True):
     """Display an output message."""
 
-    print(f"\n{message}")
+    end = "\n" if newline else ""
+    print(f"{end}{message}")

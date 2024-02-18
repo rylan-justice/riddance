@@ -22,7 +22,7 @@ import platform
 
 from riddance.identifiers import os_info
 from riddance.sys.linux import debloat_linux
-from riddance.utils import error_message
+from riddance.utils import error_message, output_message
 
 sys_compatible = {"Linux": False}
 
@@ -61,7 +61,10 @@ def check_compatibility():
                 and distro_version in os_info[sys_name][distro_name]
             ):
                 sys_compatible[sys_name] = True
-                print(f"riddance is compatible with {distro_name} {distro_version}")
+                output_message(
+                    f"riddance is compatible with {distro_name} {distro_version}",
+                    newline=False,
+                )
 
             else:
                 error_message(
