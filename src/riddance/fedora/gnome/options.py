@@ -91,10 +91,10 @@ def enhance_privacy_yes_option():
             if privacy_setting[1] == "remember-recent-files":
                 disable_file_history_duration()
 
-            if privacy_setting[1] in [
+            if privacy_setting[1] in (
                 "remove-old-temp-files",
                 "remove-old-trash-files",
-            ]:
+            ):
                 set_automatic_deletion_period()
 
     bash_history_shredding = prompt_message(
