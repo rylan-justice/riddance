@@ -31,7 +31,7 @@ classifiers = [
 Repository = "https://github.com/rylan-justice/riddance"
 
 [tool.hatch.version]
-path = "src/riddance/version.py"
+path = "src/riddance/__init__.py"
 
 [tool.isort]
 profile = "black"

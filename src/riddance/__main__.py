@@ -18,13 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-import sys
-
 from riddance.cli import main
 
 if __name__ == "__main__":
-    try:
-        main()
-
-    except (EOFError, KeyboardInterrupt):
-        sys.exit()
+    main()
