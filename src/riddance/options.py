@@ -38,28 +38,15 @@ def list_os_info():
             print(f"  {os_name} {os_versions}")
 
 
-def get_sys_info():
-    """."""
-
-    return platform.system(), platform.release()
-
-
-def get_distro_info():
-    """."""
-
-    distro_info = platform.freedesktop_os_release()
-
-    return distro_info["NAME"], distro_info["VERSION"]
-
-
 def check_compatibility():
     """Check operating system and version compatibility."""
 
-    sys_name, sys_version = get_sys_info()
+    sys_name, sys_version = platform.system(), platform.release()
 
     if sys_name == "Linux":
         try:
-            distro_name, distro_version = get_distro_info()
+            distro_info = platform.freedesktop_os_release()
+            distro_name, distro_version = distro_info["NAME"], distro_info["VERSION"]
 
             if (
                 distro_name in os_info[sys_name]
