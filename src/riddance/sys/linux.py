@@ -30,29 +30,29 @@ def debloat_fedora_linux(distro_version, desktop_environment):
     """Debloat Fedora Linux."""
 
     if (
-        distro_version in os_info["Linux"]["Fedora Linux"]
-        and desktop_environment == "GNOME"
+        distro_version not in os_info["Linux"]["Fedora Linux"]
+        and desktop_environment != "GNOME"
     ):
-        debloat_fedora_linux_we_gnome()
-
-    else:
         error_message(
             f"incompatible: Fedora Linux {distro_version} with {desktop_environment}"
         )
+        return
+
+    debloat_fedora_linux_we_gnome()
 
 
 def debloat_linux():
     """Debloat a compatible Linux distribution."""
 
-    if os.geteuid() != 0:
-        try:
-            distro_version = platform.freedesktop_os_release()["VERSION"]
-            desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
-
-            debloat_fedora_linux(distro_version, desktop_environment)
-
-        except (OSError, KeyError):
-            error_message("incompatible: desktop environment")
-
-    else:
+    if os.geteuid() == 0:
         error_message("'-d, --debloat' cannot be run as root")
+        return
+
+    try:
+        distro_version = platform.freedesktop_os_release()["VERSION"]
+        desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
+
+        debloat_fedora_linux(distro_version, desktop_environment)
+
+    except (OSError, KeyError):
+        error_message("incompatible: desktop environment")
