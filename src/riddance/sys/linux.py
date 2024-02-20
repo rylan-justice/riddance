@@ -51,7 +51,7 @@ def debloat_linux():
 
             debloat_fedora_linux(distro_version, desktop_environment)
 
-        except KeyError:
+        except (OSError, KeyError):
             error_message("incompatible: desktop environment")
 
     else:
