@@ -22,6 +22,6 @@
 
 os_info = {
     "Linux": {
-        "Fedora Linux": ["38 (Workstation Edition)", "39 (Workstation Edition)"],
+        "Fedora Linux": ("38 (Workstation Edition)", "39 (Workstation Edition)"),
     }
 }
