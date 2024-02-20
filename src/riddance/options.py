@@ -41,7 +41,7 @@ def list_os_info():
 def check_compatibility():
     """Check operating system and version compatibility."""
 
-    sys_name, sys_version = platform.system(), platform.release()
+    sys_name = platform.system()
 
     if sys_name == "Linux":
         try:
@@ -66,7 +66,7 @@ def check_compatibility():
             error_message("incompatible: Linux distribution", newline=False)
 
     else:
-        error_message(f"incompatible: {sys_name} {sys_version}", newline=False)
+        error_message(f"incompatible: {sys_name} {platform.release()}", newline=False)
 
 
 def debloat_os():
