@@ -22,7 +22,7 @@ import os
 import platform
 
 from riddance.identifiers import os_info
-from riddance.os.fedora import debloat_fl_we_gnome
+from riddance.os.fedora import debloat_fedora_linux_we_gnome
 from riddance.utils import error_message
 
 
@@ -33,7 +33,7 @@ def debloat_fedora_linux(distro_version, desktop_environment):
         distro_version in os_info["Linux"]["Fedora Linux"]
         and desktop_environment == "GNOME"
     ):
-        debloat_fl_we_gnome()
+        debloat_fedora_linux_we_gnome()
 
     else:
         error_message(
