@@ -32,9 +32,7 @@ def remove_packages():
     """Remove pre-installed packages."""
 
     while True:
-        package_removal = prompt_message(
-            "Would you like to remove pre-installed packages? [Y/a/n]:"
-        )
+        package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
 
         if package_removal == "" or package_removal.startswith("y"):
             remove_packages_yes_option()
@@ -55,7 +53,7 @@ def enhance_privacy():
 
     while True:
         privacy_enhancement = prompt_message(
-            "Would you like to enhance operating system privacy? [Y/a/r/n]:"
+            "Enhance operating system privacy? [Y/a/r/n]:"
         )
 
         if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
