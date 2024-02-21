@@ -43,30 +43,28 @@ def check_compatibility():
 
     sys_name = platform.system()
 
-    if sys_name == "Linux":
-        try:
-            distro_info = platform.freedesktop_os_release()
-            distro_name, distro_version = distro_info["NAME"], distro_info["VERSION"]
-
-            if (
-                distro_name in os_info[sys_name]
-                and distro_version in os_info[sys_name][distro_name]
-            ):
-                sys_compatible[sys_name] = True
-                output_message(
-                    f"compatible: {distro_name} {distro_version}", newline=False
-                )
-
-            else:
-                error_message(
-                    f"incompatible: {distro_name} {distro_version}", newline=False
-                )
-
-        except (OSError, KeyError):
-            error_message("incompatible: Linux distribution", newline=False)
-
-    else:
+    if sys_name != "Linux":
         error_message(f"incompatible: {sys_name} {platform.release()}", newline=False)
+        return
+
+    try:
+        distro_info = platform.freedesktop_os_release()
+        distro_name, distro_version = distro_info["NAME"], distro_info["VERSION"]
+
+        if (
+            distro_name not in os_info[sys_name]
+            and distro_version not in os_info[sys_name][distro_name]
+        ):
+            error_message(
+                f"incompatible: {distro_name} {distro_version}", newline=False
+            )
+            return
+
+        sys_compatible[sys_name] = True
+        output_message(f"compatible: {distro_name} {distro_version}", newline=False)
+
+    except (OSError, KeyError):
+        error_message("incompatible: Linux distribution", newline=False)
 
 
 def debloat_os():
