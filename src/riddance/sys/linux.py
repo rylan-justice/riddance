@@ -29,16 +29,20 @@ from riddance.utils import error_message
 def debloat_fedora_linux(distro_version, desktop_environment):
     """Debloat Fedora Linux."""
 
-    if (
-        distro_version in os_info["Linux"]["Fedora Linux"]
-        and desktop_environment == "GNOME"
-    ):
-        debloat_fedora_linux_we_gnome()
+    desktop_environments = {
+        "GNOME": debloat_fedora_linux_we_gnome,
+    }
 
-    else:
+    if (
+        distro_version not in os_info["Linux"]["Fedora Linux"]
+        and desktop_environment not in desktop_environments
+    ):
         error_message(
             f"incompatible: Fedora Linux {distro_version} with {desktop_environment}"
         )
+        return
+
+    desktop_environments[desktop_environment]()
 
 
 def debloat_linux():
