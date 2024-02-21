@@ -29,7 +29,7 @@ from riddance.utils import error_message, prompt_message
 
 
 def remove_packages():
-    """Remove pre-installed packages."""  # XXX: Add context
+    """Remove pre-installed packages for Fedora Linux (Workstation Edition) with GNOME."""
 
     while True:
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
@@ -49,7 +49,7 @@ def remove_packages():
 
 
 def enhance_privacy():
-    """Enhance operating system privacy."""  # XXX: Add context
+    """Enhance operating system privacy for Fedora Linux (Workstation Edition) with GNOME."""
 
     while True:
         privacy_enhancement = prompt_message(
