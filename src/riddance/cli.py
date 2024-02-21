@@ -68,16 +68,18 @@ args = parser.parse_args()
 def main():
     if args.list:
         list_os_info()
+        return
 
-    elif args.check:
+    if args.check:
         check_compatibility()
+        return
 
-    elif args.debloat:
+    if args.debloat:
         try:
             debloat_os()
+            return
 
         except (EOFError, KeyboardInterrupt):
             sys.exit()
 
-    else:
-        parser.print_help()
+    parser.print_help()
