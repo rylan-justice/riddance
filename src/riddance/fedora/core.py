@@ -29,7 +29,8 @@ from riddance.utils import error_message, prompt_message
 
 
 def remove_packages_fedora_linux_we_gnome():
-    """Remove pre-installed packages for Fedora Linux (Workstation Edition) with GNOME."""
+    """Remove pre-installed packages for Fedora Linux (Workstation Edition)
+    with GNOME."""
 
     while True:
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
@@ -49,7 +50,8 @@ def remove_packages_fedora_linux_we_gnome():
 
 
 def enhance_privacy_fedora_linux_we_gnome():
-    """Enhance operating system privacy for Fedora Linux (Workstation Edition) with GNOME."""
+    """Enhance operating system privacy for Fedora Linux (Workstation Edition)
+    with GNOME."""
 
     while True:
         privacy_enhancement = prompt_message(
