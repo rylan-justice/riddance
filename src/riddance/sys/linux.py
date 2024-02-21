@@ -30,15 +30,15 @@ def debloat_fedora_linux(distro_version, desktop_environment):
     """Debloat Fedora Linux."""
 
     if (
-        distro_version not in os_info["Linux"]["Fedora Linux"]
-        and desktop_environment != "GNOME"
+        distro_version in os_info["Linux"]["Fedora Linux"]
+        and desktop_environment == "GNOME"
     ):
+        debloat_fedora_linux_we_gnome()
+
+    else:
         error_message(
             f"incompatible: Fedora Linux {distro_version} with {desktop_environment}"
         )
-        return
-
-    debloat_fedora_linux_we_gnome()
 
 
 def debloat_linux():
