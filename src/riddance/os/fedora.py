@@ -18,11 +18,14 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-from riddance.fedora.core import enhance_privacy, remove_packages
+from riddance.fedora.core import (
+    enhance_privacy_fedora_linux_we_gnome,
+    remove_packages_fedora_linux_we_gnome,
+)
 
 
 def debloat_fedora_linux_we_gnome():
     """Debloat Fedora Linux (Workstation Edition) with GNOME."""
 
-    remove_packages()
-    enhance_privacy()
+    remove_packages_fedora_linux_we_gnome()
+    enhance_privacy_fedora_linux_we_gnome()
