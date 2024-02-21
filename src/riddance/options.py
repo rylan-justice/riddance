@@ -24,6 +24,7 @@ from riddance.identifiers import os_info
 from riddance.sys.linux import debloat_linux
 from riddance.utils import error_message, output_message
 
+sys_name = platform.system()
 sys_compatible = {"Linux": False}
 
 
@@ -38,14 +39,8 @@ def list_os_info():
             print(f"  {os_name} {os_versions}")
 
 
-def check_compatibility():
-    """Check operating system and version compatibility."""
-
-    sys_name = platform.system()
-
-    if sys_name != "Linux":
-        error_message(f"incompatible: {sys_name} {platform.release()}", newline=False)
-        return
+def check_linux_compatibility():
+    """Check Linux distribution and version compatibility."""
 
     try:
         distro_info = platform.freedesktop_os_release()
@@ -65,6 +60,16 @@ def check_compatibility():
 
     except (OSError, KeyError):
         error_message("incompatible: Linux distribution", newline=False)
+
+
+def check_compatibility():
+    """Check operating system and version compatibility."""
+
+    if sys_name == "Linux":
+        check_linux_compatibility()
+
+    else:
+        error_message(f"incompatible: {sys_name} {platform.release()}", newline=False)
 
 
 def debloat_os():
