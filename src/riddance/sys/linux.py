@@ -34,15 +34,15 @@ def debloat_fedora_linux(distro_version, desktop_environment):
     }
 
     if (
-        distro_version not in os_info["Linux"]["Fedora Linux"]
-        and desktop_environment not in desktop_environments
+        distro_version in os_info["Linux"]["Fedora Linux"]
+        and desktop_environment in desktop_environments
     ):
+        desktop_environments[desktop_environment]()
+
+    else:
         error_message(
             f"incompatible: Fedora Linux {distro_version} with {desktop_environment}"
         )
-        return
-
-    desktop_environments[desktop_environment]()
 
 
 def debloat_linux():
