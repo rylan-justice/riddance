@@ -7,7 +7,7 @@ name = "riddance"
 dynamic = ["version"]
 description = "Designed to remove bloatware and augment freedom"
 readme = "README.md"
-requires-python = ">= 3.10"
+requires-python = ">=3.10"
 license = { text = "GPL-3.0-or-later" }
 keywords = ["debloat", "privacy", "python", "riddance"]
 authors = [{ name = "Rylan Justice" }]
