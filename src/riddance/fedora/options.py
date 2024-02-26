@@ -45,7 +45,7 @@ def remove_packages_yes_option():
     removed_package = False
 
     for package, name in packages.items():
-        distinct_package = prompt_message(f"Would you like to remove {name}? [y/N]:")
+        distinct_package = prompt_message(f"Remove {name}? [y/N]:")
 
         if distinct_package.startswith("y"):
             subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
@@ -78,9 +78,7 @@ def enhance_privacy_yes_option():
     for privacy_setting in privacy_settings:
         privacy_description = privacy_descriptions[privacy_setting[1]]
 
-        distinct_privacy_setting = prompt_message(
-            f"Would you like to {privacy_description}? [Y/n]:"
-        )
+        distinct_privacy_setting = prompt_message(f"{privacy_description}? [Y/n]:")
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)

@@ -39,12 +39,12 @@ privacy_settings = [
 ]
 
 privacy_descriptions = {
-    "disable-camera": "disable camera access",
-    "disable-microphone": "disable microphone access",
-    "enabled": "disable location services",
-    "remember-recent-files": "disable file history",
-    "remove-old-temp-files": "automatically delete temporary files",
-    "remove-old-trash-files": "automatically delete trash content",
-    "report-technical-problems": "disable automatic problem reporting",
-    "whitelisted-providers": "disable online accounts",
+    "disable-camera": "Disable camera access",
+    "disable-microphone": "Disable microphone access",
+    "enabled": "Disable location services",
+    "remember-recent-files": "Disable file history",
+    "remove-old-temp-files": "Automatically delete temporary files",
+    "remove-old-trash-files": "Automatically delete trash content",
+    "report-technical-problems": "Disable automatic problem reporting",
+    "whitelisted-providers": "Disable online accounts",
 }
