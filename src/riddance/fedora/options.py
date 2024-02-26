@@ -97,9 +97,8 @@ def enhance_privacy_all_option():
 
     for privacy_setting in privacy_settings:
         subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-
         privacy_description = privacy_descriptions[privacy_setting[1]]
-        output_message(f"{privacy_description.capitalize()}")
+        output_message(f"{privacy_description}")
 
     disable_file_history_duration()
     set_automatic_deletion_period()
