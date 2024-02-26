@@ -5,7 +5,7 @@ Designed to remove bloatware and augment freedom
 ## Installation
 
 ```sh
-python -m pip install riddance
+pip install riddance
 ```
 
 ## Usage
