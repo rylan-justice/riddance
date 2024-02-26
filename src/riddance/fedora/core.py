@@ -29,7 +29,7 @@ from riddance.utils import error_message, prompt_message
 
 
 def remove_packages_fedora_linux_we_gnome():
-    """Remove pre-installed packages for Fedora Linux (Workstation Edition)
+    """Remove pre-installed packages from Fedora Linux (Workstation Edition)
     with GNOME."""
 
     while True:
