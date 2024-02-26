@@ -75,8 +75,7 @@ def enhance_privacy_yes_option():
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-
-            output_message(f"{privacy_description.capitalize()}")
+            output_message(privacy_description)
 
             if privacy_setting[1] == "remember-recent-files":
                 disable_file_history_duration()
@@ -87,9 +86,7 @@ def enhance_privacy_yes_option():
             ):
                 set_automatic_deletion_period()
 
-    bash_history_shredding = prompt_message(
-        "Would you like to shred Bash history? [y/N]:"
-    )
+    bash_history_shredding = prompt_message("Shred Bash history? [y/N]:")
 
     if bash_history_shredding.startswith("y"):
         shred_bash_history()
