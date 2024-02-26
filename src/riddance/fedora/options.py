@@ -69,7 +69,6 @@ def remove_packages_all_option():
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
 
     delete_firefox_configuration()
-
     remove_unneeded_dependencies()
 
 
@@ -115,9 +114,7 @@ def enhance_privacy_all_option():
         output_message(f"{privacy_description.capitalize()}")
 
     disable_file_history_duration()
-
     set_automatic_deletion_period()
-
     shred_bash_history()
 
 
