@@ -68,7 +68,8 @@ def disable_file_history_duration():
 
 
 def set_automatic_deletion_period():
-    """Set automatic deletion period for temporary files and trash content to one hour."""
+    """Set automatic deletion period for temporary files and trash content
+    to one hour."""
 
     subprocess.run(
         ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],

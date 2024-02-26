@@ -41,21 +41,14 @@ packages = get_package_version()
 def remove_packages_yes_option():
     """'Y'es option for remove_packages()."""
 
-    removed_firefox = False
-    removed_package = False
+    removed_package = set()
 
-    for package, name in packages.items():
-        distinct_package = prompt_message(f"Remove {name}? [y/N]:")
-
-        if distinct_package.startswith("y"):
+    for package, description in packages.items():
+        if prompt_message(f"Remove {description}? [y/N]:").startswith("y"):
             subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+            removed_package.add(description)
 
-            if name == "Firefox":
-                removed_firefox = True
-
-            removed_package = True
-
-    if removed_firefox:
+    if "Firefox" in removed_package:
         delete_firefox_configuration()
 
     if removed_package:
