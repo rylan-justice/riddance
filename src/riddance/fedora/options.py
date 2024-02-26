@@ -35,12 +35,11 @@ from riddance.fedora.utils import (
 )
 from riddance.utils import output_message, prompt_message
 
-packages = get_package_version()
-
 
 def remove_packages_yes_option():
     """'Y'es option for remove_packages()."""
 
+    packages = get_package_version()
     removed_package = set()
 
     for package, description in packages.items():
@@ -57,6 +56,8 @@ def remove_packages_yes_option():
 
 def remove_packages_all_option():
     """'a'll option for remove_packages()."""
+
+    packages = get_package_version()
 
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
