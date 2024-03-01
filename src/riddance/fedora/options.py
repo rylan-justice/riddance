@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Options module for Fedora Linux (Workstation Edition) with GNOME."""
+
 import subprocess
 
 from riddance.fedora.privacy import (
@@ -39,8 +41,7 @@ packages = get_package_version()
 
 
 def remove_distinct_packages():
-    """Remove distinct packages
-    from Fedora Linux (Workstation Edition) with GNOME."""
+    """Remove distinct packages."""
 
     removed_package = set()
 
@@ -57,7 +58,7 @@ def remove_distinct_packages():
 
 
 def remove_all_packages():
-    """Remove all packages from Fedora Linux (Workstation Edition) with GNOME."""
+    """Remove all packages."""
 
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
@@ -67,8 +68,7 @@ def remove_all_packages():
 
 
 def enhance_distinct_privacy_settings():
-    """Enhance distinct privacy settings
-    for Fedora Linux (Workstation Edition) with GNOME."""
+    """Enhance distinct privacy settings."""
 
     cleanup = {
         "remember-recent-files": disable_file_history_duration,
@@ -92,8 +92,7 @@ def enhance_distinct_privacy_settings():
 
 
 def enhance_all_privacy_settings():
-    """Enhance all privacy settings
-    for Fedora Linux (Workstation Edition) with GNOME."""
+    """Enhance all privacy settings."""
 
     for privacy_setting in privacy_settings:
         subprocess.run(["gsettings", "set", *privacy_setting], check=False)
@@ -106,8 +105,7 @@ def enhance_all_privacy_settings():
 
 
 def reset_privacy_enhancements():
-    """Reset privacy enhancements
-    for Fedora Linux (Workstation Edition) with GNOME."""
+    """Reset privacy enhancements."""
 
     for privacy_schema in privacy_schemas:
         subprocess.run(["gsettings", "reset-recursively", privacy_schema], check=False)

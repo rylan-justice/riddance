@@ -34,7 +34,7 @@ username = getpass.getuser()
 
 
 def get_package_version():
-    """Get package version for Fedora Linux Workstation Edition with GNOME."""
+    """Get package version."""
 
     distro_versions = {
         "38 (Workstation Edition)": packages_38_we,

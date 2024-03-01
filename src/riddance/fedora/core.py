@@ -18,6 +18,8 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
+"""Core module for Fedora Linux (Workstation Edition) with GNOME."""
+
 from riddance.fedora.options import (
     enhance_all_privacy_settings,
     enhance_distinct_privacy_settings,
@@ -28,9 +30,8 @@ from riddance.fedora.options import (
 from riddance.utils import error_message, prompt_message
 
 
-def remove_packages_fedora_linux_we_gnome():
-    """Remove pre-installed packages
-    from Fedora Linux (Workstation Edition) with GNOME."""
+def remove_packages():
+    """Remove pre-installed packages."""
 
     while True:
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
@@ -49,9 +50,8 @@ def remove_packages_fedora_linux_we_gnome():
         error_message(f"invalid response: '{package_removal}'")
 
 
-def enhance_privacy_fedora_linux_we_gnome():
-    """Enhance operating system privacy
-    for Fedora Linux (Workstation Edition) with GNOME."""
+def enhance_privacy():
+    """Enhance operating system privacy."""
 
     while True:
         privacy_enhancement = prompt_message(
