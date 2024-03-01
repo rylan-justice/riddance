@@ -35,11 +35,13 @@ from riddance.fedora.utils import (
 )
 from riddance.utils import output_message, prompt_message
 
+packages = get_package_version()
 
-def remove_packages_yes_option():
-    """'Y'es option for remove_packages()."""
 
-    packages = get_package_version()
+def remove_distinct_packages():
+    """Remove distinct packages
+    from Fedora Linux (Workstation Edition) with GNOME."""
+
     removed_package = set()
 
     for package, description in packages.items():
@@ -54,10 +56,8 @@ def remove_packages_yes_option():
         remove_unneeded_dependencies()
 
 
-def remove_packages_all_option():
-    """'a'll option for remove_packages()."""
-
-    packages = get_package_version()
+def remove_all_packages():
+    """Remove all packages from Fedora Linux (Workstation Edition) with GNOME."""
 
     for package in packages:
         subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
@@ -66,8 +66,9 @@ def remove_packages_all_option():
     remove_unneeded_dependencies()
 
 
-def enhance_privacy_yes_option():
-    """'Y'es option for enhance_privacy()."""
+def enhance_distinct_privacy_settings():
+    """Enhance distinct privacy settings
+    for Fedora Linux (Workstation Edition) with GNOME."""
 
     for privacy_setting in privacy_settings:
         privacy_description = privacy_descriptions[privacy_setting[1]]
@@ -93,8 +94,9 @@ def enhance_privacy_yes_option():
         shred_bash_history()
 
 
-def enhance_privacy_all_option():
-    """'a'll option for enhance_privacy()."""
+def enhance_all_privacy_settings():
+    """Enhance all privacy settings
+    for Fedora Linux (Workstation Edition) with GNOME."""
 
     for privacy_setting in privacy_settings:
         subprocess.run(["gsettings", "set", *privacy_setting], check=False)
@@ -106,8 +108,9 @@ def enhance_privacy_all_option():
     shred_bash_history()
 
 
-def enhance_privacy_reset_option():
-    """'r'eset option for enhance_privacy()."""
+def reset_privacy_enhancements():
+    """Reset privacy enhancements
+    for Fedora Linux (Workstation Edition) with GNOME."""
 
     for privacy_schema in privacy_schemas:
         subprocess.run(["gsettings", "reset-recursively", privacy_schema], check=False)

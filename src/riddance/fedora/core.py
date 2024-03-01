@@ -19,11 +19,11 @@
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
 from riddance.fedora.options import (
-    enhance_privacy_all_option,
-    enhance_privacy_reset_option,
-    enhance_privacy_yes_option,
-    remove_packages_all_option,
-    remove_packages_yes_option,
+    enhance_all_privacy_settings,
+    enhance_distinct_privacy_settings,
+    remove_all_packages,
+    remove_distinct_packages,
+    reset_privacy_enhancements,
 )
 from riddance.utils import error_message, prompt_message
 
@@ -36,11 +36,11 @@ def remove_packages_fedora_linux_we_gnome():
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
 
         if package_removal == "" or package_removal.startswith("y"):
-            remove_packages_yes_option()
+            remove_distinct_packages()
             break
 
         if package_removal.startswith("a"):
-            remove_packages_all_option()
+            remove_all_packages()
             break
 
         if package_removal.startswith("n"):
@@ -59,15 +59,15 @@ def enhance_privacy_fedora_linux_we_gnome():
         )
 
         if privacy_enhancement == "" or privacy_enhancement.startswith("y"):
-            enhance_privacy_yes_option()
+            enhance_distinct_privacy_settings()
             break
 
         if privacy_enhancement.startswith("a"):
-            enhance_privacy_all_option()
+            enhance_all_privacy_settings()
             break
 
         if privacy_enhancement.startswith("r"):
-            enhance_privacy_reset_option()
+            reset_privacy_enhancements()
             break
 
         if privacy_enhancement.startswith("n"):
