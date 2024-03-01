@@ -69,7 +69,7 @@ def remove_all_packages():
 def enhance_distinct_privacy_settings():
     """Enhance distinct privacy settings."""
 
-    cleanup = {
+    unification = {
         "remember-recent-files": disable_file_history_duration,
         "remove-old-temp-files": set_automatic_deletion_period,
         "remove-old-trash-files": set_automatic_deletion_period,
@@ -81,12 +81,10 @@ def enhance_distinct_privacy_settings():
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             run_subprocess(["gsettings", "set", *privacy_setting])
-            output_message(
-                f"{privacy_description}"
-            )  # Reword info: xxx: [privacy_description]
+            output_message(f"operative: {privacy_description}")
 
-            if privacy_setting[1] in cleanup:
-                cleanup[privacy_setting[1]]()
+            if privacy_setting[1] in unification:
+                unification[privacy_setting[1]]()
 
     if prompt_message("Shred Bash history? [y/N]:").startswith("y"):
         shred_bash_history()
@@ -98,9 +96,7 @@ def enhance_all_privacy_settings():
     for privacy_setting in privacy_settings:
         run_subprocess(["gsettings", "set", *privacy_setting])
         privacy_description = privacy_descriptions[privacy_setting[1]]
-        output_message(
-            f"{privacy_description}"
-        )  # Reword info: xxx: [privacy_description]
+        output_message(f"operative: {privacy_description}")
 
     disable_file_history_duration()
     set_automatic_deletion_period()
