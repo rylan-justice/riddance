@@ -70,27 +70,24 @@ def enhance_distinct_privacy_settings():
     """Enhance distinct privacy settings
     for Fedora Linux (Workstation Edition) with GNOME."""
 
+    cleanup = {
+        "remember-recent-files": disable_file_history_duration,
+        "remove-old-temp-files": set_automatic_deletion_period,
+        "remove-old-trash-files": set_automatic_deletion_period,
+    }
+
     for privacy_setting in privacy_settings:
         privacy_description = privacy_descriptions[privacy_setting[1]]
-
         distinct_privacy_setting = prompt_message(f"{privacy_description}? [Y/n]:")
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
             output_message(privacy_description)
 
-            if privacy_setting[1] == "remember-recent-files":
-                disable_file_history_duration()
+            if privacy_setting[1] in cleanup:
+                cleanup[privacy_setting[1]]()
 
-            if privacy_setting[1] in (
-                "remove-old-temp-files",
-                "remove-old-trash-files",
-            ):
-                set_automatic_deletion_period()
-
-    bash_history_shredding = prompt_message("Shred Bash history? [y/N]:")
-
-    if bash_history_shredding.startswith("y"):
+    if prompt_message("Shred Bash history? [y/N]:").startswith("y"):
         shred_bash_history()
 
 
