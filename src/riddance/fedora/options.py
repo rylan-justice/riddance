@@ -20,8 +20,6 @@
 
 """Options module for Fedora Linux (Workstation Edition) with GNOME."""
 
-import subprocess
-
 from riddance.fedora.privacy import (
     privacy_descriptions,
     privacy_schemas,
@@ -32,6 +30,7 @@ from riddance.fedora.utils import (
     disable_file_history_duration,
     get_package_version,
     remove_unneeded_dependencies,
+    run_subprocess,
     set_automatic_deletion_period,
     shred_bash_history,
 )
@@ -47,7 +46,7 @@ def remove_distinct_packages():
 
     for package, description in packages.items():
         if prompt_message(f"Remove {description}? [y/N]:").startswith("y"):
-            subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+            run_subprocess(["sudo", "dnf", "-yq", "remove", package])
             removed_package.add(description)
 
     if "Firefox" in removed_package:
@@ -61,7 +60,7 @@ def remove_all_packages():
     """Remove all packages."""
 
     for package in packages:
-        subprocess.run(["sudo", "dnf", "-yq", "remove", package], check=False)
+        run_subprocess(["sudo", "dnf", "-yq", "remove", package])
 
     delete_firefox_configuration()
     remove_unneeded_dependencies()
@@ -81,7 +80,7 @@ def enhance_distinct_privacy_settings():
         distinct_privacy_setting = prompt_message(f"{privacy_description}? [Y/n]:")
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
-            subprocess.run(["gsettings", "set", *privacy_setting], check=False)
+            run_subprocess(["gsettings", "set", *privacy_setting])
             output_message(
                 f"{privacy_description}"
             )  # Reword info: xxx: [privacy_description]
@@ -97,7 +96,7 @@ def enhance_all_privacy_settings():
     """Enhance all privacy settings."""
 
     for privacy_setting in privacy_settings:
-        subprocess.run(["gsettings", "set", *privacy_setting], check=False)
+        run_subprocess(["gsettings", "set", *privacy_setting])
         privacy_description = privacy_descriptions[privacy_setting[1]]
         output_message(
             f"{privacy_description}"
@@ -112,6 +111,6 @@ def reset_privacy_enhancements():
     """Reset privacy enhancements."""
 
     for privacy_schema in privacy_schemas:
-        subprocess.run(["gsettings", "reset-recursively", privacy_schema], check=False)
+        run_subprocess(["gsettings", "reset-recursively", privacy_schema])
 
     output_message("Reset privacy enhancements")

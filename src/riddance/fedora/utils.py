@@ -20,17 +20,16 @@
 
 """Utilities for Fedora Linux (Workstation Edition) with GNOME."""
 
-import getpass
-import os
 import platform
 import shutil
 import subprocess
+from pathlib import Path
 
 from riddance.fedora.packages import packages_38_we, packages_39_we
 from riddance.fedora.privacy import privacy_schemas
 from riddance.utils import output_message
 
-username = getpass.getuser()
+home_directory = Path.home()
 
 
 def get_package_version():
@@ -45,25 +44,28 @@ def get_package_version():
     return distro_versions[distro_version]
 
 
+def run_subprocess(command):
+    subprocess.run(command, check=False)
+
+
 def delete_firefox_configuration():
     """Delete Firefox configuration."""
 
-    shutil.rmtree(f"/home/{username}/.mozilla", ignore_errors=True)
+    shutil.rmtree(home_directory / ".mozilla", ignore_errors=True)
 
 
 def remove_unneeded_dependencies():
     """Remove unneeded package dependencies."""
 
-    subprocess.run(["sudo", "dnf", "-yq", "autoremove"], check=False)
+    run_subprocess(["sudo", "dnf", "-yq", "autoremove"])
     output_message("Removed unneeded package dependencies")
 
 
 def disable_file_history_duration():
     """Disable file history duration."""
 
-    subprocess.run(
-        ["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"],
-        check=False,
+    run_subprocess(
+        ["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"]
     )
 
 
@@ -71,16 +73,14 @@ def set_automatic_deletion_period():
     """Set automatic deletion period for temporary files and trash content
     to one hour."""
 
-    subprocess.run(
-        ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"], check=False
-    )
+    run_subprocess(["gsettings", "set", privacy_schemas[0], "old-files-age", "0"])
 
 
 def shred_bash_history():
     """Shred Bash history."""
 
-    bash_history = f"/home/{username}/.bash_history"
+    bash_history = home_directory / ".bash_history"
 
-    if os.path.exists(bash_history):
-        subprocess.run(["shred", "-zu", bash_history], check=False)
+    if bash_history.exists():
+        run_subprocess(["shred", "-zu", bash_history])
         output_message("Shred Bash history")
