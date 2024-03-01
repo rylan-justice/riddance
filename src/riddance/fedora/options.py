@@ -82,7 +82,9 @@ def enhance_distinct_privacy_settings():
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             subprocess.run(["gsettings", "set", *privacy_setting], check=False)
-            output_message(privacy_description)
+            output_message(
+                f"{privacy_description}"
+            )  # Reword info: xxx: [privacy_description]
 
             if privacy_setting[1] in cleanup:
                 cleanup[privacy_setting[1]]()
@@ -97,7 +99,9 @@ def enhance_all_privacy_settings():
     for privacy_setting in privacy_settings:
         subprocess.run(["gsettings", "set", *privacy_setting], check=False)
         privacy_description = privacy_descriptions[privacy_setting[1]]
-        output_message(privacy_description)
+        output_message(
+            f"{privacy_description}"
+        )  # Reword info: xxx: [privacy_description]
 
     disable_file_history_duration()
     set_automatic_deletion_period()

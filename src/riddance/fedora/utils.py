@@ -72,8 +72,7 @@ def set_automatic_deletion_period():
     to one hour."""
 
     subprocess.run(
-        ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"],
-        check=False,
+        ["gsettings", "set", privacy_schemas[0], "old-files-age", "0"], check=False
     )
 
 
