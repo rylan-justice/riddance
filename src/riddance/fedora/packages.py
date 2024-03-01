@@ -23,12 +23,11 @@ for Fedora Linux (Workstation Edition) with GNOME."""
 
 packages_38_we = {
     "baobab": "Disk Usage Analyzer and Photos",
-    "brltty": "BRLTTY",
     "cheese": "Cheese",
     "desktop-backgrounds-gnome": "Fedora 38 backgrounds",
     "eog": "Image Viewer",
     "evince": "Document Viewer",
-    "fedora-bookmarks": "Fedora bookmarks",
+    "fedora-bookmarks": "Fedora bookmarks for Firefox",
     "fedora-chromium-config": "Fedora customizations for Chromium and Chrome",
     "fedora-workstation-backgrounds": "Fedora Workstation backgrounds",
     "gnome-abrt": "Problem Reporting",
@@ -74,11 +73,10 @@ packages_38_we = {
 
 packages_39_we = {
     "baobab": "Disk Usage Analyzer",
-    "brltty": "BRLTTY",
     "cheese": "Cheese",
     "desktop-backgrounds-gnome": "Fedora 39 backgrounds",
     "evince": "Document Viewer",
-    "fedora-bookmarks": "Fedora bookmarks",
+    "fedora-bookmarks": "Fedora bookmarks for Firefox",
     "fedora-chromium-config": "Fedora customizations for Chromium and Chrome",
     "fedora-workstation-backgrounds": "Fedora Workstation backgrounds",
     "gnome-abrt": "Problem Reporting",
