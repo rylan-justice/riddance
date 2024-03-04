@@ -36,11 +36,11 @@ from riddance.fedora.utils import (
 )
 from riddance.utils import output_message, prompt_message
 
-packages = get_package_version()
-
 
 def remove_distinct_packages():
     """Remove distinct packages."""
+
+    packages = get_package_version()
 
     removed_package = set()
 
@@ -58,6 +58,8 @@ def remove_distinct_packages():
 
 def remove_all_packages():
     """Remove all packages."""
+
+    packages = get_package_version()
 
     for package in packages:
         run_subprocess(["sudo", "dnf", "-yq", "remove", package])
