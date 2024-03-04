@@ -83,4 +83,4 @@ def shred_bash_history():
 
     if bash_history.exists():
         run_subprocess(["shred", "-zu", bash_history])
-        output_message("Shred Bash history")
+        output_message("Shredded Bash history")
