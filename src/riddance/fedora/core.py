@@ -18,13 +18,10 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Core for Fedora Linux (Workstation Edition) with GNOME."""
-
 from riddance.fedora.options import (
     enhance_all_privacy_settings,
     enhance_distinct_privacy_settings,
-    remove_all_packages,
-    remove_distinct_packages,
+    remove,
     reset_privacy_enhancements,
 )
 from riddance.utils import error_message, prompt_message
@@ -37,11 +34,11 @@ def remove_packages():
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
 
         if package_removal == "" or package_removal.startswith("y"):
-            remove_distinct_packages()
+            remove()
             break
 
         if package_removal.startswith("a"):
-            remove_all_packages()
+            remove(all_packages=True)
             break
 
         if package_removal.startswith("n"):

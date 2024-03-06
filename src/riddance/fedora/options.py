@@ -18,8 +18,6 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Options for Fedora Linux (Workstation Edition) with GNOME."""
-
 from riddance.fedora.privacy import (
     privacy_descriptions,
     privacy_schemas,
@@ -37,15 +35,17 @@ from riddance.fedora.utils import (
 from riddance.utils import output_message, prompt_message
 
 
-def remove_distinct_packages():
-    """Remove distinct packages."""
+def remove(all_packages=False):  # Think of better name and parameter
+    """Remove packages."""
 
     packages = get_package_version()
 
     removed_package = set()
 
     for package, description in packages.items():
-        if prompt_message(f"Remove {description}? [y/N]:").startswith("y"):
+        if all_packages or prompt_message(f"Remove {description}? [y/N]:").startswith(
+            "y"
+        ):
             run_subprocess(["sudo", "dnf", "-yq", "remove", package])
             removed_package.add(description)
 
@@ -54,18 +54,6 @@ def remove_distinct_packages():
 
     if removed_package:
         remove_unneeded_dependencies()
-
-
-def remove_all_packages():
-    """Remove all packages."""
-
-    packages = get_package_version()
-
-    for package in packages:
-        run_subprocess(["sudo", "dnf", "-yq", "remove", package])
-
-    delete_firefox_configuration()
-    remove_unneeded_dependencies()
 
 
 def enhance_distinct_privacy_settings():
