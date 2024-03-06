@@ -31,7 +31,7 @@ sys_compatible = {"Linux": False}
 def list_os_info():
     """List compatible operating systems and their versions."""
 
-    for sys in "Linux":
+    for sys in ("Linux",):
         print(f"{sys}:")
 
         for os_name, os_version in os_info[sys].items():

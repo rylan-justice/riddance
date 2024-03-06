@@ -19,30 +19,23 @@
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
-import platform
 
-from riddance.identifiers import os_info
 from riddance.os.fedora import debloat_fedora_linux_we_gnome
 from riddance.utils import error_message
 
 
-def debloat_fedora_linux(distro_version, desktop_environment):
+def debloat_fedora_linux(desktop_environment):
     """Debloat Fedora Linux."""
 
     desktop_environments = {
         "GNOME": debloat_fedora_linux_we_gnome,
     }
 
-    if (
-        distro_version in os_info["Linux"]["Fedora Linux"]
-        and desktop_environment in desktop_environments
-    ):
-        desktop_environments[desktop_environment]()
+    if desktop_environment not in desktop_environments:
+        error_message(f"incompatible: {desktop_environment}")
+        return
 
-    else:
-        error_message(
-            f"incompatible: Fedora Linux {distro_version} with {desktop_environment}"
-        )
+    desktop_environments[desktop_environment]()
 
 
 def debloat_linux():
@@ -53,9 +46,10 @@ def debloat_linux():
         return
 
     try:
-        distro_version = platform.freedesktop_os_release()["VERSION"]
         desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
-        debloat_fedora_linux(distro_version, desktop_environment)
 
-    except (OSError, KeyError):
+    except OSError:
         error_message("incompatible: desktop environment")
+        return
+
+    debloat_fedora_linux(desktop_environment)
