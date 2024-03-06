@@ -24,8 +24,8 @@
 def error_message(message, newline=True):
     """Display an error message."""
 
-    end = "\n" if newline else ""
-    print(f"{end}error: {message}")
+    newline = "\n" if newline else ""
+    print(f"{newline}error: {message}")
 
 
 def prompt_message(message):
@@ -38,5 +38,5 @@ def prompt_message(message):
 def output_message(message, newline=True):
     """Display an output message."""
 
-    end = "\n" if newline else ""
-    print(f"{end}info: {message}")
+    newline = "\n" if newline else ""
+    print(f"{newline}info: {message}")

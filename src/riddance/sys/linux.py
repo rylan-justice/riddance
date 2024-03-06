@@ -48,7 +48,7 @@ def debloat_linux():
     try:
         desktop_environment = os.environ["XDG_CURRENT_DESKTOP"]
 
-    except OSError:
+    except KeyError:
         error_message("incompatible: desktop environment")
         return
 
