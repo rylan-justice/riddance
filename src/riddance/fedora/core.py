@@ -21,7 +21,7 @@
 from riddance.fedora.options import (
     enhance_all_privacy_settings,
     enhance_distinct_privacy_settings,
-    remove,
+    remove_distinct_packages,
     reset_privacy_enhancements,
 )
 from riddance.utils import error_message, prompt_message
@@ -34,11 +34,11 @@ def remove_packages():
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
 
         if package_removal == "" or package_removal.startswith("y"):
-            remove()
+            remove_distinct_packages()
             break
 
         if package_removal.startswith("a"):
-            remove(all_packages=True)
+            remove_distinct_packages(all_packages=True)
             break
 
         if package_removal.startswith("n"):

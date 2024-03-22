@@ -21,22 +21,22 @@
 """Privacy schemas, settings, and descriptions
 for Fedora Linux (Workstation Edition) with GNOME."""
 
-privacy_schemas = [
+privacy_schemas = (
     "org.gnome.desktop.privacy",
     "org.gnome.online-accounts",
     "org.gnome.system.location",
-]
+)
 
-privacy_settings = [
-    [privacy_schemas[0], "disable-camera", "true"],
-    [privacy_schemas[0], "disable-microphone", "true"],
-    [privacy_schemas[0], "remember-recent-files", "false"],
-    [privacy_schemas[0], "remove-old-temp-files", "true"],
-    [privacy_schemas[0], "remove-old-trash-files", "true"],
-    [privacy_schemas[0], "report-technical-problems", "false"],
-    [privacy_schemas[1], "whitelisted-providers", "[]"],
-    [privacy_schemas[2], "enabled", "false"],
-]
+privacy_settings = (
+    (privacy_schemas[0], "disable-camera", "true"),
+    (privacy_schemas[0], "disable-microphone", "true"),
+    (privacy_schemas[0], "remember-recent-files", "false"),
+    (privacy_schemas[0], "remove-old-temp-files", "true"),
+    (privacy_schemas[0], "remove-old-trash-files", "true"),
+    (privacy_schemas[0], "report-technical-problems", "false"),
+    (privacy_schemas[1], "whitelisted-providers", "[]"),
+    (privacy_schemas[2], "enabled", "false"),
+)
 
 privacy_descriptions = {
     "disable-camera": "Disable camera access",

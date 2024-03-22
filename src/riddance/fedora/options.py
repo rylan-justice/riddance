@@ -35,8 +35,8 @@ from riddance.fedora.utils import (
 from riddance.utils import output_message, prompt_message
 
 
-def remove(all_packages=False):  # Think of better name and parameter
-    """Remove packages."""
+def remove_distinct_packages(all_packages=False):
+    """Remove distinct packages."""
 
     packages = get_package_version()
 
