@@ -25,7 +25,7 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from riddance.fedora.packages import packages_38_we, packages_39_we
+from riddance.fedora.packages import packages_39_we
 from riddance.fedora.privacy import privacy_schemas
 from riddance.utils import output_message
 
@@ -36,7 +36,6 @@ def get_package_version():
     """Get package version."""
 
     distro_versions = {
-        "38 (Workstation Edition)": packages_38_we,
         "39 (Workstation Edition)": packages_39_we,
     }
 
