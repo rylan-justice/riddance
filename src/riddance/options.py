@@ -48,7 +48,7 @@ def check_linux_compatibility():
 
         if (
             distro_name not in os_info[sys_name]
-            and distro_version not in os_info[sys_name][distro_name]
+            or distro_version not in os_info[sys_name][distro_name]
         ):
             error_message(
                 f"incompatible: {distro_name} {distro_version}", newline=False

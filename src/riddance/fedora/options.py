@@ -71,7 +71,7 @@ def enhance_distinct_privacy_settings():
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             run_subprocess(["gsettings", "set", *privacy_setting])
-            output_message(f"set: {privacy_description}")
+            output_message(privacy_description)
 
             if privacy_setting[1] in unification:
                 unification[privacy_setting[1]]()
