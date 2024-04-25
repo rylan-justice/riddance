@@ -58,8 +58,8 @@ def enhance_distinct_privacy_settings():
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
             run_command(["gsettings", "set", *privacy_setting])
-            privacy_description = privacy_description.replace("Disable", "disabled")
-            output_message(privacy_description.lower())
+            privacy_description.replace("Disable", "disabled").lower()
+            output_message(privacy_description)
 
             if privacy_setting[1] in unification:
                 unification[privacy_setting[1]]()
@@ -74,8 +74,8 @@ def enhance_all_privacy_settings():
     for privacy_setting in privacy_settings:
         run_command(["gsettings", "set", *privacy_setting])
         privacy_description = privacy_descriptions[privacy_setting[1]]
-        privacy_description = privacy_description.replace("Disable", "disabled")
-        output_message(privacy_description.lower())
+        privacy_description = privacy_description.replace("Disable", "disabled").lower()
+        output_message(privacy_description)
 
     disable_file_history_duration()
     set_automatic_deletion_period()
