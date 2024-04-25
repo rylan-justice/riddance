@@ -38,7 +38,7 @@ def remove_packages():
             break
 
         if package_removal.startswith("a"):
-            remove_distinct_packages(all_packages=True)
+            remove_distinct_packages(entirety=True)
             break
 
         if package_removal.startswith("n"):

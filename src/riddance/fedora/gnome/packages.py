@@ -21,10 +21,10 @@
 """Pre-installed packages
 for Fedora Linux (Workstation Edition) with GNOME."""
 
-packages_39_we = {
+packages_40_we = {
     "baobab": "Disk Usage Analyzer",
     "cheese": "Cheese",
-    "desktop-backgrounds-gnome": "Fedora 39 backgrounds",
+    "desktop-backgrounds-gnome": "Fedora 40 backgrounds",
     "evince": "Document Viewer",
     "fedora-bookmarks": "Fedora bookmarks for Firefox",
     "fedora-chromium-config": "Fedora customizations for Chrome and Chromium",

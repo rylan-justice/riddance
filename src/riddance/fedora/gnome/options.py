@@ -35,17 +35,15 @@ from riddance.fedora.gnome.utils import (
 from riddance.utils import output_message, prompt_message
 
 
-def remove_distinct_packages(all_packages=False):
-    """Remove distinct packages."""
+def remove_distinct_packages(entirety=False):
+    """Remove distinct packages or the entirety."""
 
     packages = get_package_version()
 
     removed_package = set()
 
     for package, description in packages.items():
-        if all_packages or prompt_message(f"Remove {description}? [y/N]:").startswith(
-            "y"
-        ):
+        if entirety or prompt_message(f"Remove {description}? [y/N]:").startswith("y"):
             run_subprocess(["sudo", "dnf", "-yq", "remove", package])
             removed_package.add(description)
 
@@ -86,7 +84,7 @@ def enhance_all_privacy_settings():
     for privacy_setting in privacy_settings:
         run_subprocess(["gsettings", "set", *privacy_setting])
         privacy_description = privacy_descriptions[privacy_setting[1]]
-        output_message(f"set: {privacy_description}")
+        output_message(privacy_description)
 
     disable_file_history_duration()
     set_automatic_deletion_period()
