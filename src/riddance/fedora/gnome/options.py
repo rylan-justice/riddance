@@ -24,10 +24,8 @@ from riddance.fedora.gnome.privacy import (
     privacy_settings,
 )
 from riddance.fedora.gnome.utils import (
-    delete_firefox_configuration,
     disable_file_history_duration,
     get_package_version,
-    remove_unneeded_dependencies,
     run_subprocess,
     set_automatic_deletion_period,
     shred_bash_history,
@@ -40,18 +38,9 @@ def remove_distinct_packages(entirety=False):
 
     packages = get_package_version()
 
-    removed_package = set()
-
     for package, description in packages.items():
         if entirety or prompt_message(f"Remove {description}? [y/N]:").startswith("y"):
             run_subprocess(["sudo", "dnf", "-yq", "remove", package])
-            removed_package.add(description)
-
-    if "Firefox" in removed_package:
-        delete_firefox_configuration()
-
-    if removed_package:
-        remove_unneeded_dependencies()
 
 
 def enhance_distinct_privacy_settings():

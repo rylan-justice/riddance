@@ -21,7 +21,6 @@
 """Utilities for Fedora Linux (Workstation Edition) with GNOME."""
 
 import platform
-import shutil
 import subprocess
 from pathlib import Path
 
@@ -45,19 +44,6 @@ def get_package_version():
 
 def run_subprocess(command):
     subprocess.run(command, check=False)
-
-
-def delete_firefox_configuration():
-    """Delete Firefox configuration."""
-
-    shutil.rmtree(home_directory / ".mozilla", ignore_errors=True)
-
-
-def remove_unneeded_dependencies():
-    """Remove unneeded package dependencies."""
-
-    run_subprocess(["sudo", "dnf", "-yq", "autoremove"])
-    output_message("Removed unneeded package dependencies")
 
 
 def disable_file_history_duration():
