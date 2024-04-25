@@ -21,7 +21,7 @@
 """Pre-installed packages
 for Fedora Linux (Workstation Edition) with GNOME."""
 
-packages_40_we = {
+packages_40_we_gnome = {
     "baobab": "Disk Usage Analyzer",
     "cheese": "Cheese",
     "desktop-backgrounds-gnome": "Fedora 40 backgrounds",

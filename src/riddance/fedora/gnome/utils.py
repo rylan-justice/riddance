@@ -18,13 +18,11 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Utilities for Fedora Linux (Workstation Edition) with GNOME."""
-
 import platform
 import subprocess
 from pathlib import Path
 
-from riddance.fedora.gnome.packages import packages_40_we
+from riddance.fedora.gnome.packages import packages_40_we_gnome
 from riddance.fedora.gnome.privacy import privacy_schemas
 from riddance.utils import output_message
 
@@ -35,7 +33,7 @@ def get_package_version():
     """Get package version."""
 
     distro_versions = {
-        "40 (Workstation Edition)": packages_40_we,
+        "40 (Workstation Edition)": packages_40_we_gnome,
     }
 
     distro_version = platform.freedesktop_os_release()["VERSION"]
