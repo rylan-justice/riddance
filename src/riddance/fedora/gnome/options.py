@@ -18,12 +18,12 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-from riddance.fedora.privacy import (
+from riddance.fedora.gnome.privacy import (
     privacy_descriptions,
     privacy_schemas,
     privacy_settings,
 )
-from riddance.fedora.utils import (
+from riddance.fedora.gnome.utils import (
     delete_firefox_configuration,
     disable_file_history_duration,
     get_package_version,

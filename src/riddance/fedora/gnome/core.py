@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-from riddance.fedora.options import (
+from riddance.fedora.gnome.options import (
     enhance_all_privacy_settings,
     enhance_distinct_privacy_settings,
     remove_distinct_packages,

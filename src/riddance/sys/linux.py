@@ -20,7 +20,7 @@
 
 import os
 
-from riddance.os.fedora import debloat_fedora_linux_we_gnome
+from riddance.os.fedora import fedora_linux_we_gnome
 from riddance.utils import error_message
 
 
@@ -28,7 +28,7 @@ def debloat_fedora_linux(desktop_environment):
     """Debloat Fedora Linux."""
 
     desktop_environments = {
-        "GNOME": debloat_fedora_linux_we_gnome,
+        "GNOME": fedora_linux_we_gnome,
     }
 
     if desktop_environment not in desktop_environments:

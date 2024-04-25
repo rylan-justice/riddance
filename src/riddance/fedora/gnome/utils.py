@@ -25,8 +25,8 @@ import shutil
 import subprocess
 from pathlib import Path
 
-from riddance.fedora.packages import packages_39_we
-from riddance.fedora.privacy import privacy_schemas
+from riddance.fedora.gnome.packages import packages_39_we
+from riddance.fedora.gnome.privacy import privacy_schemas
 from riddance.utils import output_message
 
 home_directory = Path.home()
