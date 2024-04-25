@@ -26,7 +26,7 @@ from riddance.fedora.gnome.privacy import (
 from riddance.fedora.gnome.utils import (
     disable_file_history_duration,
     get_package_version,
-    run_subprocess,
+    run_command,
     set_automatic_deletion_period,
     shred_bash_history,
 )
@@ -40,7 +40,7 @@ def remove_distinct_packages(entirety=False):
 
     for package, description in packages.items():
         if entirety or prompt_message(f"Remove {description}? [y/N]:").startswith("y"):
-            run_subprocess(["sudo", "dnf", "-yq", "remove", package])
+            run_command(["sudo", "dnf", "-yq", "remove", package])
 
 
 def enhance_distinct_privacy_settings():
@@ -57,7 +57,7 @@ def enhance_distinct_privacy_settings():
         distinct_privacy_setting = prompt_message(f"{privacy_description}? [Y/n]:")
 
         if distinct_privacy_setting == "" or distinct_privacy_setting.startswith("y"):
-            run_subprocess(["gsettings", "set", *privacy_setting])
+            run_command(["gsettings", "set", *privacy_setting])
             output_message(privacy_description)
 
             if privacy_setting[1] in unification:
@@ -71,7 +71,7 @@ def enhance_all_privacy_settings():
     """Enhance all privacy settings."""
 
     for privacy_setting in privacy_settings:
-        run_subprocess(["gsettings", "set", *privacy_setting])
+        run_command(["gsettings", "set", *privacy_setting])
         privacy_description = privacy_descriptions[privacy_setting[1]]
         output_message(privacy_description)
 
@@ -84,6 +84,6 @@ def reset_privacy_enhancements():
     """Reset privacy enhancements."""
 
     for privacy_schema in privacy_schemas:
-        run_subprocess(["gsettings", "reset-recursively", privacy_schema])
+        run_command(["gsettings", "reset-recursively", privacy_schema])
 
-    output_message("Reset privacy enhancements")
+    output_message("reset privacy enhancements")

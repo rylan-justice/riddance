@@ -42,23 +42,21 @@ def get_package_version():
     return distro_versions[distro_version]
 
 
-def run_subprocess(command):
+def run_command(command):
     subprocess.run(command, check=False)
 
 
 def disable_file_history_duration():
     """Disable file history duration."""
 
-    run_subprocess(
-        ["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"]
-    )
+    run_command(["gsettings", "set", privacy_schemas[0], "recent-files-max-age", "0"])
 
 
 def set_automatic_deletion_period():
     """Set automatic deletion period for temporary files and trash content
     to one hour."""
 
-    run_subprocess(["gsettings", "set", privacy_schemas[0], "old-files-age", "0"])
+    run_command(["gsettings", "set", privacy_schemas[0], "old-files-age", "0"])
 
 
 def shred_bash_history():
@@ -67,5 +65,5 @@ def shred_bash_history():
     bash_history = home_directory / ".bash_history"
 
     if bash_history.exists():
-        run_subprocess(["shred", "-zu", bash_history])
-        output_message("Shredded Bash history")
+        run_command(["shred", "-zu", bash_history])
+        output_message("shredded Bash history")
