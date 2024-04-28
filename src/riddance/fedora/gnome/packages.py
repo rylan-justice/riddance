@@ -18,8 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with riddance.  If not, see <https://www.gnu.org/licenses/>.
 
-"""Pre-installed packages
-for Fedora Linux (Workstation Edition) with GNOME."""
+"""Pre-installed packages."""
 
 packages_40_we_gnome = {
     "baobab": "Disk Usage Analyzer",
