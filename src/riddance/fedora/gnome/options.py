@@ -33,8 +33,8 @@ from riddance.fedora.gnome.utils import (
 from riddance.utils import output_message, prompt_message
 
 
-def remove_distinct_packages(entirety=False):
-    """Remove distinct packages or the entirety."""
+def remove_packages(entirety=False):
+    """Remove individual packages or the entirety."""
 
     packages = get_package_version()
 

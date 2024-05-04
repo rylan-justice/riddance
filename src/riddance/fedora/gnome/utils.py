@@ -41,6 +41,8 @@ def get_package_version():
 
 
 def run_command(command):
+    """Run a command."""
+
     subprocess.run(command, check=False)
 
 

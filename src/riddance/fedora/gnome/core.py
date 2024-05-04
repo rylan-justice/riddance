@@ -21,24 +21,24 @@
 from riddance.fedora.gnome.options import (
     enhance_all_privacy_settings,
     enhance_distinct_privacy_settings,
-    remove_distinct_packages,
+    remove_packages,
     reset_privacy_enhancements,
 )
 from riddance.utils import error_message, prompt_message
 
 
-def remove_packages():
+def remove_packages_we_gnome():
     """Remove pre-installed packages."""
 
     while True:
         package_removal = prompt_message("Remove pre-installed packages? [Y/a/n]:")
 
         if package_removal == "" or package_removal.startswith("y"):
-            remove_distinct_packages()
+            remove_packages()
             break
 
         if package_removal.startswith("a"):
-            remove_distinct_packages(entirety=True)
+            remove_packages(entirety=True)
             break
 
         if package_removal.startswith("n"):
@@ -47,7 +47,7 @@ def remove_packages():
         error_message(f"invalid response: '{package_removal}'")
 
 
-def enhance_privacy():
+def enhance_privacy_we_gnome():
     """Enhance operating system privacy."""
 
     while True:
