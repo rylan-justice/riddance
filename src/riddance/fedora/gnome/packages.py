@@ -64,6 +64,7 @@ packages_40_we_gnome = {
     "nautilus": "Files",
     "rhythmbox": "Rhythmbox",
     "simple-scan": "Document Scanner",
+    "snapshot": "Camera",
     "totem": "Videos",
     "yelp": "Help",
 }
