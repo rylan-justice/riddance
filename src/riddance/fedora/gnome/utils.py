@@ -66,4 +66,4 @@ def shred_bash_history():
 
     if bash_history.exists():
         run_command(["shred", "-zu", bash_history])
-        output_message("shredded Bash history")
+        output_message("shred Bash history")
